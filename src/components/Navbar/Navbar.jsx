@@ -64,20 +64,20 @@ export default function Navbar() {
                   </li>
                   <li>
 
-                    <a href="/company-profile" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <a href="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm ">
                       Company Profile
                     </a>
                   </li>
                   <li>
 
-                    <a href="/terms-of-use" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <a href="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm ">
 
                       Terms of Use
                     </a>
                   </li>
                   <li>
 
-                    <a href="/blog" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <a href="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm ">
                       Blog
                     </a>
                   </li>
@@ -198,22 +198,22 @@ export default function Navbar() {
                     <div className="absolute left-0 w-full bg-white shadow-lg dark:bg-gray-800 rounded-lg">
                       <ul>
                         <li>
-                          <a href="/privacy-policy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <a href="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Privacy Policy
                           </a>
                         </li>
                         <li>
-                          <a href="/company-profile" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <a href="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Company Profile
                           </a>
                         </li>
                         <li>
-                          <a href="/terms-of-use" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <a href="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Terms of Use
                           </a>
                         </li>
                         <li>
-                          <a href="/blog" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <a href="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Blog
                           </a>
                         </li>
