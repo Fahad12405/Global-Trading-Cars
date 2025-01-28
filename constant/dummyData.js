@@ -1,4 +1,5 @@
 import { rating } from "@material-tailwind/react";
+import { title } from "framer-motion/client";
 
 const vehicleData = [
   {
@@ -287,3 +288,37 @@ export const howToBuyData = [
     ]
   }
 ];
+
+
+export const whyChooseUsData = [
+  {
+    title: 'You name it, we have it!',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/nameit_haveit_image_image.jpg?v=1'
+  },
+  {
+    title: 'You can get your car if you are on this planet!',
+    desc: 'We can ship used cars globally to Africa, Asia, Middle East, Caribbean, Oceania, South America, and Europe with offices in around 30 offices.',
+    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/canget_ontheearth_image.jpg?v=1'
+  },
+  {
+    title: 'Always by your side to help you!',
+    desc: 'Decent and energetic staffs are always ready for 24/7/365 Customer Support via SBT Livechat, WhatsApp, Social media, phones, and emails.',
+    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/always_helpyou_image.jpg?v=1'
+  },
+  {
+    title: 'High quality is our pride!',
+    desc: 'Proper and thorough inspections before shipment assure you the best condition that you can expect.',
+    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/highquality_ourpride_image.jpg?v=1  '
+  },
+  {
+    title: 'We regard “speed” as a global standard!',
+    desc: 'Prompt shipment enables you to get your dream car sooner than you imagine no matter where you are.',
+    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/we_speed_image.jpg?v=1'
+  },
+  {
+    title: 'Reliability is always there!',
+    desc: 'We have built up excellence in used car industry for over 30 years, and have put the finest focus on reliability.',
+    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/we_trusted_image.jpg?v=1'
+  },
+]
