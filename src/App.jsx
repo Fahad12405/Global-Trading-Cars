@@ -6,6 +6,7 @@ import HowToBuy from './Pages/HowToBuy'
 import WhyChooseUs from './Pages/WhyChooseUs'
 import ContactSection from './Pages/Contact'
 import PrivacyPolicy from './Pages/PrivacyPolicy'
+import SearchCars from './Pages/SearchCars'
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
         <Route path='/why-choose-us' element={<WhyChooseUs />} />
         <Route path='/contact' element={<ContactSection />} /> 
         <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
+        <Route path='/Search-Cars' element={<SearchCars />} />
+        <Route path='*' element={<h1>404 Not Found</h1>} />
       </Routes>
     </BrowserRouter>
     </>

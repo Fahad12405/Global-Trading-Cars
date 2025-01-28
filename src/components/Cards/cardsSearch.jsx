@@ -46,7 +46,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
         <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" onSubmit={handleSearch}>
           {/* Name Input */}
           <div className="flex flex-col">
-            <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-white mb-2">
+            <label htmlFor="name" className="text-sm font-medium text-gray-700 mb-2">
               Name
             </label>
             <input
@@ -61,7 +61,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
 
           {/* Model Input */}
           <div className="flex flex-col">
-            <label htmlFor="modelCode" className="text-sm font-medium text-gray-700 dark:text-white mb-2">
+            <label htmlFor="modelCode" className="text-sm font-medium text-gray-700 mb-2">
               Model
             </label>
             <input
@@ -76,7 +76,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
 
           {/* Body Type Input */}
           <div className="flex flex-col">
-            <label htmlFor="bodyType" className="text-sm font-medium text-gray-700 dark:text-white mb-2">
+            <label htmlFor="bodyType" className="text-sm font-medium text-gray-700 mb-2">
               Body Type
             </label>
             <input
@@ -91,7 +91,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
 
           {/* RHD/LHD Input */}
           <div className="flex flex-col">
-            <label htmlFor="rhdlhd" className="text-sm font-medium text-gray-700 dark:text-white mb-2">
+            <label htmlFor="rhdlhd" className="text-sm font-medium text-gray-700 mb-2">
               RHD/LHD
             </label>
             <input
@@ -106,7 +106,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
 
           {/* Year Range */}
           <div className="flex flex-col col-span-2 sm:col-span-1 text-center">
-            <label htmlFor="yearRange" className="text-sm font-medium text-gray-700 dark:text-white mb-2">
+            <label htmlFor="yearRange" className="text-sm font-medium text-gray-700 mb-2">
               Year Range
             </label>
             <div className="flex space-x-2">
@@ -120,7 +120,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
                 min="1900"
                 max="2025"
               />
-              <span className="text-gray-700 dark:text-white">to</span>
+              <span className="text-gray-700">to</span>
               <input
                 id="yearTo"
                 type="number"
@@ -138,7 +138,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
           <div className="flex justify-center sm:col-span-2 lg:col-span-1 mt-4">
             <button
               type="submit"
-              className="bg-red-800 text-white px-8 py-1 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="bg-red-800 text-white px-8 py-1 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
             >
               Search
             </button>
