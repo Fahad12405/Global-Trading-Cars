@@ -59,7 +59,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href="#"
+              href="/how-to-buy"
               className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 dark:text-white dark:hover:bg-gray-700"
             >
               How to Buy
@@ -144,7 +144,7 @@ export default function Navbar() {
                 <li><a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">About</a></li>
                 <li><a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">Services</a></li>
                 <li><a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">Contact</a></li>
-                <li><a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">How to Buy</a></li>
+                <li><a href="/how-to-buy" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">How to Buy</a></li>
                 <li><a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">Why Choose Us</a></li>
                 <li className="flex flex-col space-y-2 mt-4">
                   <button

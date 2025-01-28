@@ -1,17 +1,19 @@
-import { useState } from 'react'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
 
 import './App.css'
-import Navbar from './components/Landing Page/Navbar/Navbar'
-import Banner from './components/Landing Page/Banner/Banner'
-import { CardDefault } from './components/Cards/Card'
+import Home from './Pages/Home'
+import HowToBuy from './Pages/HowToBuy'
 
 function App() {
 
   return (
     <>
-     <Navbar />
-     <Banner />
-     <CardDefault />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/how-to-buy' element={<HowToBuy />} />
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
