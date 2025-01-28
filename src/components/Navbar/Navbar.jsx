@@ -51,7 +51,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href="#"
+              href="/Contact"
               className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 dark:text-white dark:hover:bg-gray-700"
             >
               Contact
