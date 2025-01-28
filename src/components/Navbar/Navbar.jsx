@@ -63,17 +63,21 @@ export default function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a href="/company-profile" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+
+                    <a href="/company-profile" className="block py-2 px-4 text-gray-900 rounded-sm ">
                       Company Profile
                     </a>
                   </li>
                   <li>
-                    <a href="/terms-of-use" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+
+                    <a href="/terms-of-use" className="block py-2 px-4 text-gray-900 rounded-sm ">
+
                       Terms of Use
                     </a>
                   </li>
                   <li>
-                    <a href="/blog" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+
+                    <a href="/blog" className="block py-2 px-4 text-gray-900 rounded-sm ">
                       Blog
                     </a>
                   </li>
