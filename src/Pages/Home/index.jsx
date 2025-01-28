@@ -3,7 +3,6 @@ import { CardDefault } from '../../components/Cards/Card'
 import ContactSection from '../../components/Contact/contact'
 import CostumerReview from '../../components/Costumer Review/costumerReview'
 import FAQSection from '../../components/FAQ/FAQ'
-import Footer from '../../components/Footer/Footer'
 
 export default function Home () {
     return (
@@ -13,7 +12,6 @@ export default function Home () {
             <FAQSection />
             <CostumerReview />
             <ContactSection />
-            <Footer /> 
         </>
     )
 }

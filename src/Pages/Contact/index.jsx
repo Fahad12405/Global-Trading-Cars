@@ -1,6 +1,5 @@
 import React from 'react';
 import ContactSection from '../../components/Contact/contact';
-import Footer from '../../components/Footer/Footer';
 
 export default function Contactpage() {
     return (
@@ -9,7 +8,6 @@ export default function Contactpage() {
                 Get in Touch with Us
             </h1>
             <ContactSection />
-            <Footer />
         </div>
     );
 }
