@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import vehicleData from '../../../constant/dummyData'
+import {vehicleData} from '../../../constant/constant'
 import CarSearchForm from './cardsSearch';
 
 
