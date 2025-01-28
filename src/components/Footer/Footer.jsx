@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-<footer className="bg-white px-4 sm:px-6 pt-12 pb-6 font-[sans-serif]">
+<footer className="bg-white px-4 sm:px-6 pt-12 pb-6 font-[sans-serif] border border-t-2 border-gray-200">
   <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8  mb-14">
     <div className="space-y-4 text-center sm:text-left">
       <h6 className="text-lg text-black font-medium">RESOURCES</h6>
