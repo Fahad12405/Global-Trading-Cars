@@ -12,14 +12,14 @@ export default function SearchCars() {
 
   return (
     <div className="min-h-[50vh] flex flex-col">
-      <h1 className="text-3xl font-semibold text-gray-900 text-center mt-32 ">Search Your Favourite Cars</h1>
+      <h1 className="text-4xl font-semibold text-red-800 text-center mt-32 ">Search Your Favourite Cars</h1>
       <div className="flex-1">
         <CarSearchForm onSearch={handleSearch} />
 
         <div className="flex flex-wrap justify-center items-center my-12 mx-auto gap-12">
           {filteredResults.length === 0 ? (
             <div className="flex justify-center items-center w-full h-32">
-              <h1 className="text-center text-red-600 font-bold text-xl">Please search your fvt car</h1>
+              <h1 className="text-center text-red-600 font-bold text-2xl">  Find Your Perfect Car Here</h1>
             </div>
           ) : (
             filteredResults.map((vehicle) => (

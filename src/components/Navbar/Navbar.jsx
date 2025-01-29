@@ -29,6 +29,11 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex md:space-x-8 font-medium">
           <li>
+            <a href="/" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+              Home
+            </a>
+          </li>
+          <li>
             <a href="/Search-Cars" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Search Cars
             </a>
@@ -97,7 +102,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+            <a href="/why-choose-us" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Why Choose Us
             </a>
           </li>
@@ -107,13 +112,13 @@ export default function Navbar() {
         <div className="hidden md:flex md:order-2 space-x-3 rtl:space-x-reverse">
           <button
             type="button"
-            className="text-white bg-red-700 hover:bg-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center "
+            className="text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center "
           >
             Log In
           </button>
           <button
             type="button"
-            className="text-white bg-red-700  hover:bg-red-600 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center "
+            className="text-white bg-red-800  hover:bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center "
           >
             Sign Up
           </button>
@@ -169,10 +174,17 @@ export default function Navbar() {
             >
               <ul className="flex flex-col p-4 font-medium border border-gray-200 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
                 <li>
-                  <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <a href="/" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/Search-Cars" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
                     Search Cars
                   </a>
                 </li>
+                
+                
 
                 {/* Mobile About Dropdown */}
                 <li className="relative">
@@ -233,15 +245,15 @@ export default function Navbar() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <a href="/why-choose-us" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
                     Why Choose Us
                   </a>
                 </li>
                 <li className="flex flex-col space-y-2 mt-4">
-                  <button type="button" className="text-white bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center ">
+                  <button type="button" className="text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center ">
                     Log In
                   </button>
-                  <button type="button" className="text-white bg-red-700  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center">
+                  <button type="button" className="text-white bg-red-800 hover:bg-red-700  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center">
                     Sign Up
                   </button>
                 </li>

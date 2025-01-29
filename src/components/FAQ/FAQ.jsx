@@ -8,30 +8,31 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-24">
+    <section className="py-4 ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-         
-          <h2 className="text-4xl font-manrope text-center font-bold text-red-800 leading-[3.25rem]">
-            Frequently Asked Questions
-          </h2>
+
+          <div className="w-full max-w-9xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
+            <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
+              Frequently Asked Questions
+            </h1>
+            <div className="border-t-2 border-white w-48 mx-auto"></div>
+          </div>
         </div>
         <div className="accordion-group">
           {/* First Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 0 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 0 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(0)}
             >
               <h5>How do I export cars through Global Trading Car?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 0 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 0 ? "rotate-180 text-red-600" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -65,19 +66,17 @@ export default function FAQSection() {
 
           {/* Second Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 1 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 1 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(1)}
             >
               <h5>What documents are required to export a car?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 1 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 1 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -111,19 +110,17 @@ export default function FAQSection() {
 
           {/* Third Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 2 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 2 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(2)}
             >
               <h5>What are the costs involved in exporting a car?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 2 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 2 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -156,19 +153,17 @@ export default function FAQSection() {
 
           {/* Fourth Question */}
           <div
-            className={`accordion py-8 px-6 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 3 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 3 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(3)}
             >
               <h5>How long does it take to export a car?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 3 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 3 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -201,19 +196,17 @@ export default function FAQSection() {
 
           {/* Fifth Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 4 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 4 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(4)}
             >
               <h5>What do I have to do to buy a car?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 4 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 4 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -245,19 +238,17 @@ export default function FAQSection() {
 
           {/* Sixth Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 5 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 5 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(5)}
             >
               <h5>Can I track my car shipment?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 5 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 5 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -289,19 +280,17 @@ export default function FAQSection() {
 
           {/* Seventh Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 6 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 6 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(6)}
             >
               <h5>What payment methods are accepted?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 6 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 6 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -333,19 +322,17 @@ export default function FAQSection() {
 
           {/* Eighth Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 7 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 7 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(7)}
             >
               <h5>Do I need insurance for shipping?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 7 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 7 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -377,19 +364,17 @@ export default function FAQSection() {
 
           {/* Ninth Question */}
           <div
-            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 8 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 border-b border-solid border-gray-200 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 8 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(8)}
             >
               <h5>Can I export cars to any country?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 8 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 8 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"
@@ -422,19 +407,17 @@ export default function FAQSection() {
 
           {/* Tenth Question */}
           <div
-            className={`accordion py-8 px-6 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${
-              activeIndex === 9 ? "bg-indigo-50" : ""
-            }`}
+            className={`accordion py-8 px-6 transition-all duration-500 rounded-2xl hover:bg-indigo-50 ${activeIndex === 9 ? "bg-indigo-50" : ""
+              }`}
           >
             <button
-              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-indigo-600"
+              className="accordion-toggle group inline-flex items-center justify-between leading-8 text-gray-900 w-full transition duration-500 text-left hover:text-red-800"
               onClick={() => toggleAccordion(9)}
             >
               <h5>Do you offer bulk export services?</h5>
               <svg
-                className={`text-gray-500 transition duration-500 ${
-                  activeIndex === 9 ? "rotate-180 text-indigo-600" : ""
-                }`}
+                className={`text-gray-500 transition duration-500 ${activeIndex === 9 ? "rotate-180 text-red-800" : ""
+                  }`}
                 width={22}
                 height={22}
                 viewBox="0 0 22 22"

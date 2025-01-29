@@ -41,7 +41,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
   };
 
   return (
-    <div className="flex justify-center mt-8">
+    <div className="flex justify-center mt-20">
       <div className="bg-red-50 p-8 rounded-lg shadow-lg w-full max-w-5xl">
         <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" onSubmit={handleSearch}>
           {/* Name Input */}

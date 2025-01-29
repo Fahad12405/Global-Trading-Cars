@@ -14,7 +14,12 @@ export function CardDefault() {
     };
     return (
         <div>
-            <h1 className="text-3xl font-semibold text-gray-900 text-center mt-10">Card Details</h1>
+<div className="w-full max-w-7xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
+  <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
+    Car For Sale
+  </h1>
+  <div className="border-t-2 border-white w-48 mx-auto"></div> 
+</div>
 
             <CarSearchForm onSearch={handleSearch} /> {/* Pass handleSearch function as prop */}
 
