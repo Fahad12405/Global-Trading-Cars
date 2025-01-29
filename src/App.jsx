@@ -15,6 +15,8 @@ import Blogs from './Pages/Blogs'
 import Register from './Pages/Register'
 import LogIn from './Pages/LogIn'
 import CarDetails from './Pages/CarDetails'
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/how-to-buy' element={<HowToBuy />} />
@@ -42,6 +45,7 @@ function App() {
 
 
       </Routes>
+      <Footer/>
     </BrowserRouter>
     </>
   )

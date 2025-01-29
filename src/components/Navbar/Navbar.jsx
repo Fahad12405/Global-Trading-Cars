@@ -1,6 +1,8 @@
+
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link here
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,25 +20,25 @@ export default function Navbar() {
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
             src="https://globalcorporation.jp/wp-content/uploads/2015/12/GlobalCorporation-1.png"
             className="h-12 w-28"
             alt="Logo"
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex md:space-x-8 font-medium">
           <li>
-            <a href="/" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+            <Link to="/" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/Search-Cars" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+            <Link to="/Search-Cars" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Search Cars
-            </a>
+            </Link>
           </li>
 
           {/* Dropdown for About */}
@@ -63,28 +65,24 @@ export default function Navbar() {
               <div className="absolute left-0 mt-2 bg-white shadow-lg dark:bg-gray-800 rounded-lg w-48 z-10">
                 <ul>
                   <li>
-                    <a href="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                    <Link to="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                   <li>
-
-                    <a href="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <Link to="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm ">
                       Company Profile
-                    </a>
+                    </Link>
                   </li>
                   <li>
-
-                    <a href="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm ">
-
+                    <Link to="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm ">
                       Terms of Use
-                    </a>
+                    </Link>
                   </li>
                   <li>
-
-                    <a href="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <Link to="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm ">
                       Blog
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -92,19 +90,19 @@ export default function Navbar() {
           </li>
 
           <li>
-            <a href="/contact" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+            <Link to="/contact" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Contact
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/how-to-buy" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+            <Link to="/how-to-buy" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               How to Buy
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/why-choose-us" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+            <Link to="/why-choose-us" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Why Choose Us
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -174,17 +172,15 @@ export default function Navbar() {
             >
               <ul className="flex flex-col p-4 font-medium border border-gray-200 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
                 <li>
-                  <a href="/" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/Search-Cars" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/Search-Cars" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
                     Search Cars
-                  </a>
+                  </Link>
                 </li>
-                
-                
 
                 {/* Mobile About Dropdown */}
                 <li className="relative">
@@ -210,24 +206,24 @@ export default function Navbar() {
                     <div className="absolute left-0 w-full bg-white shadow-lg dark:bg-gray-800 rounded-lg">
                       <ul>
                         <li>
-                          <a href="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Privacy Policy
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Company Profile
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Terms of Use
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
                             Blog
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -235,19 +231,19 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <a href="/contact" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/contact" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/how-to-buy" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/how-to-buy" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
                     How to Buy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/why-choose-us" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/why-choose-us" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
                     Why Choose Us
-                  </a>
+                  </Link>
                 </li>
                 <li className="flex flex-col space-y-2 mt-4">
                   <button type="button" className="text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center ">
