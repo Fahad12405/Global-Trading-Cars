@@ -1,6 +1,6 @@
 export default function HowToBuyCard({ title, steps }) {
     return (
-        <div className="relative p-5 border-2 border-red-500 rounded-lg">
+        <div className="relative p-5 border-2 border-red-500 rounded-lg mt-22">
             <div className="absolute -top-3 left-5 bg-white px-3">
                 <h2 className="text-red-600 font-bold text-lg italic">{title}</h2>
             </div>

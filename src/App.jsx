@@ -14,6 +14,7 @@ import TermsofUse from './Pages/TermsofUse'
 import Blogs from './Pages/Blogs'
 import Register from './Pages/Register'
 import LogIn from './Pages/LogIn'
+import CarDetails from './Pages/CarDetails'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path='/Blogs' element={<Blogs />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/LogIn' element={<LogIn />} />
+        <Route path='/CarDetails/:id' element={<CarDetails />} />
 
 
 

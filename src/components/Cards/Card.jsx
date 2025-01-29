@@ -2,24 +2,33 @@
 import React, { useState } from 'react'
 import vehicleData from '../../../constant/dummyData'
 import CarSearchForm from './cardsSearch';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export function CardDefault() {
     const [filteredResults, setFilteredResults] = useState(vehicleData);
+    const navigate = useNavigate();
     console.log(filteredResults)// Initialize with all vehicles
+
 
     // Update filtered results based on search
     const handleSearch = (filtered) => {
         setFilteredResults(filtered);
     };
+
+    const handleViewDetails = (id) => {
+        navigate(`/CarDetails/${id}`);
+    };
+
     return (
         <div>
-<div className="w-full max-w-7xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
-  <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
-    Car For Sale
-  </h1>
-  <div className="border-t-2 border-white w-48 mx-auto"></div> 
-</div>
+            <div className="w-full max-w-7xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
+                <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
+                    Car For Sale
+                </h1>
+                <div className="border-t-2 border-white w-48 mx-auto"></div>
+            </div>
 
             <CarSearchForm onSearch={handleSearch} /> {/* Pass handleSearch function as prop */}
 
@@ -59,15 +68,13 @@ export function CardDefault() {
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        {vehicle.price}
-                                    </span>
-                                    <a
-                                        href="#"
+                                    <span className="text-3xl font-bold text-gray-900">{vehicle.price}</span>
+                                    <button
                                         className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                        onClick={() => handleViewDetails(vehicle.id)} // Navigate on click
                                     >
                                         View Details
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
