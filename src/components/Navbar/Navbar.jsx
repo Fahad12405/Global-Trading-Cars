@@ -107,13 +107,13 @@ export default function Navbar() {
         <div className="hidden md:flex md:order-2 space-x-3 rtl:space-x-reverse">
           <button
             type="button"
-            className="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-red-700 hover:bg-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center "
           >
             Log In
           </button>
           <button
             type="button"
-            className="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-red-700  hover:bg-red-600 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center "
           >
             Sign Up
           </button>
@@ -238,10 +238,10 @@ export default function Navbar() {
                   </a>
                 </li>
                 <li className="flex flex-col space-y-2 mt-4">
-                  <button type="button" className="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <button type="button" className="text-white bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center ">
                     Log In
                   </button>
-                  <button type="button" className="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <button type="button" className="text-white bg-red-700  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center">
                     Sign Up
                   </button>
                 </li>

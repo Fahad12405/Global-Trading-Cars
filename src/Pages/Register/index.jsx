@@ -55,7 +55,7 @@ export default function Register() {
       const response = await axios.post('https://api-car-export.vercel.app/api/auth/signup', formData);
       //sweetalert HERE
 
-      
+
     } catch (error) {
       setApiError('Something went wrong. Please try again later.');
     } finally {
@@ -64,18 +64,20 @@ export default function Register() {
   };
 
   return (
-    <div className="font-[sans-serif] bg-white md:h-screen mt-12">
+    <div className="font-[sans-serif] bg-white md:h-screen mt-20">
       <div className="grid md:grid-cols-2 items-center gap-8 h-full">
-        <div className="max-md:order-1 p-4">
+        <div className="max-md:hidden p-2"> {/* Hide image on mobile */}
           <img
             src="https://png.pngtree.com/png-vector/20220526/ourmid/pngtree-online-registration-or-sign-up-login-for-account-on-smartphone-app-png-image_4740836.png"
             className="lg:max-w-[85%] w-full h-full aspect-square object-contain block mx-auto"
-            alt="login-image"
+            alt="register-image"
           />
         </div>
-        <div className="flex items-center md:p-8 p-6 bg-[#210000] h-full lg:w-11/12 lg:ml-auto">
-          <form onSubmit={handleSubmit} className="max-w-lg w-full mx-auto">
-            <div className="mb-12">
+        <div className="flex items-center p-4 bg-[#3b0202] sm:max-h-[160vh] md:max-h-[100vh] lg:w-11/12 lg:ml-auto">
+        <form onSubmit={handleSubmit} className="max-w-lg w-full mx-auto space-y-4 p-6 md:p-10  ">
+            {/* Added space-y-4 for better mobile spacing */}
+
+            <div className="mt-2"> {/* Reduced margin-bottom for the title */}
               <h3 className="text-2xl font-bold text-white">Create an account</h3>
             </div>
 
@@ -157,8 +159,11 @@ export default function Register() {
               />
               <label htmlFor="remember-me" className="text-white ml-3 block text-sm">
                 I accept the{" "}
-                <a href="javascript:void(0);" className="text-red-300 font-semibold hover:underline ml-1">
-                  Terms and Privacy Policy
+                <a href="/TermsofUse" className="text-red-200 text-sm hover:underline ml-2">
+                  Terms
+                </a>
+                <a href="/PrivacyPolicy" className="text-red-200 text-sm hover:underline ml-2">
+                  Privacy Policy
                 </a>
               </label>
             </div>
@@ -172,7 +177,7 @@ export default function Register() {
               >
                 {loading ? 'Registering...' : 'Register'}
               </button>
-              <p className="text-sm text-white mt-8">
+              <p className="text-sm text-white mt-4">
                 Already have an account?{" "}
                 <a href="/LogIn" className="text-white font-semibold hover:underline ml-1">
                   Login here
@@ -187,5 +192,6 @@ export default function Register() {
         </div>
       </div>
     </div>
+
   );
 }
