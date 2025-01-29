@@ -12,6 +12,8 @@ import SearchCars from './Pages/SearchCars'
 import CompanyProfile from './Pages/CompanyProfile'
 import TermsofUse from './Pages/TermsofUse'
 import Blogs from './Pages/Blogs'
+import Register from './Pages/Register'
+import LogIn from './Pages/LogIn'
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
         <Route path='/CompanyProfile' element={<CompanyProfile />} />
         <Route path='/TermsofUse' element={<TermsofUse />} />
         <Route path='/Blogs' element={<Blogs />} />
+        <Route path='/Register' element={<Register />} />
+        <Route path='/LogIn' element={<LogIn />} />
 
 
 
