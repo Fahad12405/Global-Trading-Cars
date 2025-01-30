@@ -1,25 +1,38 @@
-
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import vehicleData from '../../../constant/dummyData'
-// import CarSearchForm from './cardsSearch';
-import { useNavigate, Link  } from 'react-router-dom';
+import CarSearchForm from '../../components/Cards/cardsSearch';
+import { useNavigate, Link } from 'react-router-dom';
 
-
-
-export function CardDefault() {
-    const [filteredResults, setFilteredResults] = useState(vehicleData);
+export default function CarforSale() {
+    const [filteredResults, setFilteredResults] = useState([]);
+    const [apiData, setApiData] = useState([]);
     const navigate = useNavigate();
-    console.log(filteredResults)// Initialize with all vehicles
 
+    // Fetch data from the API on component mount
+    useEffect(() => {
+        const fetchApiData = async () => {
+            try {
+                const response = await fetch('https://api-car-export.vercel.app/api/product/get');
+                const data = await response.json();
+                if (data && data.data) {
+                    setApiData(data.data);  // Set API data if it exists
+                    setFilteredResults(data.data);  // Optionally set API data as the filtered results
+                }
+                console.log(data)
+            } catch (error) {
+                console.error('Error fetching data from API:', error);
+            }
+        };
+        fetchApiData();
 
+    }, []);
+    console.log(apiData)
     // Update filtered results based on search
     const handleSearch = (filtered) => {
         setFilteredResults(filtered);
     };
 
-    const handleViewDetails = (id) => {
-        navigate(`/CarDetails/${id}`);
-    };
+
 
     return (
         <div>
@@ -30,19 +43,19 @@ export function CardDefault() {
                 <div className="border-t-2 border-white w-48 mx-auto"></div>
             </div>
 
-            {/* <CarSearchForm onSearch={handleSearch} /> */}
+            <CarSearchForm onSearch={handleSearch} />
 
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 justify-center items-center">
-                {filteredResults.length == 0 ? (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 justify-center items-center">
+                {filteredResults.length === 0 ? (
                     <div className="flex justify-center items-center w-full h-96 mx-auto">
                         <h1 className="text-center text-red-600 font-bold text-xl">No results found</h1>
                     </div>
                 ) : (
                     filteredResults.map((vehicle) => (
-                        <div key={vehicle.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto"> {/* 👉 mx-auto added here */}
+                        <div key={vehicle.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto">
                             <img
                                 className="p-8 rounded-t-lg w-full h-60 object-cover object-center"
-                                src={vehicle.image}
+                                src={vehicle.image[0].url}
                                 alt="product image"
                             />
                             <div className="px-5 pb-5">
@@ -69,22 +82,23 @@ export function CardDefault() {
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900">{vehicle.price}</span>
-                                    <button
+                                    <Link
+                                        to={`/CarDetails/${vehicle.id}`}
                                         className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                        onClick={() => handleViewDetails(vehicle.id)} // Navigate on click
                                     >
                                         View Details
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     ))
                 )}
             </div>
+
             <div className="flex justify-center items-center w-full h-32 mx-auto mb-20">
                 <div className="text-center">
                     <Link
-                        to="/CarforSale" 
+                        to="/CarforSale"
                         className="bg-red-700 text-white px-6 py-2 rounded-lg font-semibold text-lg hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500"
                     >
                         View More
@@ -92,6 +106,5 @@ export function CardDefault() {
                 </div>
             </div>
         </div>
-
     );
 }

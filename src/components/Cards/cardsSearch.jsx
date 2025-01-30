@@ -42,7 +42,7 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
 
   return (
     <div className="flex justify-center mt-20">
-      <div className="bg-red-50 p-8 rounded-lg shadow-lg w-full max-w-5xl">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-6xl border border-gray-300">
         <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" onSubmit={handleSearch}>
           {/* Name Input */}
           <div className="flex flex-col">
@@ -103,9 +103,14 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
               onChange={handleInputChange}
             />
           </div>
-
+          <button
+              type="submit"
+              className="bg-red-800 text-white px-8 py-1 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            >
+              Search
+            </button>
           {/* Year Range */}
-          <div className="flex flex-col col-span-2 sm:col-span-1 text-center">
+          {/* <div className="flex flex-col col-span-2 sm:col-span-1 text-center">
             <label htmlFor="yearRange" className="text-sm font-medium text-gray-700 mb-2">
               Year Range
             </label>
@@ -132,17 +137,10 @@ const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
                 max="2025"
               />
             </div>
-          </div>
+          </div> */}
 
           {/* Search Button */}
-          <div className="flex justify-center sm:col-span-2 lg:col-span-1 mt-4">
-            <button
-              type="submit"
-              className="bg-red-800 text-white px-8 py-1 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
-            >
-              Search
-            </button>
-          </div>
+        
         </form>
       </div>
     </div>

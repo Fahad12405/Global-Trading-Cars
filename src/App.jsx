@@ -7,7 +7,7 @@ import WhyChooseUs from './Pages/WhyChooseUs'
 import ContactSection from './Pages/Contact'
 import PrivacyPolicy from './Pages/PrivacyPolicy'
 
-import SearchCars from './Pages/SearchCars'
+import CarforSale from './Pages/CarforSale'
 
 import CompanyProfile from './Pages/CompanyProfile'
 import TermsofUse from './Pages/TermsofUse'
@@ -17,10 +17,12 @@ import LogIn from './Pages/LogIn'
 import CarDetails from './Pages/CarDetails'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import Logout from './Pages/Logout'
+import AddProduct from './Pages/AddProducts'
 
 
 function App() {
-
+// 
   return (
     <>
     <BrowserRouter>
@@ -32,7 +34,8 @@ function App() {
         <Route path='/contact' element={<ContactSection />} /> 
         <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
 
-        <Route path='/Search-Cars' element={<SearchCars />} />
+
+        <Route path='/CarforSale' element={<CarforSale />} />
         <Route path='*' element={<h1>404 Not Found</h1>} />
 
         <Route path='/CompanyProfile' element={<CompanyProfile />} />
@@ -40,7 +43,9 @@ function App() {
         <Route path='/Blogs' element={<Blogs />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/LogIn' element={<LogIn />} />
+        <Route path='/LogOut' element={<Logout />} />
         <Route path='/CarDetails/:id' element={<CarDetails />} />
+        <Route path='/AddProduct' element={<AddProduct/>}/>
 
 
 

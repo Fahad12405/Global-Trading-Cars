@@ -1,12 +1,13 @@
-
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom"; // Import Link here
+import { Link } from "react-router-dom";
+import { FaUserAlt } from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown toggle
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -14,6 +15,16 @@ export default function Navbar() {
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const handleHoverEnter = () => {
+    if (isDropdownOpen) {
+      closeDropdown();
+    }
   };
 
   return (
@@ -36,16 +47,17 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/Search-Cars" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
-              Search Cars
+            <Link to="/CarforSale" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
+               Cars for Sale
             </Link>
           </li>
 
-          {/* Dropdown for About */}
+           {/* Dropdown for About */}
           <li className="relative">
             <button
               onClick={toggleDropdown}
-              className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-0  flex items-center"
+              onMouseEnter={handleHoverEnter}
+              className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-0 flex items-center"
             >
               About
               <svg
@@ -62,25 +74,44 @@ export default function Navbar() {
 
             {/* Desktop Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute left-0 mt-2 bg-white shadow-lg dark:bg-gray-800 rounded-lg w-48 z-10">
+              <div
+                className="absolute left-0 mt-2 bg-white shadow-lg dark:bg-gray-800 rounded-lg w-48 z-10"
+                onMouseLeave={closeDropdown} // Close the dropdown when mouse leaves the dropdown area
+              >
                 <ul>
                   <li>
-                    <Link to="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                    <Link
+                      to="/PrivacyPolicy"
+                      className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white"
+                      onClick={closeDropdown} // Close the dropdown on item click
+                    >
                       Privacy Policy
                     </Link>
                   </li>
                   <li>
-                    <Link to="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <Link
+                      to="/CompanyProfile"
+                      className="block py-2 px-4 text-gray-900 rounded-sm"
+                      onClick={closeDropdown} // Close the dropdown on item click
+                    >
                       Company Profile
                     </Link>
                   </li>
                   <li>
-                    <Link to="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <Link
+                      to="/TermsofUse"
+                      className="block py-2 px-4 text-gray-900 rounded-sm"
+                      onClick={closeDropdown} // Close the dropdown on item click
+                    >
                       Terms of Use
                     </Link>
                   </li>
                   <li>
-                    <Link to="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm ">
+                    <Link
+                      to="/Blogs"
+                      className="block py-2 px-4 text-gray-900 rounded-sm"
+                      onClick={closeDropdown} // Close the dropdown on item click
+                    >
                       Blog
                     </Link>
                   </li>
@@ -106,21 +137,51 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Desktop Log In/Sign Up */}
-        <div className="hidden md:flex md:order-2 space-x-3 rtl:space-x-reverse">
-          <button
-            type="button"
-            className="text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center "
-          >
-            Log In
-          </button>
-          <button
-            type="button"
-            className="text-white bg-red-800  hover:bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center "
-          >
-            Sign Up
-          </button>
-        </div>
+        {/* {user && (
+
+          <>
+            <FaUserAlt size={20} onClick={() => setIsUserDropdown(prevStats => !prevStats)} className="cursor-pointer" />
+
+            {isUserDropdown && (
+              <div className="absolute right-4 top-16 mt-2 bg-white rounded-lg w-48 z-10 border-black border-[1px] py-5">
+                <ul>
+                  <li className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white" >
+                    Hi {user.name}
+                  </li>
+                 
+                  <hr />
+                  <li>
+                    <Link to="/LogOut" className="block py-2 px-4 text-gray-900 rounded-sm bg-red-100">
+                      Log Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+
+
+          </>
+
+        )}
+
+        {!user && (
+          <div className="hidden md:flex md:order-2 space-x-3 rtl:space-x-reverse">
+            <Link
+              to='/LogIn'
+              className="text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center "
+            >
+              Log In
+            </Link>
+            <Link
+              to='/Register'
+              className="text-white bg-red-800  hover:bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center "
+            >
+              Sign Up
+            </Link>
+          </div>
+        )} */}
+
+
 
         {/* Hamburger Menu Button */}
         <button
@@ -177,8 +238,8 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/Search-Cars" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
-                    Search Cars
+                  <Link to="/CarforSale" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                     Cars For Sale
                   </Link>
                 </li>
 
@@ -245,14 +306,14 @@ export default function Navbar() {
                     Why Choose Us
                   </Link>
                 </li>
-                <li className="flex flex-col space-y-2 mt-4">
-                  <button type="button" className="text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center ">
+                {/* <li className="flex flex-col space-y-2 mt-4">
+                  <Link to='/LogIn' className="text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center ">
                     Log In
-                  </button>
-                  <button type="button" className="text-white bg-red-800 hover:bg-red-700  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center">
+                  </Link>
+                  <Link to='/Register' className="text-white bg-red-800 hover:bg-red-700  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 text-center">
                     Sign Up
-                  </button>
-                </li>
+                  </Link>
+                </li> */}
               </ul>
             </motion.div>
           )}

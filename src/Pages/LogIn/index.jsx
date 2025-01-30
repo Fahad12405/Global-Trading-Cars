@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 
-// Inside your component function:
 
 
 export default function LogIn() {
@@ -17,7 +15,6 @@ export default function LogIn() {
     const [loading, setLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
     const [apiError, setApiError] = useState('');
-    const navigate = useNavigate(); // Initialize navigate
 
 
     const handleChange = (e) => {
@@ -55,20 +52,22 @@ export default function LogIn() {
         }
         try {
             const response = await axios.post('https://api-car-export.vercel.app/api/auth/login', formData);
-            console.log(response); // Check if the response is successful
             if (response.status === 200) {
+
+                localStorage.setItem('token', response.data.data.token);
+                localStorage.setItem('user', JSON.stringify(response.data.data));
+                
                 Swal.fire({
                     icon: 'success',
                     title: 'Log In successfully!',
                     text: 'Welcome To Our Website!',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    navigate('/'); // Use navigate in v6+
+                    window.location.href = '/AddProduct'
                 });
             }
         } catch (error) {
-            console.error('Error during login:', error);
-            // Show SweetAlert for error message
+            // console.error('Error during login:', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

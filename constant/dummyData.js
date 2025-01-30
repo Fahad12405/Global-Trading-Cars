@@ -1,5 +1,4 @@
-import { rating } from "@material-tailwind/react";
-import { title } from "framer-motion/client";
+
 
 const vehicleData = [
   {
@@ -241,7 +240,7 @@ export const howToBuyData = [
         paragraph: "Contact us for prices, discounts, and total cost."
       },
       {
-        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/order-3.png?v=1",
+        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/buy-now-1.png?v=1",
         heading: "Order & Invoice",
         paragraph: "Confirm and receive an invoice from our sales staff."
       }
@@ -251,17 +250,17 @@ export const howToBuyData = [
     title: "Step-2: Payment",
     steps: [
       {
-        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/payment-1.png?v=1",
+        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/make-payment-bank.png",
         heading: "Make Payment",
         paragraph: "Send payment to our bank account listed on the invoice."
       },
       {
-        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/payment-2.png?v=1",
+        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/custom-clearance-1.png?v=1",
         heading: "Send Proof of Payment",
         paragraph: "Send a copy of your TT receipt for faster order processing."
       },
       {
-        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/payment-3.png?v=1",
+        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/make-payment-paypal.png",
         heading: "Payment Confirmation",
         paragraph: "We will confirm your payment and begin shipping."
       }
@@ -281,7 +280,7 @@ export const howToBuyData = [
         paragraph: "After shipment, necessary documents will be sent via courier."
       },
       {
-        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/shipment-3.png?v=1",
+        image: "https://www.sbtjapan.com/assets/cms-global/img/how-to-buy/custom-clearance-2.png?v=1",
         heading: "Receive Your Car",
         paragraph: "Clear customs, register the vehicle, and drive away!"
       }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 export default function Register() {
 
@@ -53,11 +55,26 @@ export default function Register() {
 
     try {
       const response = await axios.post('https://api-car-export.vercel.app/api/auth/signup', formData);
-      //sweetalert HERE
+
+
+      if (response.status === 200) {
+
+        localStorage.setItem('token', response.data.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.data));
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Log In successfully!',
+          text: 'Welcome To Our Website!',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          window.location.href = '/'
+        });
+      }
 
 
     } catch (error) {
-      setApiError('Something went wrong. Please try again later.');
+      setApiError('Invalid Credentials.');
     } finally {
       setLoading(false);
     }
@@ -74,7 +91,7 @@ export default function Register() {
           />
         </div>
         <div className="flex items-center p-4 bg-[#3b0202] sm:max-h-[160vh] md:max-h-[100vh] lg:w-11/12 lg:ml-auto">
-        <form onSubmit={handleSubmit} className="max-w-lg w-full mx-auto space-y-4 p-6 md:p-10  ">
+          <form onSubmit={handleSubmit} className="max-w-lg w-full mx-auto space-y-4 p-6 md:p-10  ">
             {/* Added space-y-4 for better mobile spacing */}
 
             <div className="mt-2"> {/* Reduced margin-bottom for the title */}
