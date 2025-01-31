@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
+import logo from '../../../public/logo.jpg'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,10 +32,10 @@ export default function Navbar() {
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse w-36">
           <img
-            src="https://globalcorporation.jp/wp-content/uploads/2015/12/GlobalCorporation-1.png"
-            className="h-12 w-28"
+            src={logo}
+            className="h-full w-auto object-contain"
             alt="Logo"
           />
         </Link>
