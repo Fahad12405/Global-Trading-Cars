@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import vehicleData from '../../../constant/dummyData';
+import vehicleData from '../../../constant/constant';
 
 const CarSearchForm = ({ onSearch }) => {  // Accept onSearch function as prop
   const [name, setName] = useState('');

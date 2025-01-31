@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import vehicleData from '../../../constant/dummyData'
 import CarSearchForm from '../../components/Cards/cardsSearch';
 import { useNavigate, Link } from 'react-router-dom';
 

@@ -1,4 +1,4 @@
-import { whyChooseUsData } from "../../../constant/dummyData";
+import { whyChooseUsData } from "../../../constant/constant";
 
 export default function WhyChooseUs() {
     return (

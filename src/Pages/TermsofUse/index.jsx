@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function TermsOfUse() {
   return (
-    <section className="py-24 bg-red-50 mt-12">
+    <section className="py-24 mt-12">
       <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
         <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">Terms of Use</h1>
         

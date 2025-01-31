@@ -1,5 +1,5 @@
 import HowToBuyCard from "../../components/Cards/howToBuyCard";
-import { howToBuyData } from "../../../constant/dummyData";
+import { howToBuyData } from "../../../constant/constant";
 
 export default function HowToBuy() {
     return (

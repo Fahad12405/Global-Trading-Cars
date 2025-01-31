@@ -1,4 +1,6 @@
 import React from "react";
+import blogData from '../../../constant/constant'
+import { BlogCard } from '../../components/Cards/BlogCard'
 
 const Blogs = () => {
     return (
@@ -98,11 +100,11 @@ const Blogs = () => {
                     </div>
 
                     {/* View More Button */}
-                    <div className="flex justify-center mt-10">
+                    {/* <div className="flex justify-center mt-10">
                         <button className="bg-red-800 text-white py-2 px-6 rounded-md text-lg font-semibold hover:bg-red-600 transition duration-300">
                             View More
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </section>
         </>
@@ -111,34 +113,3 @@ const Blogs = () => {
 
 export default Blogs;
 
-const BlogCard = ({ image, date, CardTitle, CardDescription }) => {
-    return (
-        <div className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8">
-            <div className="w-full">
-                <div className="mb-8 overflow-hidden rounded">
-                    <img
-                        src={image}
-                        alt={CardTitle}
-                        className="w-full h-64 object-cover rounded-lg" // Ensuring the image covers its container properly
-                    />
-                </div>
-                <div>
-                    {date && (
-                        <span className="mb-5 inline-block rounded bg-primary px-4 py-1 text-center text-xs font-semibold leading-loose text-white">
-                            {date}
-                        </span>
-                    )}
-                    <h3>
-                        <a
-                            href="/#"
-                            className="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary dark:text-white sm:text-2xl lg:text-xl xl:text-2xl"
-                        >
-                            {CardTitle}
-                        </a>
-                    </h3>
-                    <p className="text-base text-body-color dark:text-dark-6">{CardDescription}</p>
-                </div>
-            </div>
-        </div>
-    );
-};

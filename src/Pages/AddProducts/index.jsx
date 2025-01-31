@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 export default function AddProduct() {
     const [formData, setFormData] = useState({
         name: "",
-        price: "",
         rating: "",
         inventoryLocation: "",
         modelCode: "",
@@ -100,18 +99,6 @@ export default function AddProduct() {
                         type="text"
                         name="name"
                         value={formData.name}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Price ($)</label>
-                    <input
-                        type="number"
-                        name="price"
-                        value={formData.price}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md"
                         required
@@ -362,6 +349,7 @@ export default function AddProduct() {
                     <input
                         type="file"
                         name="images"
+                        accept="image/*"
                         onChange={handleFileChange}
                         multiple
                         className="w-full mt-1 p-2 border rounded-md"

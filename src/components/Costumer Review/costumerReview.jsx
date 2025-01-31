@@ -4,13 +4,13 @@ export default function CostumerReview() {
   return (
     <section className="py-24 relative">
       <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
-      <div className="w-full max-w-1xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
-  <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
-    Our Costumer Review
-  </h1>
-  <div className="border-t-2 border-white w-48 mx-auto"></div> 
-</div>
-        <div className="grid grid-cols-12 py-6 border-y border-gray-200 mb-11">
+        <div className="w-full max-w-1xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
+          <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
+            Our Costumer Review
+          </h1>
+          <div className="border-t-2 border-white w-48 mx-auto"></div>
+        </div>
+        {/* <div className="grid grid-cols-12 py-6 border-y border-gray-200 mb-11">
           <div className="col-span-12 lg:col-span-10 ">
             <h5 className="font-manrope font-semibold text-2xl leading-9 text-black text-center">
               Reviews
@@ -25,8 +25,8 @@ export default function CostumerReview() {
               Rating
             </h5>
           </div>
-        </div>
-        <div className="grid grid-cols-1 gap-8">
+        </div> */}
+        <div className="grid grid-cols-1 gap-8 mt-8">
           <div className="grid grid-cols-12 max-w-sm sm:max-w-full mx-auto">
             <div className="col-span-12 lg:col-span-10 ">
               <div className="sm:flex gap-6">
@@ -137,7 +137,7 @@ export default function CostumerReview() {
                     </svg>
                   </div>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                  Shares how her purchase through the platform was a pleasant experience. She was pleased with the professional assistance she received, from selecting the right car to ensuring it was delivered on time and in perfect condition. Maria was particularly impressed by the transparency and communication.
+                    Shares how her purchase through the platform was a pleasant experience. She was pleased with the professional assistance she received, from selecting the right car to ensuring it was delivered on time and in perfect condition. Maria was particularly impressed by the transparency and communication.
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="cursor-pointers flex items-center gap-2">
@@ -284,13 +284,13 @@ export default function CostumerReview() {
                 />
                 <div className="text">
                   <p className="font-medium text-lg leading-8 text-gray-900 mb-2">
-                   James Clark
+                    James Clark
                   </p>
                   <div className="flex lg:hidden items-center gap-2 lg:justify-between w-full mb-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={30}
-                        height={30}
+                      height={30}
                       viewBox="0 0 30 30"
                       fill="none"
                     >
@@ -384,7 +384,7 @@ export default function CostumerReview() {
                     </svg>
                   </div>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                  A first-time seller, was impressed by how easy it was to list and sell his car. The platform provided a simple, hassle-free process and a fair market price for his vehicle. Amit appreciated the transparency and the fact that the entire export procedure was handled smoothly
+                    A first-time seller, was impressed by how easy it was to list and sell his car. The platform provided a simple, hassle-free process and a fair market price for his vehicle. Amit appreciated the transparency and the fact that the entire export procedure was handled smoothly
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -631,7 +631,7 @@ export default function CostumerReview() {
                     </svg>
                   </div>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                   I had never purchased a car online before, and was initially nervous. However, after receiving dedicated support and clear communication from the team, she felt confident in her purchase. Her car arrived safely, and she was thrilled with the overall experience, calling it 'seamless.
+                    I had never purchased a car online before, and was initially nervous. However, after receiving dedicated support and clear communication from the team, she felt confident in her purchase. Her car arrived safely, and she was thrilled with the overall experience, calling it 'seamless.
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -778,7 +778,7 @@ export default function CostumerReview() {
                 />
                 <div className="text">
                   <p className="font-medium text-lg leading-8 text-gray-900 mb-2">
-                   Sarah Isaac
+                    Sarah Isaac
                   </p>
                   <div className="flex lg:hidden items-center gap-2 lg:justify-between w-full mb-5">
                     <svg
@@ -878,7 +878,7 @@ export default function CostumerReview() {
                     </svg>
                   </div>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                  The  website for several years. He appreciates the ease of connecting with international buyers and the competitive pricing. The platform’s user interface and straightforward process made his car sales efficient, and he recommends it to other car dealers.
+                    The  website for several years. He appreciates the ease of connecting with international buyers and the competitive pricing. The platform’s user interface and straightforward process made his car sales efficient, and he recommends it to other car dealers.
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
