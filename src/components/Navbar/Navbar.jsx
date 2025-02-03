@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
-import logo from '../../../public/logo.jpg'
+import logo from '../../../public/logo2.png'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,18 +30,22 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse w-36">
-          <img
-            src={logo}
-            className="h-full w-auto object-contain"
-            alt="Logo"
-          />
-        </Link>
+      
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+  {/* Logo */}
+  <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+    <img
+      src={logo}
+      className="h-18 object-contain" // Remove width class
+      style={{ width: '180px' }} // Set the width using inline style
+      alt="Logo"
+    />
+  </Link>
+
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex md:space-x-8 font-medium">
+          
           <li>
             <Link to="/" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Home
@@ -49,11 +53,11 @@ export default function Navbar() {
           </li>
           <li>
             <Link to="/CarforSale" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
-               Cars for Sale
+              Cars for Sale
             </Link>
           </li>
 
-           {/* Dropdown for About */}
+          {/* Dropdown for About */}
           <li className="relative">
             <button
               onClick={toggleDropdown}
@@ -240,7 +244,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link to="/CarforSale" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
-                     Cars For Sale
+                    Cars For Sale
                   </Link>
                 </li>
 

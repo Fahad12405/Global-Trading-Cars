@@ -64,11 +64,10 @@ export default function FAQAccordion() {
     <section className="py-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* <div className="mb-16"> */}
-          <div className="w-full max-w-9xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
-            <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
+          <div className="w-full max-w-9xl mx-auto mt-20 p-3 bg-[#7d1418] rounded-lg shadow-xl text-center">
+            <h1 className="text-3xl font-semibold text-red-50 mb-2 font-serif">
               Frequently Asked Questions
             </h1>
-            <div className="border-t-2 border-white w-48 mx-auto"></div>
           </div>
         {/* </div> */}
         <div className="accordion-group flex flex-col gap-4">

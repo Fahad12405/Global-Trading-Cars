@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Banner() {
+export default function HeroSection() {
   return (
     <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
       <img

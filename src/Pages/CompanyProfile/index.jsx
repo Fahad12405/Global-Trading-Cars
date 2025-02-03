@@ -72,16 +72,13 @@ export default function CompanyProfile() {
               <thead>
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Company Name</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">SBT CO., LTD.</th>
+                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Global Trading Cars</th>
                 </tr>
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Foundation</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">January, 1993</th>
                 </tr>
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">President & CEO</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Inami Taro</th>
-                </tr>
+             
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Headquarters</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">
@@ -117,7 +114,7 @@ export default function CompanyProfile() {
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Corporate Site</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">
-                    <a href="https://sbtjapan.co.jp" className="text-indigo-600 hover:text-indigo-800">sbtjapan.co.jp</a>
+                    <a href="https://globaltradingcars.com" className="text-red-600 hover:text-red-800">Global Trading Cars</a>
                   </th>
                 </tr>
                 <tr className="border-b">

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Banner from '../../components/Banner/Banner';
+import HeroSection from '../../components/HeroSection/HeroSection';
 import { ProductCard } from '../../components/Cards/ProductCard';
 import ContactSection from '../../components/Contact/contact';
 import FAQSection from '../../components/FAQ/FAQ';
+import CostumerReview from '../../components/Costumer Review/costumerReview'
 import axios from 'axios';
+import WhyChooseUs from '../../components/WhyChooseUs/index';
+import Banner from '../../components/Banner/index'
 
 export default function Home() {
     const [data, setData] = useState()
@@ -27,9 +30,12 @@ export default function Home() {
 
     return (
         <>
-            <Banner />
+            <HeroSection />
             <ProductCard data={data} />
-            <FAQSection />
+            <WhyChooseUs/>
+             <FAQSection />       
+             <Banner/>
+            <CostumerReview/>
             <ContactSection />
         </>
     );

@@ -4,11 +4,10 @@ export default function CostumerReview() {
   return (
     <section className="py-24 relative">
       <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
-        <div className="w-full max-w-1xl mx-auto mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
-          <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
+        <div className="w-full max-w-1xl mx-auto mt-20 p-3 bg-[#7d1418] rounded-lg shadow-xl text-center">
+          <h1 className="text-3xl font-semibold text-red-50 mb-2 font-serif">
             Our Costumer Review
           </h1>
-          <div className="border-t-2 border-white w-48 mx-auto"></div>
         </div>
         {/* <div className="grid grid-cols-12 py-6 border-y border-gray-200 mb-11">
           <div className="col-span-12 lg:col-span-10 ">
@@ -143,25 +142,11 @@ export default function CostumerReview() {
                     <div className="cursor-pointers flex items-center gap-2">
                       <a
                         href="javascript:;"
-                        className="font-semibold text-lg cursor-pointer leading-8 text-indigo-600 whitespace-nowrap"
+                        className="font-semibold text-lg cursor-pointer leading-8 text-red-800 whitespace-nowrap"
                       >
                         View &amp; Reply
                       </a>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={22}
-                        height={22}
-                        viewBox="0 0 22 22"
-                        fill="none"
-                      >
-                        <path
-                          d="M8.25324 5.49609L13.7535 10.9963L8.25 16.4998"
-                          stroke="#4F46E5"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                     
                     </div>
                     <p className="lg:hidden font-medium text-sm leading-7 text-gray-400 lg:text-center whitespace-nowrap">
                       Nov 01, 2024
@@ -390,25 +375,11 @@ export default function CostumerReview() {
                     <div className="flex items-center gap-2">
                       <a
                         href="javascript:;"
-                        className="font-semibold text-lg cursor-pointer leading-8 text-indigo-600 whitespace-nowrap"
+                        className="font-semibold text-lg cursor-pointer leading-8 text-red-800 whitespace-nowrap"
                       >
                         View &amp; Reply
                       </a>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={22}
-                        height={22}
-                        viewBox="0 0 22 22"
-                        fill="none"
-                      >
-                        <path
-                          d="M8.25324 5.49609L13.7535 10.9963L8.25 16.4998"
-                          stroke="#4F46E5"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                     
                     </div>
                     <p className="lg:hidden font-medium text-sm leading-7 text-gray-400 lg:text-center whitespace-nowrap">
                       Sep 06, 2024
@@ -637,25 +608,11 @@ export default function CostumerReview() {
                     <div className="flex items-center gap-2">
                       <a
                         href="javascript:;"
-                        className="font-semibold text-lg cursor-pointer leading-8 text-indigo-600 whitespace-nowrap"
+                        className="font-semibold text-lg cursor-pointer leading-8 text-red-800 whitespace-nowrap"
                       >
                         View &amp; Reply
                       </a>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={22}
-                        height={22}
-                        viewBox="0 0 22 22"
-                        fill="none"
-                      >
-                        <path
-                          d="M8.25324 5.49609L13.7535 10.9963L8.25 16.4998"
-                          stroke="#4F46E5"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                    
                     </div>
                     <p className="lg:hidden font-medium text-sm leading-7 text-gray-400 lg:text-center whitespace-nowrap">
                       Nov 01, 2024
@@ -884,25 +841,11 @@ export default function CostumerReview() {
                     <div className="flex items-center gap-2">
                       <a
                         href="javascript:;"
-                        className="font-semibold text-lg leading-8 text-indigo-600 whitespace-nowrap cursor-pointer"
+                        className="font-semibold text-lg leading-8 text-red-800 whitespace-nowrap cursor-pointer"
                       >
                         View &amp; Reply
                       </a>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={22}
-                        height={22}
-                        viewBox="0 0 22 22"
-                        fill="none"
-                      >
-                        <path
-                          d="M8.25324 5.49609L13.7535 10.9963L8.25 16.4998"
-                          stroke="#4F46E5"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                     
                     </div>
                     <p className="lg:hidden font-medium text-sm leading-7 text-gray-400 lg:text-center whitespace-nowrap">
                       Jan 01, 2023

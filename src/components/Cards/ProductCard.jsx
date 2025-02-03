@@ -12,11 +12,10 @@ export function ProductCard({ data }) {
 
     return (
         <div className='max-w-7xl mx-auto'>
-            <div className="mt-20 p-6 bg-[#7d1418] rounded-lg shadow-xl text-center">
-                <h1 className="text-4xl font-semibold text-red-50 mb-2 font-serif">
+            <div className="mt-20 p-3 bg-[#7d1418] rounded-lg shadow-xl text-center">
+                <h1 className="text-3xl font-semibold text-red-50 mb-2 font-serif">
                     Car For Sale
                 </h1>
-                <div className="border-t-2 border-white w-48 mx-auto"></div>
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 justify-center items-center">

@@ -40,7 +40,7 @@ const CarSearchForm = ({ onSearch, apiData }) => {
   }, [name, model, bodyType, rhdlhd, year]);
 
   return (
-    <div className="flex justify-center mt-20">
+    <div className="flex justify-center mt-12">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-6xl border border-gray-300">
         <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" onSubmit={handleSearch}>
           {/* Name Input */}
