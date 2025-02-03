@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 
 
 export default function LogIn() {
+
+
+    useEffect(()=> {
+        const getLsToken = localStorage.getItem('token')
+        if(getLsToken){
+            window.location.href = '/Protected/AddProduct'
+        }
+    },[])
 
     const [formData, setFormData] = useState({
         email: '',
@@ -63,7 +71,7 @@ export default function LogIn() {
                     text: 'Welcome To Our Website!',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    window.location.href = '/AddProduct'
+                    window.location.href = '/Protected/AddProduct'
                 });
             }
         } catch (error) {
@@ -76,6 +84,7 @@ export default function LogIn() {
             });
             setApiError('Something went wrong. Please try again later.');
         }
+        setLoading(false)
 
     };
 

@@ -6,13 +6,11 @@ import HowToBuy from './Pages/HowToBuy'
 import WhyChooseUs from './Pages/WhyChooseUs'
 import ContactSection from './Pages/Contact'
 import PrivacyPolicy from './Pages/PrivacyPolicy'
-
 import CarforSale from './Pages/CarforSale'
-
 import CompanyProfile from './Pages/CompanyProfile'
 import TermsofUse from './Pages/TermsofUse'
 import Blogs from './Pages/Blogs'
-import Register from './Pages/Register'
+// import Register from './Pages/Register'
 import LogIn from './Pages/LogIn'
 import CarDetails from './Pages/CarDetails'
 import Navbar from './components/Navbar/Navbar'
@@ -41,11 +39,11 @@ function App() {
         <Route path='/CompanyProfile' element={<CompanyProfile />} />
         <Route path='/TermsofUse' element={<TermsofUse />} />
         <Route path='/Blogs' element={<Blogs />} />
-        <Route path='/Register' element={<Register />} />
-        <Route path='/LogIn' element={<LogIn />} />
+        {/* <Route path='/Register' element={<Register />} /> */}
+        <Route path='/Protected/LogIn' element={<LogIn />} />
         <Route path='/LogOut' element={<Logout />} />
         <Route path='/CarDetails/:id' element={<CarDetails />} />
-        <Route path='/AddProduct' element={<AddProduct/>}/>
+        <Route path='/Protected/AddProduct' element={<AddProduct/>}/>
 
 
 

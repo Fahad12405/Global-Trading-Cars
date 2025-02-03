@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+
+
 
 const CarDetails = () => {
     const { id } = useParams(); // Get the vehicle ID from the URL
@@ -7,15 +11,15 @@ const CarDetails = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const [formData, setFormData] = useState({
+        productId: id ,
         name: '',
-        country: 'PAKISTAN',
+        country: '',
         city: '',
         email: '',
-        phone: '',
+        number: '',
         remarks: '',
         receivePromotions: false
     });
-    // Fetch vehicle data when the component mounts or the id changes
     useEffect(() => {
         const fetchVehicleData = async () => {
             try {
@@ -33,18 +37,15 @@ const CarDetails = () => {
         };
 
         fetchVehicleData();
-    }, [id]); // Fetch new data whenever the ID changes
+    }, [id]);
 
-    // If no vehicle is found, display a message
     if (!vehicle) {
         return <h2>Vehicle not found</h2>;
     }
 
-    // Modal toggle handler
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-    // Handle form changes
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -53,12 +54,31 @@ const CarDetails = () => {
         });
     };
 
-    // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission, e.g., send form data to a server
-        alert('Inquiry submitted!');
-        closeModal();  // Close modal after submission
+
+        try {
+            const response = await axios.post('https://api-car-export.vercel.app/api/product_inquiry', formData);
+
+            if (response.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Product Inquiry Submitted!',
+                    text: 'Your inquiry has been submitted successfully.',
+                    confirmButtonText: 'OK'
+                });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'An error occurred while submitting your inquiry.',
+                confirmButtonText: 'Try Again'
+            });
+        }
+
+        closeModal();  // Close modal after submission (if applicable)
     };
 
     // Effect to handle modal visibility (disabling body scroll)
@@ -80,12 +100,10 @@ const CarDetails = () => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % vehicle?.image?.length);
     };
 
-    // Handle previous slide
     const handlePrev = () => {
         setActiveIndex((prevIndex) => (prevIndex - 1 + vehicle?.image?.length) % vehicle?.image?.length);
     };
 
-    // Handle indicator click
     const handleIndicatorClick = (index) => {
         setActiveIndex(index);
     };
@@ -98,7 +116,7 @@ const CarDetails = () => {
                 <div className="w-full lg:w-1/3 mb-6 lg:mb-0">
                     <div
                         id="indicators-carousel"
-                        className="relative w-full bg-red-800"
+                        className="relative w-full"
                         data-carousel="static"
                     >
                         {/* Carousel wrapper */}
@@ -110,7 +128,7 @@ const CarDetails = () => {
                                 >
                                     <img
                                         src={image.url}
-                                        className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
                                         alt={`carousel-item-${index}`}
                                     />
                                 </div>
@@ -137,9 +155,9 @@ const CarDetails = () => {
                             onClick={handlePrev}
                             data-carousel-prev=""
                         >
-                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <span className="inline-flex items-center justify-center rounded-full bg-red-100 p-2">
                                 <svg
-                                    className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                                    className="w-4 h-4 text-red-900 rtl:rotate-180"
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -153,7 +171,6 @@ const CarDetails = () => {
                                         d="M5 1 1 5l4 4"
                                     />
                                 </svg>
-                                <span className="sr-only">Previous</span>
                             </span>
                         </button>
                         <button
@@ -162,9 +179,9 @@ const CarDetails = () => {
                             onClick={handleNext}
                             data-carousel-next=""
                         >
-                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <span className="inline-flex items-center justify-center rounded-full bg-red-100 p-2">
                                 <svg
-                                    className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                                    className="w-4 h-4 text-red-900 rtl:rotate-180"
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -178,15 +195,13 @@ const CarDetails = () => {
                                         d="m1 9 4-4-4-4"
                                     />
                                 </svg>
-                                <span className="sr-only">Next</span>
                             </span>
                         </button>
                     </div>
 
-                    <div className="flex justify-between items-center mt-8">
-                        <span className="text-4xl font-bold text-gray-900">{vehicle.price} USD</span>
+                    <div className="flex items-center mt-8">
                         <button
-                            className="bg-red-800 text-white px-4 py-2 rounded-lg text-lg font-semibold hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500"
+                            className="text-white mt-3 bg-red-900 hover:bg-red-700 rounded-full text-sm px-5 py-2 text-center w-full cursor-pointer"
                             onClick={() => openModal()}
                         >
                             Inquire Now
@@ -198,23 +213,6 @@ const CarDetails = () => {
                 <div className="w-full lg:w-2/3 pl-0 lg:pl-8">
                     <h1 className="text-4xl font-semibold text-gray-900 mb-4">{vehicle.name}</h1>
 
-                    {/* Car Rating */}
-                    <div className="flex items-center mb-6">
-                        {[...Array(5)].map((_, index) => (
-                            <svg
-                                key={index}
-                                className={`w-6 h-6 ${index < vehicle.ratings ? 'text-yellow-300' : 'text-gray-200'}`}
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor"
-                                viewBox="0 0 22 20"
-                            >
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                        ))}
-                    </div>
-
-                    {/* Car Details in Boxes */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-gray-700">
                         <div className="border border-gray-300 p-4 rounded-lg shadow-sm">
                             <p><strong>Model Code:</strong> {vehicle.modelCode}</p>
@@ -255,16 +253,10 @@ const CarDetails = () => {
                         >
                             &times;
                         </button>
-                        <h2 className="text-2xl font-semibold mb-4">Inquiry for {vehicle.name}</h2>
+                        <h2 className="text-2xl font-semibold mb-4">{vehicle.name}</h2>
 
                         <div className="mb-4">
-                            <img
-                                src={vehicle.image}
-                                alt={vehicle.name}
-                                className="w-full h-48 object-cover rounded-lg"
-                            />
-                            <p><strong>Price:</strong> {vehicle.price} USD</p>
-                            <p><strong>Rating:</strong> {vehicle.rating} / 5</p>
+                            <img src={vehicle.image?.[0]?.url} alt={vehicle.name} className="w-full h-48 object-cover rounded-lg" />
                         </div>
 
                         {/* Inquiry Form */}
@@ -275,6 +267,18 @@ const CarDetails = () => {
                                     type="text"
                                     name="name"
                                     value={formData.name}
+                                    onChange={handleInputChange}
+                                    className="w-full p-2 border border-gray-300 rounded-lg"
+                                    required
+                                />
+                            </div>
+
+                            <div className="mb-4">
+                                <label className="block text-sm font-medium">Country:</label>
+                                <input
+                                    type="text"
+                                    name="country"
+                                    value={formData.country}
                                     onChange={handleInputChange}
                                     className="w-full p-2 border border-gray-300 rounded-lg"
                                     required
@@ -306,11 +310,11 @@ const CarDetails = () => {
                             </div>
 
                             <div className="mb-4">
-                                <label className="block text-sm font-medium">Phone:</label>
+                                <label className="block text-sm font-medium">Phone Number:</label>
                                 <input
                                     type="text"
-                                    name="phone"
-                                    value={formData.phone}
+                                    name="number"
+                                    value={formData.number}
                                     onChange={handleInputChange}
                                     className="w-full p-2 border border-gray-300 rounded-lg"
                                 />

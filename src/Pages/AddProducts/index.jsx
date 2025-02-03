@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { MdCancel } from "react-icons/md";
+
 
 export default function AddProduct() {
+    const [attachments, setAttachments] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
         rating: "",
@@ -25,61 +28,84 @@ export default function AddProduct() {
         grossVehicleWeight: "",
         maxLoadingCapacity: "",
         m3: "",
-
         images: [],
     });
+
+    useEffect(()=> {
+        const getLsToken = localStorage.getItem('token')
+        if(!getLsToken){
+            window.location.href = '/'
+        }
+    },[])
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleFileChange = (e) => {
-        const files = Array.from(e.target.files);
-        if (files.length <= 6) {
-            setFormData({ ...formData, images: files });
-        } else {
-            alert("You can upload a maximum of 6 images.");
+    const addAttachment = (event) => {
+        const files = Array.from(event.target.files);
+
+        if (attachments.length + files.length > 6) {
+            alert("You can only upload up to 6 files.");
+            return;
         }
+
+        const newAttachments = files.map((file) => ({
+            id: Date.now() + Math.random(),
+            file, // Store the actual File object
+            name: file.name,
+            preview: URL.createObjectURL(file), // Just for preview
+        }));
+
+        const updatedAttachments = [...attachments, ...newAttachments];
+
+        setAttachments(updatedAttachments);
+        setFormData({ ...formData, images: updatedAttachments.map(att => att.file) }); // Update formData with file objects
+    };
+
+    const removeAttachment = (id) => {
+        const updatedAttachments = attachments.filter((attachment) => attachment.id !== id);
+        setAttachments(updatedAttachments);
+        setFormData({ ...formData, images: updatedAttachments.map(att => att.file) }); // Update formData
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         const data = new FormData();
-    
+
         for (const [key, value] of Object.entries(formData)) {
             if (key !== "images") {
-                data.append(key, value); 
+                data.append(key, value);
             }
         }
-    
+
+        // Append images as File objects
         formData.images.forEach((image) => {
             data.append("images", image);
         });
-    
+
         const token = localStorage.getItem('token');
         if (!token) {
             alert("Token not found. Please log in first.");
             return;
         }
-    
+
         try {
             const response = await axios.post('https://api-car-export.vercel.app/api/product/add', data, {
                 headers: {
-                    Authorization: `Bearer ${token}`, 
-                    'Content-Type': 'multipart/form-data' 
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
                 }
             });
-    
+
             if (response.status === 200) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Product Added Successfully!',
                     text: 'Your product has been added.',
                     confirmButtonText: 'OK'
-                }).then(() => {
-                    window.location.href = '/';
-                });
+                })
             }
         } catch (error) {
             console.error('Error:', error);
@@ -139,7 +165,7 @@ export default function AddProduct() {
                     />
                 </div>
 
-              
+
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Transmission</label>
                     <select
@@ -154,7 +180,7 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-              
+
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Drive</label>
                     <select
@@ -170,7 +196,7 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-             
+
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Color</label>
                     <input
@@ -182,11 +208,11 @@ export default function AddProduct() {
                     />
                 </div>
 
-             
+
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Doors</label>
                     <input
-                        type="number"
+                        type="text"
                         name="doors"
                         value={formData.doors}
                         onChange={handleChange}
@@ -345,28 +371,37 @@ export default function AddProduct() {
                 </div>
 
                 <div className="col-span-3">
-                    <label className="block text-sm font-medium text-gray-700">Upload Images (Max 6)</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                        Upload Images (Max 6)
+                    </label>
                     <input
                         type="file"
                         name="images"
                         accept="image/*"
-                        onChange={handleFileChange}
+                        onChange={addAttachment}
                         multiple
                         className="w-full mt-1 p-2 border rounded-md"
                     />
                 </div>
-
-                <div className="col-span-3 mt-4 grid grid-cols-4 gap-4">
-                    {formData.images.length > 0 &&
-                        formData.images.map((image, index) => (
-                            <div key={index} className="w-32 h-32 overflow-hidden rounded-md">
-                                <img
-                                    src={URL.createObjectURL(image)}
-                                    alt={`Car Preview ${index}`}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        ))}
+                <div className="flex w-fit" >
+                    {attachments.map((attachment) => (
+                        <div
+                            key={attachment.id}
+                            className="relative border-2 border-dashed border-gray-400 p-4 w-20 h-24 flex items-center justify-center"
+                        >
+                            <img
+                                src={attachment.preview}
+                                alt={attachment.name}
+                                className="object-cover w-full h-full"
+                            />
+                            <button
+                                onClick={() => removeAttachment(attachment.id)}
+                                className="absolute top-0 right-0 p-1"
+                            >
+                                <MdCancel size={22} />
+                            </button>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="col-span-3 flex justify-center">
