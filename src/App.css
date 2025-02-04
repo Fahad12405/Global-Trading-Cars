@@ -2,6 +2,11 @@
 
 
 body {
-    font-family: 'Poppins', sans-serif;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --primary-color: #6496c8;
+  /* equivalent hex value */
+}
+

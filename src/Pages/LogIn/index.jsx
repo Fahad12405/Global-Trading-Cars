@@ -10,7 +10,7 @@ export default function LogIn() {
     useEffect(()=> {
         const getLsToken = localStorage.getItem('token')
         if(getLsToken){
-            window.location.href = '/Protected/AddProduct'
+            window.location.href = '/Protected/Dashboard'
         }
     },[])
 

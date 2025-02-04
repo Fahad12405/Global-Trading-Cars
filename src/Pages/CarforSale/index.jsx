@@ -13,13 +13,13 @@ export default function CarforSale() {
         setLoading(true); // Start loading before fetching data
         const response = await fetch('https://api-car-export.vercel.app/api/product/get');
         const data = await response.json();
-        if (data && data.data) {
-          setApiData(data.data);
-          setFilteredResults(data.data);
+        if (data && data.data.products) {
+          setApiData(data.data.products);
+          setFilteredResults(data.data.products);
 
         }
       } catch (error) {
-        alert('There is a critical error');
+        console.log('There is a critical error');
       } finally {
         setLoading(false);
       }

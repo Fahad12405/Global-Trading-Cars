@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@layer base {
+    :root {
+        color-scheme: only light;
+        -webkit-tap-highlight-color: transparent;
+    }
+}

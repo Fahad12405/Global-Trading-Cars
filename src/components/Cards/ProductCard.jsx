@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa6";
 
 export function ProductCard({ data }) {
-    console.log(data, '<----- DATA AGAY');
     const navigate = useNavigate();
 
     const handleViewDetails = (id) => {

@@ -17,6 +17,7 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Logout from './Pages/Logout'
 import AddProduct from './Pages/AddProducts'
+import Dashboard from './Pages/Dashboard/index'
 
 
 function App() {
@@ -26,26 +27,25 @@ function App() {
     <BrowserRouter>
     <Navbar/>
       <Routes>
+
+        <Route path='*' element={<h1>404 Not Found</h1>} />
         <Route path='/' element={<Home />} />
+
         <Route path='/how-to-buy' element={<HowToBuy />} />
         <Route path='/why-choose-us' element={<WhyChooseUs />} />
         <Route path='/contact' element={<ContactSection />} /> 
         <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
-
-
-        <Route path='/CarforSale' element={<CarforSale />} />
-        <Route path='*' element={<h1>404 Not Found</h1>} />
-
         <Route path='/CompanyProfile' element={<CompanyProfile />} />
         <Route path='/TermsofUse' element={<TermsofUse />} />
         <Route path='/Blogs' element={<Blogs />} />
-        {/* <Route path='/Register' element={<Register />} /> */}
-        <Route path='/Protected/LogIn' element={<LogIn />} />
-        <Route path='/LogOut' element={<Logout />} />
+
+        <Route path='/CarforSale' element={<CarforSale />} />
         <Route path='/CarDetails/:id' element={<CarDetails />} />
+
+        <Route path='/Protected/LogIn' element={<LogIn />} />
         <Route path='/Protected/AddProduct' element={<AddProduct/>}/>
-
-
+        <Route path='/Protected/Dashboard' element={<Dashboard/>}/>
+        <Route path='/LogOut' element={<Logout />} />
 
       </Routes>
       <Footer/>

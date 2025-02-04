@@ -8,7 +8,6 @@ export default function AddProduct() {
     const [attachments, setAttachments] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
-        rating: "",
         inventoryLocation: "",
         modelCode: "",
         year: "",
@@ -338,16 +337,7 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Rating</label>
-                    <input
-                        type="text"
-                        name="rating"
-                        value={formData.rating}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
-                    />
-                </div>
+               
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Vehicle Weight</label>
@@ -380,7 +370,7 @@ export default function AddProduct() {
                         accept="image/*"
                         onChange={addAttachment}
                         multiple
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md "
                     />
                 </div>
                 <div className="flex w-fit" >
