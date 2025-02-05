@@ -11,7 +11,7 @@ const CarDetails = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const [formData, setFormData] = useState({
-        productId: id ,
+        productId: id,
         name: '',
         country: '',
         city: '',
@@ -199,14 +199,18 @@ const CarDetails = () => {
                         </button>
                     </div>
 
-                    <div className="flex items-center mt-8">
-                        <button
-                            className="text-white mt-3 bg-red-900 hover:bg-red-700 rounded-full text-sm px-5 py-2 text-center w-full cursor-pointer"
-                            onClick={() => openModal()}
-                        >
-                            Inquire Now
-                        </button>
+                    <div className="flex justify-center items-center w-full">
+                        {
+                            vehicle.stock ? (
+                                <button className="text-white mt-3 bg-red-900 hover:bg-red-700 rounded-full text-sm px-5 py-2 text-center w-full cursor-pointer" onClick={() => openModal()}>
+                                    Inquire Now
+                                </button>
+                            ) : (
+                                <p className="text-sm text-center text-red-600 bg-red-100 rounded-full w-full py-1">Out Of Stock</p>
+                            )
+                        }
                     </div>
+
                 </div>
 
                 {/* Car Details on the right side */}

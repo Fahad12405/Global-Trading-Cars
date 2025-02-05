@@ -60,8 +60,8 @@ export default function CarforSale() {
         ) : apiData.length > 0 ? (
           filteredResults.map((vehicle) => (
             <div key={vehicle.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto">
-              <img className="p-8 rounded-t-lg w-full h-60 object-cover object-center" src={vehicle.image[0].url} alt="product image" />
-              <div className="px-5 pb-5">
+              <img className="rounded-t-lg w-full h-60 object-cover object-center" src={vehicle.image[0].url} alt="product image" />
+              <div className="p-5">
                 <div className="flex justify-between items-center">
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900">{vehicle.name}</h5>
                   <p className="text-sm">({vehicle.year})</p>

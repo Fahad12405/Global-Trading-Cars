@@ -30,12 +30,12 @@ export default function AddProduct() {
         images: [],
     });
 
-    // useEffect(()=> {
-    //     const getLsToken = localStorage.getItem('token')
-    //     if(!getLsToken){
-    //         window.location.href = '/'
-    //     }
-    // },[])
+    useEffect(()=> {
+        const getLsToken = localStorage.getItem('token')
+        if(!getLsToken){
+            window.location.href = '/'
+        }
+    },[])
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -114,8 +114,8 @@ export default function AddProduct() {
     
 
     return (
-        <div className="max-w-6xl mx-auto p-4 bg-white rounded-lg shadow-md mt-22 border-2 border-gray-300 hover:border-gray-400 h-auto">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Add New Product</h2>
+        <div className="max-w-6xl mx-auto p-4 bg-white rounded-lg shadow-md mt-32 border-2 border-gray-300 hover:border-gray-400 h-auto">
+            <h2 className="text-3xl text-center font-semibold py-3 text-gray-800 mb-4">Add New Product</h2>
 
             <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
@@ -125,7 +125,7 @@ export default function AddProduct() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                         required
                     />
                 </div>
@@ -137,7 +137,7 @@ export default function AddProduct() {
                         name="inventoryLocation"
                         value={formData.inventoryLocation}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                         required
                     />
                 </div>
@@ -149,7 +149,7 @@ export default function AddProduct() {
                         name="modelCode"
                         value={formData.modelCode}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -160,7 +160,7 @@ export default function AddProduct() {
                         name="year"
                         value={formData.year}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -171,7 +171,7 @@ export default function AddProduct() {
                         name="transmission"
                         value={formData.transmission}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     >
                         <option value="">Select Transmission</option>
                         <option value="AT (Automatic)">AT (Automatic)</option>
@@ -186,7 +186,7 @@ export default function AddProduct() {
                         name="drive"
                         value={formData.drive}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     >
                         <option value="">Select Drive Type</option>
                         <option value="2WD">2WD</option>
@@ -203,7 +203,7 @@ export default function AddProduct() {
                         name="color"
                         value={formData.color}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -215,7 +215,7 @@ export default function AddProduct() {
                         name="doors"
                         value={formData.doors}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -226,7 +226,7 @@ export default function AddProduct() {
                         name="engineType"
                         value={formData.engineType}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -237,7 +237,7 @@ export default function AddProduct() {
                         name="engineSize"
                         value={formData.engineSize}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -248,7 +248,7 @@ export default function AddProduct() {
                         name="mileage"
                         value={formData.mileage}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -258,7 +258,7 @@ export default function AddProduct() {
                         name="fuelType"
                         value={formData.fuelType}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     >
                         <option value="">Select Fuel Type</option>
                         <option value="Petrol">Petrol</option>
@@ -275,7 +275,7 @@ export default function AddProduct() {
                         name="bodyType"
                         value={formData.bodyType}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -286,7 +286,7 @@ export default function AddProduct() {
                         name="dimensions"
                         value={formData.dimensions}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -297,7 +297,7 @@ export default function AddProduct() {
                         name="grossVehicleWeight"
                         value={formData.grossVehicleWeight}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -308,7 +308,7 @@ export default function AddProduct() {
                         name="maxLoadingCapacity"
                         value={formData.maxLoadingCapacity}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -319,7 +319,7 @@ export default function AddProduct() {
                         name="seats"
                         value={formData.seats}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -329,7 +329,7 @@ export default function AddProduct() {
                         name="steering"
                         value={formData.steering}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     >
                         <option value="">Select Steering Type</option>
                         <option value="LHD (Left-Hand Drive)">LHD (Left-Hand Drive)</option>
@@ -346,7 +346,7 @@ export default function AddProduct() {
                         name="vehicleWeight"
                         value={formData.vehicleWeight}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
                 <div>
@@ -356,7 +356,7 @@ export default function AddProduct() {
                         name="m3"
                         value={formData.m3}
                         onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md"
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
                     />
                 </div>
 
@@ -370,7 +370,7 @@ export default function AddProduct() {
                         accept="image/*"
                         onChange={addAttachment}
                         multiple
-                        className="w-full mt-1 p-2 border rounded-md "
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2] "
                     />
                 </div>
                 <div className="flex w-fit" >

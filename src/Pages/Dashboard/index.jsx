@@ -8,39 +8,22 @@ import { useRef } from "react";
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
 import InvoiceModal from "../../components/Pdf Template/pdfTemplate";
+import { use } from "react";
 
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState(false);
-  const modalContentRef = useRef(null);
-  const contentRef = useRef(); // Reference to the content for PDF generation
-
   const [selectedCar, setSelectedCar] = useState(null);
-  const [invoiceData, setInvoiceData] = useState({
-    customerName: "",
-    customerCountry: "",
-    invoiceNo: "INVOICE-201068",
-    portOfLoading: "Any Port in Japan",
-    invoiceDate: "",
-    address: "1010 Lusaka Avondale",
-    portOfDischarge: "DAR ES SALAAM",
-    invoiceExpiryDate: "",
-    paymentTerms: "50%",
-    salesPerson: "ZARIK",
-    contactNumber: "260961111411",
-    emailAddress: "gideonsimbaya@gmail.com",
-    fobPrice: "$3,700",
-    freight: "$1,700",
-    depositAmount: "",
-  });
 
-  // useEffect(() => {
-  //   const getLsToken = localStorage.getItem('token');
-  //   if (!getLsToken) {
-  //     window.location.href = '/';
-  //   }
-  // }, []);
+
+  useEffect(() => {
+    const getLsToken = localStorage.getItem('token');
+    if (!getLsToken) {
+      window.location.href = '/';
+    }
+  }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -50,6 +33,7 @@ export default function Dashboard() {
         );
         if (response.status === 200) {
           setData(response.data.data.products);
+          setLoading(false)
         }
       } catch (error) {
         alert("An error occurred while fetching products.");
@@ -58,6 +42,51 @@ export default function Dashboard() {
 
     fetchProducts();
   }, []);
+
+  const handleDelete = async (id) => {
+    const token = localStorage.getItem('token');
+
+    const confirmDelete = window.confirm('Are you sure you want to delete this product?');
+    if (!confirmDelete) return;
+
+    try {
+      const response = await axios.delete(`https://api-car-export.vercel.app/api/product/delete/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (response.status === 200) {
+        alert('Product deleted successfully!');
+        window.location.reload(); // Refresh page after delete
+      }
+    } catch (error) {
+      alert('Failed to delete product. Please try again.');
+    }
+  };
+
+  const handleUpdateStock = async ({id, status}) => {
+    const token = localStorage.getItem('token');
+
+    const confirmDelete = window.confirm('Are you sure you want to Update this product?');
+    if (!confirmDelete) return;
+
+    try {
+      const response = await axios.patch(`https://api-car-export.vercel.app/api/product/update/${id}`, { stock: status }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (response.status === 200) {
+        alert('Product Updated successfully!');
+        window.location.reload();
+      }
+    } catch (error) {
+      alert('Failed to Update product. Please try again.');
+    }
+  }
 
   const handleCreateInvoice = (car) => {
     setSelectedCar(car);
@@ -68,16 +97,12 @@ export default function Dashboard() {
     setModal(false);
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setInvoiceData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  if (loading) return (
+    <div className="flex justify-center items-center h-screen">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-900"></div>
+    </div>
 
-
-
+  )
 
 
   return (
@@ -111,8 +136,12 @@ export default function Dashboard() {
               Color
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+              Stock
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
               Actions
             </th>
+
           </tr>
         </thead>
         <tbody className=" divide-y divide-gray-200">
@@ -136,10 +165,10 @@ export default function Dashboard() {
                 </div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{item.year}</div>
+                <div className="text-sm text-gray-500">{item.year}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <span className="px-6 py-4 whitespace-nowrap text-sm ">
                   {item.engineType}
                 </span>
               </td>
@@ -148,6 +177,17 @@ export default function Dashboard() {
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {item.color}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                {
+                  item.stock ?
+                    <p className="ml-2 text-gray-800 bg-gray-100 rounded-full text-center px-2 cursor-pointer" onClick={() => handleUpdateStock({id: item.id, status: false})}>
+                      Out Of Stock
+                    </p> :
+                    <p className="ml-2 text-green-800 bg-green-100 rounded-full text-center px-2 cursor-pointer" onClick={() => handleUpdateStock({id: item.id, status: true})}>
+                      In Stock
+                    </p>
+                }
               </td>
               <td className="flex px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <p
