@@ -99,7 +99,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                 heightLeft -= pageHeight;
             }
 
-            pdf.save("full-content.pdf");
+            pdf.save("GTC Invoice.pdf");
 
             handleCloseModal();
             document.getElementById("generate-invoice").style.display = 'block';
@@ -113,7 +113,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
     return (
         <div className="max-w-6xl mx-auto fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 overflow-hidden shadow-xl rounded-lg" id="invoice-content">
             <div id='pdf-content' ref={contentRef} className="overflow-auto rounded-lg w-full h-auto max-h-[90vh]" style={{ backgroundColor: 'white' }}>
-                <div className='rounded-sm p-12 border-2 border-red-800 shadow-3xl'>
+                <div className='rounded-sm p-6 border-2 shadow-2xl'>
                     <div className="flex justify-between items-center mb-4">
                         <img src={logo} className="h-18 object-contain" style={{ width: '180px' }} alt="Logo" />
                         <h1 className="text-4xl " style={{ color: '#991b1b' }}>Global Trading Cars</h1>
@@ -205,8 +205,8 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className="ml-28 w-1/3">
-                                <h1 className="text-2xl font-semibold mb-3">Total Amount</h1>
+                            <div className="ml-20 w-1/3">
+                                <h1 className="text-2xl font-semibold mb-6">Total Amount</h1>
                                 <table className="w-full border-collapse border shadow-lg">
                                     <tbody>
                                         <tr style={{ backgroundColor: '#fee2e2' }}>
@@ -216,7 +216,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     type="number" 
                                                     name="depositAmount" 
                                                     placeholder='Enter Price' 
-                                                    className="mt-2 p-2 border-none w-full focus:ring-0 bg-[#fee2e2]" 
+                                                    className="mt-2 p-4 border-none w-full focus:ring-0 bg-[#fee2e2]" 
                                                     value={formData.depositAmount} 
                                                     onChange={handleChange}
                                                 />
