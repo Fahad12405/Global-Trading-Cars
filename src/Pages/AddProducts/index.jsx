@@ -30,12 +30,12 @@ export default function AddProduct() {
         images: [],
     });
 
-    useEffect(()=> {
-        const getLsToken = localStorage.getItem('token')
-        if(!getLsToken){
-            window.location.href = '/'
-        }
-    },[])
+    // useEffect(()=> {
+    //     const getLsToken = localStorage.getItem('token')
+    //     if(!getLsToken){
+    //         window.location.href = '/'
+    //     }
+    // },[])
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });

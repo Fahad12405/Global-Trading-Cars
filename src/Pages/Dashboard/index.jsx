@@ -35,12 +35,12 @@ export default function Dashboard() {
     depositAmount: "",
   });
 
-  useEffect(() => {
-    const getLsToken = localStorage.getItem('token');
-    if (!getLsToken) {
-      window.location.href = '/';
-    }
-  }, []);
+  // useEffect(() => {
+  //   const getLsToken = localStorage.getItem('token');
+  //   if (!getLsToken) {
+  //     window.location.href = '/';
+  //   }
+  // }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -173,7 +173,7 @@ export default function Dashboard() {
 
 
       {modal && selectedCar && (
-        <InvoiceModal selectedCar={selectedCar} />
+        <InvoiceModal handleCloseModal={handleCloseModal} selectedCar={selectedCar} />
       )}
 
     </div>
