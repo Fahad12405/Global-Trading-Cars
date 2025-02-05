@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import axios from 'axios';
+import Swal from 'sweetalert2'
+import ContactSection from '../../components/Contact/contact'
 
 
 
@@ -25,7 +25,7 @@ const CarDetails = () => {
             try {
                 const response = await fetch(`https://api-car-export.vercel.app/api/product/get/${id}`);
                 const data = await response.json();
-
+                console.log(data)
                 if (data && data.data) {
                     setVehicle(data.data); // Set the vehicle data
                 } else {
@@ -110,17 +110,19 @@ const CarDetails = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto mt-20 p-6">
+        <div className="max-w-7xl mx-auto mt-28 p-8">
             <div className="flex flex-col lg:flex-row">
                 {/* Image on the left side */}
-                <div className="w-full lg:w-1/3 mb-6 lg:mb-0">
+                <div className="w-full mb-6 lg:mb-0">
+                    <h1 className="text-4xl font-semibold text-red-900 mb-6 font-serif">{vehicle.name}</h1>
+
                     <div
                         id="indicators-carousel"
                         className="relative w-full"
                         data-carousel="static"
                     >
                         {/* Carousel wrapper */}
-                        <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+                        <div className="relative h-60 overflow-hidden rounded-lg md:h-96">
                             {vehicle?.image?.map((image, index) => (
                                 <div
                                     key={index}
@@ -206,7 +208,7 @@ const CarDetails = () => {
                                     Inquire Now
                                 </button>
                             ) : (
-                                <p className="text-sm text-center text-red-600 bg-red-100 rounded-full w-full py-1">Out Of Stock</p>
+                                <p className="text-sm text-center text-red-600 bg-white-100 rounded-full w-full py-2 mt-12"> This Car is Reserved!</p>
                             )
                         }
                     </div>
@@ -214,38 +216,100 @@ const CarDetails = () => {
                 </div>
 
                 {/* Car Details on the right side */}
-                <div className="w-full lg:w-2/3 pl-0 lg:pl-8">
-                    <h1 className="text-4xl font-semibold text-gray-900 mb-4">{vehicle.name}</h1>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-gray-700">
-                        <div className="border border-gray-300 p-4 rounded-lg shadow-sm">
-                            <p><strong>Model Code:</strong> {vehicle.modelCode}</p>
-                            <p><strong>Year:</strong> {vehicle.year}</p>
-                            <p><strong>Transmission:</strong> {vehicle.transmission}</p>
-                            <p><strong>Color:</strong> {vehicle.color}</p>
-                            <p><strong>Drive Type:</strong> {vehicle.drive}</p>
-                        </div>
-                        <div className="border border-gray-300 p-4 rounded-lg shadow-sm">
-                            <p><strong>Doors:</strong> {vehicle.doors}</p>
-                            <p><strong>Steering:</strong> {vehicle.steering}</p>
-                            <p><strong>Seats:</strong> {vehicle.seats}</p>
-                            <p><strong>Engine Type:</strong> {vehicle.engineType}</p>
-                            <p><strong>Body Type:</strong> {vehicle.bodyType}</p>
-                            <p><strong>Engine Size:</strong> {vehicle.engineSize}</p>
-                        </div>
+                <div className="w-full lg:w-3/3 pl-0 lg:pl-8">
+                    <div className="text-center mb-6">
+                        <h2 className="text-4xl font-semibold text-red-900 mb-4 font-serif ">Car Details</h2>
                     </div>
+                    <div className="overflow-x-auto border border-gray-300 rounded-lg shadow-sm">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            {/* Property and Detail for Model Code */}
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Model Code</h3>
+                                <p className="text-sm text-gray-900">{vehicle.modelCode}</p>
+                            </div>
+                            <div className="border border-red-800   p-4">
+                                <h3 className="text-md font-medium text-red-700">Year</h3>
+                                <p className="text-sm text-gray-900">{vehicle.year}</p>
+                            </div>
 
-                    {/* Additional Information in a Box */}
-                    <div className="mt-6 border border-gray-300 p-4 rounded-lg shadow-sm">
-                        <p><strong>Mileage:</strong> {vehicle.mileage}</p>
-                        <p><strong>Fuel Type:</strong> {vehicle.fuelType}</p>
-                        <p><strong>Dimensions:</strong> {vehicle.dimensions}</p>
-                        <p><strong>Vehicle Weight:</strong> {vehicle.vehicleWeight}</p>
-                        <p><strong>Max Loading Capacity:</strong> {vehicle.maxLoadingCapacity}</p>
+                            {/* Property and Detail for Transmission */}
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Transmission</h3>
+                                <p className="text-sm text-gray-900">{vehicle.transmission}</p>
+                            </div>
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Color</h3>
+                                <p className="text-sm text-gray-900">{vehicle.color}</p>
+                            </div>
+
+                            {/* Property and Detail for Drive Type */}
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Drive Type</h3>
+                                <p className="text-sm text-gray-900">{vehicle.drive}</p>
+                            </div>
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Inventory Location</h3>
+                                <p className="text-sm text-gray-900">{vehicle.inventoryLocation}</p>
+                            </div>
+
+                            {/* Property and Detail for Doors */}
+                            <div className="border border-red-800 p-4">
+                                <h3 className="text-md font-medium text-red-700">Doors</h3>
+                                <p className="text-sm text-gray-900">{vehicle.doors}</p>
+                            </div>
+                            <div className="border border-red-800 p-4">
+                                <h3 className="text-md font-medium text-red-700">Steering</h3>
+                                <p className="text-sm text-gray-900">{vehicle.steering}</p>
+                            </div>
+
+                            {/* Property and Detail for Seats */}
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Seats</h3>
+                                <p className="text-sm text-gray-900">{vehicle.seats}</p>
+                            </div>
+                            <div className="border border-red-800 p-4">
+                                <h3 className="text-md font-medium text-red-700">Engine Type</h3>
+                                <p className="text-sm text-gray-900">{vehicle.engineType}</p>
+                            </div>
+
+                            {/* Property and Detail for Body Type */}
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Body Type</h3>
+                                <p className="text-sm text-gray-900">{vehicle.bodyType}</p>
+                            </div>
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Engine Size</h3>
+                                <p className="text-sm text-gray-900">{vehicle.engineSize}</p>
+                            </div>
+
+                            {/* Property and Detail for M-3 */}
+                            <div className="border border-red-800 b p-4">
+                                <h3 className="text-md font-medium text-red-700">M-3</h3>
+                                <p className="text-sm text-gray-900">{vehicle.m3}</p>
+                            </div>
+
+
+                            {/* Property and Detail for Mileage */}
+                            <div className="border border-red-800  p-4">
+                                <h3 className="text-md font-medium text-red-700">Mileage</h3>
+                                <p className="text-sm text-gray-900">{vehicle.mileage}</p>
+                            </div>
+                            <div className="border border-red-800 bg-red-1 p-4">
+                                <h3 className="text-md font-medium text-red-700">Fuel Type</h3>
+                                <p className="text-sm text-gray-900">{vehicle.fuelType}</p>
+                            </div>
+                            <div className="border border-red-800 bg-red- p-4">
+                                <h3 className="text-md font-medium text-red-700">Description</h3>
+                                <p className="text-sm text-gray-900">{vehicle.description}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+
+
+            </div>
+            <ContactSection/>
             {/* Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50  overflow-hidden">
@@ -358,6 +422,8 @@ const CarDetails = () => {
                 </div>
             )}
         </div>
+
+      
     );
 };
 

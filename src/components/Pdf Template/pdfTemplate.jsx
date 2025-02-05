@@ -113,7 +113,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
     return (
         <div className="max-w-6xl mx-auto fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 overflow-hidden shadow-xl rounded-lg" id="invoice-content">
             <div id='pdf-content' ref={contentRef} className="overflow-auto rounded-lg w-full h-auto max-h-[90vh]" style={{ backgroundColor: 'white' }}>
-                <div className='rounded-sm p-6 border-2 shadow-2xl'>
+                <div className='rounded-sm p-12 border-2 border-red-800 shadow-3xl'>
                     <div className="flex justify-between items-center mb-4">
                         <img src={logo} className="h-18 object-contain" style={{ width: '180px' }} alt="Logo" />
                         <h1 className="text-4xl " style={{ color: '#991b1b' }}>Global Trading Cars</h1>

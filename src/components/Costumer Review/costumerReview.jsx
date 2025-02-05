@@ -14,7 +14,7 @@ export default function CostumerReview() {
             <div className="col-span-12 ">
               <div className="sm:flex gap-6">
                 <img
-                  src="https://media.istockphoto.com/id/519125180/photo/young-man-high-school-senior-portrait.jpg?s=170667a&w=0&k=20&c=oBo1j2LOPCVDxhsh2jDa0nZXagNwBCYpxM8pNMpcGQg="
+                  src="https://www.rubis-caribbean.com/wp-content/uploads/2024/08/Kenyon-Connell-scaled.jpg"
                   alt="Robert image"
                   className="w-32 h-32 rounded-full object-cover"
                 />
@@ -37,7 +37,7 @@ export default function CostumerReview() {
             <div className="col-span-12 ">
               <div className="sm:flex gap-6">
                 <img
-                  src="https://st3.depositphotos.com/2931875/15616/i/450/depositphotos_156165070-stock-photo-college-grad-on-campus-in.jpg"
+                  src="https://cdn-yotpo-images-production.yotpo.com/Review/675485686/659407205/original.jpg?1738470361"
                   alt="Robert image"
                   className="w-32 h-32 rounded-full object-cover"
                 />
@@ -60,7 +60,7 @@ export default function CostumerReview() {
             <div className="col-span-12 ">
               <div className="sm:flex gap-6">
                 <img
-                  src="https://pagedone.io/asset/uploads/1704364549.png"
+                  src="https://cdn-yotpo-images-production.yotpo.com/Review/669960033/653045596/original.jpg?1737083814"
                   alt="Robert image"
                   className="w-32 h-32 rounded-full object-cover"
                 />
@@ -83,7 +83,7 @@ export default function CostumerReview() {
             <div className="col-span-12 ">
               <div className="sm:flex gap-6">
                 <img
-                  src="https://st1.uvnimg.com/03/e1/398c22664b139b41acd3f9b016d4/shutterstock-351112049.jpg"
+                  src="https://cdn-yotpo-images-production.yotpo.com/Review/672243187/655008463/original.jpg?1737596425"
                   alt="Robert image"
                   className="w-32 h-32 rounded-full object-cover"
                 />

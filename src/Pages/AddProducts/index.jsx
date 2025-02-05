@@ -22,20 +22,17 @@ export default function AddProduct() {
         engineSize: "",
         mileage: "",
         fuelType: "",
-        dimensions: "",
-        vehicleWeight: "",
-        grossVehicleWeight: "",
-        maxLoadingCapacity: "",
+        description: "",
         m3: "",
         images: [],
     });
 
-    useEffect(()=> {
+    useEffect(() => {
         const getLsToken = localStorage.getItem('token')
-        if(!getLsToken){
+        if (!getLsToken) {
             window.location.href = '/'
         }
-    },[])
+    }, [])
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -111,7 +108,7 @@ export default function AddProduct() {
             alert("An error occurred while adding the product.");
         }
     };
-    
+
 
     return (
         <div className="max-w-6xl mx-auto p-4 bg-white rounded-lg shadow-md mt-32 border-2 border-gray-300 hover:border-gray-400 h-auto">
@@ -131,6 +128,30 @@ export default function AddProduct() {
                 </div>
 
                 <div>
+                    <label className="block text-sm font-medium text-gray-700">Model Code</label>
+                    <input
+                        type="text"
+                        name="modelCode"
+                        value={formData.modelCode}
+                        onChange={handleChange}
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Engine Size</label>
+                    <input
+                        type="text"
+                        name="engineSize"
+                        value={formData.engineSize}
+                        onChange={handleChange}
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
+                    />
+                </div>
+
+                <div>
                     <label className="block text-sm font-medium text-gray-700">Inventory Location</label>
                     <input
                         type="text"
@@ -143,35 +164,13 @@ export default function AddProduct() {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-gray-700">Model Code</label>
-                    <input
-                        type="text"
-                        name="modelCode"
-                        value={formData.modelCode}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Year</label>
-                    <input
-                        type="text"
-                        name="year"
-                        value={formData.year}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
-
-
-                <div>
                     <label className="block text-sm font-medium text-gray-700">Transmission</label>
                     <select
                         name="transmission"
                         value={formData.transmission}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     >
                         <option value="">Select Transmission</option>
                         <option value="AT (Automatic)">AT (Automatic)</option>
@@ -179,6 +178,31 @@ export default function AddProduct() {
                     </select>
                 </div>
 
+                <div className="flex gap-2" >
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Year</label>
+                        <input
+                            type="text"
+                            name="year"
+                            value={formData.year}
+                            onChange={handleChange}
+                            className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                            required
+                            />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Mileage</label>
+                        <input
+                            type="text"
+                            name="mileage"
+                            value={formData.mileage}
+                            onChange={handleChange}
+                            className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                            required
+                            />
+                    </div>
+                </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Drive</label>
@@ -187,6 +211,7 @@ export default function AddProduct() {
                         value={formData.drive}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     >
                         <option value="">Select Drive Type</option>
                         <option value="2WD">2WD</option>
@@ -204,6 +229,7 @@ export default function AddProduct() {
                         value={formData.color}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     />
                 </div>
 
@@ -216,6 +242,7 @@ export default function AddProduct() {
                         value={formData.doors}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     />
                 </div>
 
@@ -227,28 +254,7 @@ export default function AddProduct() {
                         value={formData.engineType}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Engine Size</label>
-                    <input
-                        type="text"
-                        name="engineSize"
-                        value={formData.engineSize}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Mileage</label>
-                    <input
-                        type="text"
-                        name="mileage"
-                        value={formData.mileage}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     />
                 </div>
 
@@ -259,6 +265,7 @@ export default function AddProduct() {
                         value={formData.fuelType}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     >
                         <option value="">Select Fuel Type</option>
                         <option value="Petrol">Petrol</option>
@@ -276,50 +283,19 @@ export default function AddProduct() {
                         value={formData.bodyType}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Dimensions</label>
-                    <input
-                        type="text"
-                        name="dimensions"
-                        value={formData.dimensions}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Gross Vehicle Weight</label>
-                    <input
-                        type="number"
-                        name="grossVehicleWeight"
-                        value={formData.grossVehicleWeight}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Max Loading Capacity</label>
-                    <input
-                        type="number"
-                        name="maxLoadingCapacity"
-                        value={formData.maxLoadingCapacity}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     />
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Seats</label>
                     <input
-                        type="number"
+                        type="text"
                         name="seats"
                         value={formData.seats}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     />
                 </div>
 
@@ -330,6 +306,7 @@ export default function AddProduct() {
                         value={formData.steering}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     >
                         <option value="">Select Steering Type</option>
                         <option value="LHD (Left-Hand Drive)">LHD (Left-Hand Drive)</option>
@@ -337,18 +314,6 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-               
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Vehicle Weight</label>
-                    <input
-                        type="text"
-                        name="vehicleWeight"
-                        value={formData.vehicleWeight}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                    />
-                </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">M-3</label>
                     <input
@@ -357,6 +322,19 @@ export default function AddProduct() {
                         value={formData.m3}
                         onChange={handleChange}
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
+                    />
+                </div>
+
+                <div className="col-span-3" >
+                    <label className="block text-sm font-medium text-gray-700">Car Description</label>
+                    <textarea
+                        type="text"
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
                     />
                 </div>
 
@@ -371,6 +349,7 @@ export default function AddProduct() {
                         onChange={addAttachment}
                         multiple
                         className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2] "
+                        required
                     />
                 </div>
                 <div className="flex w-fit" >

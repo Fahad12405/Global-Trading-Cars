@@ -65,7 +65,7 @@ export default function Dashboard() {
     }
   };
 
-  const handleUpdateStock = async ({id, status}) => {
+  const handleUpdateStock = async ({ id, status }) => {
     const token = localStorage.getItem('token');
 
     const confirmDelete = window.confirm('Are you sure you want to Update this product?');
@@ -106,8 +106,18 @@ export default function Dashboard() {
 
 
   return (
-    <div className="max-w-7xl mx-auto mt-28">
-      <div className="flex justify-end mb-4 mt-4 mr-12">
+    <div className="max-w-7xl mx-auto mt-32 px-4 sm:px-6 lg:px-8">
+    {/* Search and Add Product Section */}
+    <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0">
+      <div className="flex-1 max-w-full sm:max-w-xs w-full">
+        <input
+          type="text"
+          placeholder="Search Cars..."
+          className="w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900"
+        />
+      </div>
+  
+      <div>
         <Link
           to="/Protected/AddProduct"
           className="inline-flex items-center px-4 py-2 text-white rounded-full bg-red-900 hover:bg-red-700"
@@ -116,15 +126,19 @@ export default function Dashboard() {
           Add Product
         </Link>
       </div>
-
-      <table className="min-w-full divide-y divide-gray-200 overflow-x-auto mt-12">
+    </div>
+  
+    {/* Table Section */}
+    <div className="overflow-x-auto sm:overflow-x-visible mt-6">
+    <table className="min-w-full table-auto divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
               Name
             </th>
+  
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-              Year
+              Car Ref No#
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
               Engine Type
@@ -141,13 +155,12 @@ export default function Dashboard() {
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
               Actions
             </th>
-
           </tr>
         </thead>
-        <tbody className=" divide-y divide-gray-200">
+        <tbody className="divide-y divide-gray-200">
           {data?.map((item, index) => (
             <tr key={index}>
-              <td className="px-6 py-4 whitespace-nowrap">
+              <td className="px-1 py-4 whitespace-nowrap">
                 <div className="flex items-center">
                   <div className="flex-shrink-0 h-10 w-10">
                     <img
@@ -161,16 +174,16 @@ export default function Dashboard() {
                       {item.name}
                     </div>
                     <div className="text-sm text-gray-500">{item.modelCode}</div>
+                    <div className="text-sm text-gray-500">{item.year}</div>
                   </div>
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-500">{item.year}</div>
+  
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                {item.referenceNo}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <span className="px-6 py-4 whitespace-nowrap text-sm ">
-                  {item.engineType}
-                </span>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                {item.engineType}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {item.transmission}
@@ -179,25 +192,31 @@ export default function Dashboard() {
                 {item.color}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {
-                  item.stock ?
-                    <p className="ml-2 text-gray-800 bg-gray-100 rounded-full text-center px-2 cursor-pointer" onClick={() => handleUpdateStock({id: item.id, status: false})}>
-                      Out Of Stock
-                    </p> :
-                    <p className="ml-2 text-green-800 bg-green-100 rounded-full text-center px-2 cursor-pointer" onClick={() => handleUpdateStock({id: item.id, status: true})}>
-                      In Stock
-                    </p>
-                }
+                {item.stock ? (
+                  <p
+                    className="ml-2 text-gray-800 bg-gray-100 rounded-full text-center px-2 cursor-pointer"
+                    onClick={() => handleUpdateStock({ id: item.id, status: false })}
+                  >
+                    Out Of Stock
+                  </p>
+                ) : (
+                  <p
+                    className="ml-2 text-green-800 bg-green-100 rounded-full text-center px-2 cursor-pointer"
+                    onClick={() => handleUpdateStock({ id: item.id, status: true })}
+                  >
+                    In Stock
+                  </p>
+                )}
               </td>
-              <td className="flex px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <td className="flex space-x-4 px-6 py-8 whitespace-nowrap text-sm font-medium">
                 <p
-                  className="ml-2 text-red-700 hover:text-red-900 cursor-pointer"
+                  className="text-red-700 hover:text-red-900 cursor-pointer"
                   onClick={() => handleDelete(item.id)}
                 >
                   Delete
                 </p>
                 <p
-                  className="ml-2 text-blue-600 hover:text-blue-900 cursor-pointer"
+                  className="text-blue-600 hover:text-blue-900 cursor-pointer"
                   onClick={() => handleCreateInvoice(item)}
                 >
                   Create Invoice
@@ -207,15 +226,14 @@ export default function Dashboard() {
           ))}
         </tbody>
       </table>
-
-
-
-
-
-      {modal && selectedCar && (
-        <InvoiceModal handleCloseModal={handleCloseModal} selectedCar={selectedCar} />
-      )}
-
     </div>
+  
+    {/* Modal */}
+    {modal && selectedCar && (
+      <InvoiceModal handleCloseModal={handleCloseModal} selectedCar={selectedCar} />
+    )}
+  </div>
+  
+  
   );
 }
