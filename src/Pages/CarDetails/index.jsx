@@ -114,7 +114,7 @@ const CarDetails = () => {
             <div className="flex flex-col lg:flex-row">
                 {/* Image on the left side */}
                 <div className="w-full mb-6 lg:mb-0">
-                    <h1 className="text-4xl font-semibold text-red-900 mb-6 font-serif">{vehicle.name}</h1>
+                    <h1 className="text-4xl font-semibold text-gray-900 mb-6 font-serif">{vehicle.name}</h1>
 
                     <div
                         id="indicators-carousel"
@@ -217,99 +217,95 @@ const CarDetails = () => {
 
                 {/* Car Details on the right side */}
                 <div className="w-full lg:w-3/3 pl-0 lg:pl-8">
-                    <div className="text-center mb-6">
-                        <h2 className="text-4xl font-semibold text-red-900 mb-4 font-serif ">Car Details</h2>
+                    <div className="text-left mb-6">
+                        <h2 className="text-4xl font-semibold text-gray-900 mb-4 font-serif">Car Details</h2>
                     </div>
                     <div className="overflow-x-auto border border-gray-300 rounded-lg shadow-sm">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                            {/* Property and Detail for Model Code */}
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Model Code</h3>
-                                <p className="text-sm text-gray-900">{vehicle.modelCode}</p>
-                            </div>
-                            <div className="border border-red-800   p-4">
-                                <h3 className="text-md font-medium text-red-700">Year</h3>
-                                <p className="text-sm text-gray-900">{vehicle.year}</p>
-                            </div>
-
-                            {/* Property and Detail for Transmission */}
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Transmission</h3>
-                                <p className="text-sm text-gray-900">{vehicle.transmission}</p>
-                            </div>
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Color</h3>
-                                <p className="text-sm text-gray-900">{vehicle.color}</p>
-                            </div>
-
-                            {/* Property and Detail for Drive Type */}
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Drive Type</h3>
-                                <p className="text-sm text-gray-900">{vehicle.drive}</p>
-                            </div>
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Inventory Location</h3>
-                                <p className="text-sm text-gray-900">{vehicle.inventoryLocation}</p>
-                            </div>
-
-                            {/* Property and Detail for Doors */}
-                            <div className="border border-red-800 p-4">
-                                <h3 className="text-md font-medium text-red-700">Doors</h3>
-                                <p className="text-sm text-gray-900">{vehicle.doors}</p>
-                            </div>
-                            <div className="border border-red-800 p-4">
-                                <h3 className="text-md font-medium text-red-700">Steering</h3>
-                                <p className="text-sm text-gray-900">{vehicle.steering}</p>
-                            </div>
-
-                            {/* Property and Detail for Seats */}
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Seats</h3>
-                                <p className="text-sm text-gray-900">{vehicle.seats}</p>
-                            </div>
-                            <div className="border border-red-800 p-4">
-                                <h3 className="text-md font-medium text-red-700">Engine Type</h3>
-                                <p className="text-sm text-gray-900">{vehicle.engineType}</p>
-                            </div>
-
-                            {/* Property and Detail for Body Type */}
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Body Type</h3>
-                                <p className="text-sm text-gray-900">{vehicle.bodyType}</p>
-                            </div>
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Engine Size</h3>
-                                <p className="text-sm text-gray-900">{vehicle.engineSize}</p>
-                            </div>
-
-                            {/* Property and Detail for M-3 */}
-                            <div className="border border-red-800 b p-4">
-                                <h3 className="text-md font-medium text-red-700">M-3</h3>
-                                <p className="text-sm text-gray-900">{vehicle.m3}</p>
-                            </div>
-
-
-                            {/* Property and Detail for Mileage */}
-                            <div className="border border-red-800  p-4">
-                                <h3 className="text-md font-medium text-red-700">Mileage</h3>
-                                <p className="text-sm text-gray-900">{vehicle.mileage}</p>
-                            </div>
-                            <div className="border border-red-800 bg-red-1 p-4">
-                                <h3 className="text-md font-medium text-red-700">Fuel Type</h3>
-                                <p className="text-sm text-gray-900">{vehicle.fuelType}</p>
-                            </div>
-                            <div className="border border-red-800 bg-red- p-4">
-                                <h3 className="text-md font-medium text-red-700">Description</h3>
-                                <p className="text-sm text-gray-900">{vehicle.description}</p>
-                            </div>
-                        </div>
+                        <table className="min-w-full table-auto">
+                            <thead>
+                                <tr className="bg-gray-200">
+                                    <th className="py-1 px-4 text-left text-sm font-medium text-gray-700">Property</th>
+                                    <th className="py-1 px-4 text-left text-sm font-medium text-gray-700">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Model Code</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.modelCode}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Year</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.year}</td>
+                                </tr>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Transmission</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.transmission}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Color</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.color}</td>
+                                </tr>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Drive Type</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.drive}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Inventory Location</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.inventoryLocation}</td>
+                                </tr>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Doors</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.doors}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Steering</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.steering}</td>
+                                </tr>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Seats</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.seats}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Engine Type</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.engineType}</td>
+                                </tr>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Body Type</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.bodyType}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Engine Size</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.engineSize}</td>
+                                </tr>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">M-3</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.m3}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Mileage</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.mileage}</td>
+                                </tr>
+                                <tr className="border-t border-gray-300">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Fuel Type</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.fuelType}</td>
+                                </tr>
+                                <tr className="border-t border-gray-200">
+                                    <td className="py-1 px-4 text-sm text-gray-700">Description</td>
+                                    <td className="py-1 px-4 text-xs text-gray-900">{vehicle.description}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
 
 
+
+
+
+
             </div>
-            <ContactSection/>
+            <ContactSection />
             {/* Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50  overflow-hidden">
@@ -423,7 +419,7 @@ const CarDetails = () => {
             )}
         </div>
 
-      
+
     );
 };
 

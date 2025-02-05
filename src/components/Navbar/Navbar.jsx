@@ -80,14 +80,14 @@ export default function Navbar() {
             {/* Desktop Dropdown Menu */}
             {isDropdownOpen && (
               <div
-                className="absolute left-0 mt-2 bg-white shadow-lg dark:bg-gray-800 rounded-lg w-48 z-10"
+                className="absolute left-0 mt-2 bg-white  rounded-lg w-48 z-10"
                 onMouseLeave={closeDropdown} // Close the dropdown when mouse leaves the dropdown area
               >
                 <ul>
                   <li>
                     <Link
                       to="/PrivacyPolicy"
-                      className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white"
+                      className="block py-2 px-4 text-gray-900 rounded-sm "
                       onClick={closeDropdown} // Close the dropdown on item click
                     >
                       Privacy Policy
@@ -234,16 +234,16 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-18 left-0 w-full bg-white shadow-md dark:bg-gray-800 md:hidden z-[999999]"
+              className="absolute top-18 left-0 w-full bg-white shadow-md  md:hidden z-[999999]"
             >
-              <ul className="flex flex-col p-4 font-medium border border-gray-200 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+              <ul className="flex flex-col p-4 font-medium border border-gray-200 rounded-lg">
                 <li>
-                  <Link to="/" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/" className="block py-2 px-3 text-gray-900 rounded-sm ">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/CarforSale" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/CarforSale" className="block py-2 px-3 text-gray-900 rounded-sm ">
                     Cars For Sale
                   </Link>
                 </li>
@@ -252,7 +252,7 @@ export default function Navbar() {
                 <li className="relative">
                   <button
                     onClick={toggleDropdown}
-                    className="flex py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white items-center"
+                    className="flex py-2 px-3 text-gray-900 rounded-sm  items-center"
                   >
                     About
                     <svg
@@ -269,25 +269,25 @@ export default function Navbar() {
 
                   {/* Mobile Dropdown Menu */}
                   {isDropdownOpen && (
-                    <div className="absolute left-0 w-full bg-white shadow-lg dark:bg-gray-800 rounded-lg">
+                    <div className="absolute left-0 w-full bg-white shadow-lg  rounded-lg">
                       <ul>
                         <li>
-                          <Link to="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm  ">
                             Privacy Policy
                           </Link>
                         </li>
                         <li>
-                          <Link to="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm ">
                             Company Profile
                           </Link>
                         </li>
                         <li>
-                          <Link to="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/TermsofUse" className="block py-2 px-4 text-gray-900 rounded-sm ">
                             Terms of Use
                           </Link>
                         </li>
                         <li>
-                          <Link to="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm hover: dark:text-white">
+                          <Link to="/Blogs" className="block py-2 px-4 text-gray-900 rounded-sm ">
                             Blog
                           </Link>
                         </li>
@@ -297,17 +297,17 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <Link to="/contact" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/contact" className="block py-2 px-3 text-gray-900 rounded-sm hover:">
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link to="/how-to-buy" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/how-to-buy" className="block py-2 px-3 text-gray-900 rounded-sm hover:">
                     How to Buy
                   </Link>
                 </li>
                 <li>
-                  <Link to="/why-choose-us" className="block py-2 px-3 text-gray-900 rounded-sm hover: dark:text-white">
+                  <Link to="/why-choose-us" className="block py-2 px-3 text-gray-900 rounded-sm hover:">
                     Why Choose Us
                   </Link>
                 </li>

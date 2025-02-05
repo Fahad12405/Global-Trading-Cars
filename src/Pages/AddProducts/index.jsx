@@ -23,7 +23,6 @@ export default function AddProduct() {
         mileage: "",
         fuelType: "",
         description: "",
-        m3: "",
         images: [],
     });
 
@@ -178,7 +177,7 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-                <div className="flex gap-2" >
+               
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Year</label>
                         <input
@@ -202,7 +201,6 @@ export default function AddProduct() {
                             required
                             />
                     </div>
-                </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Drive</label>
@@ -314,17 +312,7 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">M-3</label>
-                    <input
-                        type="number"
-                        name="m3"
-                        value={formData.m3}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                        required
-                    />
-                </div>
+                
 
                 <div className="col-span-3" >
                     <label className="block text-sm font-medium text-gray-700">Car Description</label>
