@@ -17,7 +17,7 @@ export default function Home() {
                 const response = await axios.get('https://api-car-export.vercel.app/api/product/get');
 
                 if (response.status === 200) {
-                    setData(response.data.data.products.slice(0, 9));
+                    setData(response.data.data.products.slice(0, 12));
                 }
             } catch (error) {
                 // console.error('Error fetching products:', error);

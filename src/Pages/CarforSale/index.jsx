@@ -14,7 +14,7 @@ export default function CarforSale() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 20;
 
 
   const fetchApiData = async (query) => {
