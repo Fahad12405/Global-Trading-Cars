@@ -3,6 +3,8 @@ import axios from "axios";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import InvoiceModal from "../../components/Pdf Template/pdfTemplate";
+import ProductUpdate from "../../components/Dashboard/ProductUpdate";
+import Toast from "../../components/Toast Component/toast";
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
@@ -24,25 +26,26 @@ export default function Dashboard() {
   // Fetch data when currentPage or searchTerm changes
   const fetchProducts = async (query = "", page = currentPage) => {
     try {
-      setLoading(true); // Set loading to true when starting fetch
+      setLoading(true);
       const skipValue = (page - 1) * itemsPerPage;
 
       const url = `https://api-car-export.vercel.app/api/product/get?referenceNo=${query}&skip=${skipValue}&limit=${itemsPerPage}`;
       const response = await axios.get(url);
+
       if (response.status === 200) {
         setData(response.data.data.products);
-        setTotalPages(Math.ceil(response.data.data.total / itemsPerPage)); // Update total pages
-        setLoading(false); // Set loading to false after data is fetched
+        setTotalPages(Math.ceil(response.data.data.total / itemsPerPage));
       }
     } catch (error) {
-      console.log("An error occurred while fetching products.");
-      setLoading(false); // Make sure loading is false if there's an error
+      console.error("An error occurred while fetching products.", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchProducts(searchTerm, currentPage);
-  }, [currentPage, searchTerm]); // Depend on both currentPage and searchTerm
+  }, [currentPage, searchTerm]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -52,8 +55,7 @@ export default function Dashboard() {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    const confirmDelete = window.confirm("Are you sure you want to delete this product?");
-    if (!confirmDelete) return;
+    if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
       const response = await axios.delete(
@@ -67,36 +69,10 @@ export default function Dashboard() {
 
       if (response.status === 200) {
         alert("Product deleted successfully!");
-        fetchProducts(searchTerm, currentPage); // Refresh data
+        setData((prevData) => prevData.filter((item) => item.id !== id)); // UI Update bina reload ke
       }
     } catch (error) {
       alert("Failed to delete product. Please try again.");
-    }
-  };
-
-  const handleUpdateStock = async ({ id, status }) => {
-    const token = localStorage.getItem("token");
-    const confirmDelete = window.confirm("Are you sure you want to update this product?");
-    if (!confirmDelete) return;
-
-    try {
-      const response = await axios.patch(
-        `https://api-car-export.vercel.app/api/product/update/${id}`,
-        { stock: status },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        alert("Product updated successfully!");
-        fetchProducts(searchTerm, currentPage); // Refresh data
-      }
-    } catch (error) {
-      alert("Failed to update product. Please try again.");
     }
   };
 
@@ -122,7 +98,7 @@ export default function Dashboard() {
     if (end - start < 2) {
       start = Math.max(1, end - 2);
     }
- 
+
     return (
       <div className="flex justify-center mt-6 space-x-2">
         {currentPage > 1 && (
@@ -147,7 +123,7 @@ export default function Dashboard() {
       </div>
     );
   };
-  
+
   return (
     <div className="max-w-7xl mx-auto mt-32 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0">
@@ -162,7 +138,7 @@ export default function Dashboard() {
             Search
           </button>
         </form>
-  
+
         <div>
           <Link
             to="/Protected/AddProduct"
@@ -173,7 +149,7 @@ export default function Dashboard() {
           </Link>
         </div>
       </div>
-  
+
       {/* Table Section */}
       <div className="overflow-x-auto sm:overflow-x-visible mt-6">
         <table className="min-w-full table-auto divide-y divide-gray-200">
@@ -193,11 +169,11 @@ export default function Dashboard() {
               Array.from({ length: itemsPerPage }, (_, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-5">
                       <div className="w-10 h-10 bg-gray-300 rounded-full animate-pulse"></div>
-                      <div className="flex-1 space-y-3">
-                        <div className="h-4 bg-gray-300 rounded w-3/4 animate-pulse"></div>
+                      <div className="flex-1 space-y-3 w-[50px]">
                         <div className="h-4 bg-gray-300 rounded w-1/2 animate-pulse"></div>
+                        <div className="h-4 bg-gray-300 rounded w-full animate-pulse"></div>
                       </div>
                     </div>
                   </td>
@@ -254,20 +230,11 @@ export default function Dashboard() {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {item.color}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {item.stock ? (
-                      <p
-                        className="ml-2 text-green-800 bg-green-100 rounded-full text-center px-2 cursor-pointer"
-                      >
-                        In Stock
-                      </p>
-                    ) : (
-                      <p
-                        className="ml-2 text-gray-800 bg-gray-100 rounded-full text-center px-2 cursor-pointer"
-                      >
-                        Out Of Stock
-                      </p>
-                    )}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500" >
+
+                    {
+                      <ProductUpdate id={item.id} stock={item.stock} setData={setData} fetchProducts={fetchProducts} searchTerm={searchTerm} currentPage={currentPage} />
+                    }
                   </td>
                   <td className="flex space-x-4 px-6 py-8 whitespace-nowrap text-sm font-medium">
                     <p
@@ -289,14 +256,17 @@ export default function Dashboard() {
           </tbody>
         </table>
       </div>
-  
+
       {totalPages > 1 && renderPagination()}
-  
+
       {/* Modal */}
       {modal && selectedCar && (
         <InvoiceModal handleCloseModal={handleCloseModal} selectedCar={selectedCar} />
       )}
+
+
+
     </div>
   );
-  
+
 }

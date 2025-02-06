@@ -18,6 +18,7 @@ import Footer from './components/Footer/Footer'
 import Logout from './Pages/Logout'
 import AddProduct from './Pages/AddProducts'
 import Dashboard from './Pages/Dashboard/index'
+import NotFound from './components/Not Found/notFound'
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
     <Navbar/>
       <Routes>
 
-        <Route path='*' element={<h1>404 Not Found</h1>} />
+        <Route path='*' element={<NotFound/>}/>
         <Route path='/' element={<Home />} />
 
         <Route path='/how-to-buy' element={<HowToBuy />} />
