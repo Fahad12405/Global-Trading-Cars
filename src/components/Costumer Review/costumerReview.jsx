@@ -20,11 +20,10 @@ export default function CostumerReview() {
                 />
                 <div className="text">
                   <p className="font-medium text-lg leading-8 text-gray-900 mb-2">
-                    John Smith
+                  Kofi Omari
                   </p>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                    Shares how her purchase through the platform was a pleasant experience. She was pleased with the professional assistance she received, from selecting the right car to ensuring it was delivered on time and in perfect condition. Maria was particularly impressed by the transparency and communication.
-                  </p>
+                  Overall, I’m really happy with my experience. The website was simple to navigate, and I was able to find the exact car I was looking for without any hassle. Definitely recommend checking it out!                  </p>
                   <p className="font-medium text-lg leading-8 text-gray-400 whitespace-nowrap">
                     Nov 01, 2024
                   </p>
@@ -43,11 +42,10 @@ export default function CostumerReview() {
                 />
                 <div className="text">
                   <p className="font-medium text-lg leading-8 text-gray-900 mb-2">
-                    James Clark
+                  Jovan Desmond
                   </p>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                    A first-time seller, was impressed by how easy it was to list and sell his car. The platform provided a simple, hassle-free process and a fair market price for his vehicle. Amit appreciated the transparency and the fact that the entire export procedure was handled smoothly
-                  </p>
+                  I had a great experience on this website. It was easy to find the car I wanted, and the process was smooth from start to finish. The details provided for each car helped me make a well-informed decision, and everything went smoothly throughout.             </p>
                   <p className="font-medium text-lg leading-8 text-gray-400 whitespace-nowrap">
                     Sep 06, 2024
                   </p>
@@ -66,11 +64,10 @@ export default function CostumerReview() {
                 />
                 <div className="text">
                   <p className="font-medium text-lg leading-8 text-gray-900 mb-2">
-                    Johnson Walker
+                  Elijah Christopher Williams
                   </p>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                    I had never purchased a car online before, and was initially nervous. However, after receiving dedicated support and clear communication from the team, she felt confident in her purchase. Her car arrived safely, and she was thrilled with the overall experience, calling it 'seamless.
-                  </p>
+                  This website made car shopping so much easier. I was able to find the right car quickly, and the whole process was straightforward. The user-friendly layout and helpful information made my search much less stressful, and I’m really happy with my choice.                  </p>
                   <p className="font-medium text-lg leading-8 text-gray-400 whitespace-nowrap">
                     Nov 01, 2024
                   </p>
@@ -89,11 +86,10 @@ export default function CostumerReview() {
                 />
                 <div className="text">
                   <p className="font-medium text-lg leading-8 text-gray-900 mb-2">
-                    Sarah Isaac
+                  Jamal Richards
                   </p>
                   <p className="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">
-                    The  website for several years. He appreciates the ease of connecting with international buyers and the competitive pricing. The platform’s user interface and straightforward process made his car sales efficient, and he recommends it to other car dealers.
-                  </p>
+                  I’m really satisfied with my purchase. The website was simple to use, and I found a great car with no trouble. The entire process from browsing to buying was clear and hassle-free, and I felt confident in my decision                 </p>
                   <p className="font-medium text-lg leading-8 text-gray-400 whitespace-nowrap">
                     Dec 01, 2024
                   </p>
