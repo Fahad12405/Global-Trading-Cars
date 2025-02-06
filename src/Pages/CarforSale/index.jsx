@@ -3,53 +3,95 @@ import CarSearchForm from '../../components/Cards/cardsSearch';
 import { Link } from 'react-router-dom';
 
 export default function CarforSale() {
-  const [filteredResults, setFilteredResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState(
+    {
+      name: "",
+      modelCode: "",
+      year: ""
+    }
+  );
   const [apiData, setApiData] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state added
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 10;
+
+
+  const fetchApiData = async (query) => {
+    try {
+      setLoading(true);
+      const skipValue = (query.name || query.modelCode || query.year) ? 0 : (currentPage - 1) * itemsPerPage;
+
+      const url = `https://api-car-export.vercel.app/api/product/get?name=${query.name}&modelCode=${query.modelCode}&year=${query.year}&skip=${skipValue}`;
+  
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data && data.data.products) {
+        setApiData(data.data.products);
+        setTotalPages(Math.ceil(data.data.total / itemsPerPage));
+      }
+    } catch (error) {
+      console.log('There is a critical error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   useEffect(() => {
-    const fetchApiData = async () => {
-      try {
-        setLoading(true); // Start loading before fetching data
-        const response = await fetch('https://api-car-export.vercel.app/api/product/get');
-        const data = await response.json();
-        if (data && data.data.products) {
-          setApiData(data.data.products);
-          setFilteredResults(data.data.products);
+    fetchApiData(filteredResults);
+  }, [currentPage, filteredResults]);
 
-        }
-      } catch (error) {
-        console.log('There is a critical error');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchApiData();
-  }, []);
+  const handleSearch = (formData) => {
+    setFilteredResults(formData)
+  };
 
-  const handleSearch = (filtered) => {
-    setFilteredResults(filtered);
+  const handlePageClick = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  const renderPagination = () => {
+    let start = Math.max(1, currentPage - 1);
+    let end = Math.min(totalPages, start + 2);
+    if (end - start < 2) {
+      start = Math.max(1, end - 2);
+    }
+
+    return (
+      <div className="flex justify-center mt-6 space-x-2">
+        {currentPage > 1 && (
+          <button onClick={() => handlePageClick(currentPage - 1)} className="px-4 py-2 bg-gray-200 rounded">Prev</button>
+        )}
+        {Array.from({ length: end - start + 1 }, (_, index) => start + index).map((page) => (
+          <button
+            key={page}
+            onClick={() => handlePageClick(page)}
+            className={`px-4 py-2 ${currentPage === page ? 'bg-red-800 text-white' : 'bg-gray-200'} rounded`}
+          >
+            {page}
+          </button>
+        ))}
+        {currentPage < totalPages && (
+          <button onClick={() => handlePageClick(currentPage + 1)} className="px-4 py-2 bg-gray-200 rounded">Next</button>
+        )}
+      </div>
+    );
   };
 
   return (
     <div className="max-w-7xl mx-auto">
       <div className="w-full max-w-7xl mx-auto mt-32 p-3 bg-[#7d1418] rounded-lg shadow-xl text-center">
-        <h1 className="text-3xl font-semibold text-red-50 mb-1 font-serif">
-          Car For Sale
-        </h1>
+        <h1 className="text-3xl font-semibold text-red-50 mb-1 font-serif">Car For Sale</h1>
       </div>
 
-      <CarSearchForm onSearch={handleSearch} apiData={apiData} />
+      <CarSearchForm onSearch={(formData) => handleSearch(formData)} />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 justify-center items-center">
-        {/* Check if loading is true and render skeletons based on apiData length */}
         {loading ? (
-          // Default 4 skeletons if data is empty
           Array.from({ length: 8 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto"
-            >
+            <div key={index} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto">
               <div className="p-8 rounded-t-lg w-full h-52 bg-gray-300 animate-pulse"></div>
               <div className="px-5 pb-5 mt-6">
                 <div className="h-6 bg-gray-300 animate-pulse w-2/3"></div>
@@ -58,7 +100,7 @@ export default function CarforSale() {
             </div>
           ))
         ) : apiData.length > 0 ? (
-          filteredResults.map((vehicle) => (
+          apiData.map((vehicle) => (
             <div key={vehicle.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto">
               <img className="rounded-t-lg w-full h-60 object-cover object-center" src={vehicle.image[0].url} alt="product image" />
               <div className="p-5">
@@ -83,13 +125,14 @@ export default function CarforSale() {
               </div>
             </div>
           ))
-        ) : apiData.length == 0 && (
+        ) : apiData.length === 0 && (
           <div className="flex justify-center items-center w-full h-96 mx-auto">
-            <h1 className="text-center text-red-600 font-bold text-xl">No results found</h1>
+            <h1 className="text-center text-red-800 font-bold text-xl">No results found</h1>
           </div>
         )}
-
       </div>
+
+      {totalPages > 1 && renderPagination()}
     </div>
   );
 }

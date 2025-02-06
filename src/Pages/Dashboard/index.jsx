@@ -16,32 +16,39 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
 
   useEffect(() => {
     const getLsToken = localStorage.getItem('token');
     if (!getLsToken) {
-      window.location.href = '/';
+      window.location.href = '/Protected/LogIn';
     }
   }, []);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "https://api-car-export.vercel.app/api/product/get"
-        );
-        if (response.status === 200) {
-          setData(response.data.data.products);
-          setLoading(false)
-        }
-      } catch (error) {
-        alert("An error occurred while fetching products.");
-      }
-    };
+  const fetchProducts = async (query) => {
+    try {
+      const url = query
+        ? `https://api-car-export.vercel.app/api/product/get?referenceNo=${query}`
+        : "https://api-car-export.vercel.app/api/product/get";
 
+      const response = await axios.get(url);
+      if (response.status === 200) {
+        setData(response.data.data.products);
+        setLoading(false)
+      }
+    } catch (error) {
+      alert("An error occurred while fetching products.");
+    }
+  };
+  useEffect(() => {
     fetchProducts();
   }, []);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    fetchProducts(searchTerm);
+  };
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem('token');
@@ -107,133 +114,138 @@ export default function Dashboard() {
 
   return (
     <div className="max-w-7xl mx-auto mt-32 px-4 sm:px-6 lg:px-8">
-    {/* Search and Add Product Section */}
-    <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0">
-      <div className="flex-1 max-w-full sm:max-w-xs w-full">
-        <input
-          type="text"
-          placeholder="Search Cars..."
-          className="w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900"
-        />
+      {/* Search and Add Product Section */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0">
+        <form className="flex gap-2 flex-1 max-w-full sm:max-w-xs w-full" onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search Cars..."
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-full "
+          />
+          <button type="submit" className="text-white bg-red-900 hover:bg-red-700 cursor-pointer rounded-full px-7" >
+            Search
+          </button>
+        </form>
+
+        <div>
+          <Link
+            to="/Protected/AddProduct"
+            className="inline-flex items-center px-4 py-2 text-white rounded-full bg-red-900 hover:bg-red-700"
+          >
+            <FaPlus className="mr-3" />
+            Add Product
+          </Link>
+        </div>
       </div>
-  
-      <div>
-        <Link
-          to="/Protected/AddProduct"
-          className="inline-flex items-center px-4 py-2 text-white rounded-full bg-red-900 hover:bg-red-700"
-        >
-          <FaPlus className="mr-3" />
-          Add Product
-        </Link>
-      </div>
-    </div>
-  
-    {/* Table Section */}
-    <div className="overflow-x-auto sm:overflow-x-visible mt-6">
-    <table className="min-w-full table-auto divide-y divide-gray-200">
-        <thead className="bg-gray-50">
-          <tr>
-            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
-              Name
-            </th>
-  
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-              Car Stock Id
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-              Engine Type
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-              Transmission
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-              Color
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-              Stock
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-200">
-          {data?.map((item, index) => (
-            <tr key={index}>
-              <td className="px-1 py-4 whitespace-nowrap">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 h-10 w-10">
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src={item.image?.[0]?.url}
-                      alt=""
-                    />
-                  </div>
-                  <div className="ml-4">
-                    <div className="text-sm font-medium text-gray-900">
-                      {item.name}
-                    </div>
-                    <div className="text-sm text-gray-500">{item.modelCode}</div>
-                    <div className="text-sm text-gray-500">{item.year}</div>
-                  </div>
-                </div>
-              </td>
-  
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item.referenceNo}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item.engineType}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item.transmission}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item.color}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item.stock ? (
-                  <p
-                    className="ml-2 text-gray-800 bg-gray-100 rounded-full text-center px-2 cursor-pointer"
-                    onClick={() => handleUpdateStock({ id: item.id, status: false })}
-                  >
-                    Out Of Stock
-                  </p>
-                ) : (
-                  <p
-                    className="ml-2 text-green-800 bg-green-100 rounded-full text-center px-2 cursor-pointer"
-                    onClick={() => handleUpdateStock({ id: item.id, status: true })}
-                  >
-                    In Stock
-                  </p>
-                )}
-              </td>
-              <td className="flex space-x-4 px-6 py-8 whitespace-nowrap text-sm font-medium">
-                <p
-                  className="text-red-700 hover:text-red-900 cursor-pointer"
-                  onClick={() => handleDelete(item.id)}
-                >
-                  Delete
-                </p>
-                <p
-                  className="text-blue-600 hover:text-blue-900 cursor-pointer"
-                  onClick={() => handleCreateInvoice(item)}
-                >
-                  Create Invoice
-                </p>
-              </td>
+
+      {/* Table Section */}
+      <div className="overflow-x-auto sm:overflow-x-visible mt-6">
+        <table className="min-w-full table-auto divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
+                Name
+              </th>
+
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                Car Stock Id
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                Engine Type
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                Transmission
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                Color
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                Stock
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                Actions
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {data?.map((item, index) => (
+              <tr key={index}>
+                <td className="px-1 py-4 whitespace-nowrap">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0 h-10 w-10">
+                      <img
+                        className="h-10 w-10 rounded-full"
+                        src={item.image?.[0]?.url}
+                        alt=""
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-sm font-medium text-gray-900">
+                        {item.name}
+                      </div>
+                      <div className="text-sm text-gray-500">{item.modelCode}</div>
+                      <div className="text-sm text-gray-500">{item.year}</div>
+                    </div>
+                  </div>
+                </td>
+
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {item.referenceNo}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {item.engineType}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {item.transmission}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {item.color}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {item.stock ? (
+                    <p
+                      className="ml-2 text-green-800 bg-green-100 rounded-full text-center px-2 cursor-pointer"
+                      onClick={() => handleUpdateStock({ id: item.id, status: true })}
+                    >
+                      In Stock
+                    </p>
+                  ) : (
+                    <p
+                      className="ml-2 text-gray-800 bg-gray-100 rounded-full text-center px-2 cursor-pointer"
+                      onClick={() => handleUpdateStock({ id: item.id, status: false })}
+                    >
+                      Out Of Stock
+                    </p>
+                  )}
+                </td>
+                <td className="flex space-x-4 px-6 py-8 whitespace-nowrap text-sm font-medium">
+                  <p
+                    className="text-red-700 hover:text-red-900 cursor-pointer"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    Delete
+                  </p>
+                  <p
+                    className="text-blue-600 hover:text-blue-900 cursor-pointer"
+                    onClick={() => handleCreateInvoice(item)}
+                  >
+                    Create Invoice
+                  </p>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      
+
+      {/* Modal */}
+      {modal && selectedCar && (
+        <InvoiceModal handleCloseModal={handleCloseModal} selectedCar={selectedCar} />
+      )}
     </div>
-  
-    {/* Modal */}
-    {modal && selectedCar && (
-      <InvoiceModal handleCloseModal={handleCloseModal} selectedCar={selectedCar} />
-    )}
-  </div>
-  
-  
+
+
   );
 }

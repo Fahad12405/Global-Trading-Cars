@@ -6,6 +6,7 @@ import { MdCancel } from "react-icons/md";
 
 export default function AddProduct() {
     const [attachments, setAttachments] = useState([]);
+    const [loader, setLoader] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
         inventoryLocation: "",
@@ -29,7 +30,7 @@ export default function AddProduct() {
     useEffect(() => {
         const getLsToken = localStorage.getItem('token')
         if (!getLsToken) {
-            window.location.href = '/'
+            window.location.href = '/Protected/LogIn'
         }
     }, [])
 
@@ -85,6 +86,7 @@ export default function AddProduct() {
             alert("Token not found. Please log in first.");
             return;
         }
+        setLoader(true)
 
         try {
             const response = await axios.post('https://api-car-export.vercel.app/api/product/add', data, {
@@ -106,6 +108,7 @@ export default function AddProduct() {
             console.error('Error:', error);
             alert("An error occurred while adding the product.");
         }
+        setLoader(false)
     };
 
 
@@ -177,30 +180,30 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-               
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Year</label>
-                        <input
-                            type="text"
-                            name="year"
-                            value={formData.year}
-                            onChange={handleChange}
-                            className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                            required
-                            />
-                    </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Mileage</label>
-                        <input
-                            type="text"
-                            name="mileage"
-                            value={formData.mileage}
-                            onChange={handleChange}
-                            className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                            required
-                            />
-                    </div>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Year</label>
+                    <input
+                        type="text"
+                        name="year"
+                        value={formData.year}
+                        onChange={handleChange}
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Mileage</label>
+                    <input
+                        type="text"
+                        name="mileage"
+                        value={formData.mileage}
+                        onChange={handleChange}
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                        required
+                    />
+                </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Drive</label>
@@ -288,7 +291,7 @@ export default function AddProduct() {
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Seats</label>
                     <input
-                        type="text"
+                        type="number"
                         name="seats"
                         value={formData.seats}
                         onChange={handleChange}
@@ -312,7 +315,7 @@ export default function AddProduct() {
                     </select>
                 </div>
 
-                
+
 
                 <div className="col-span-3" >
                     <label className="block text-sm font-medium text-gray-700">Car Description</label>
@@ -365,8 +368,13 @@ export default function AddProduct() {
                     <button
                         type="submit"
                         className="bg-red-800 text-white px-6 py-2 rounded-md hover:bg-red-700 transition"
+                        disabled={loader}
                     >
-                        Add Product
+                        {
+                            loader ? 
+                            <div className="animate-spin rounded-full h-7 w-7 border-t-2 border-b-2 text-white"></div>
+                            : 'Add Product'
+                        }
                     </button>
                 </div>
             </form>
