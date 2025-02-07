@@ -56,7 +56,7 @@ export default function ContactSection() {
                                             strokeLinejoin="round"
                                         />
                                     </svg>
-                                    <h5 className="text-black text-base font-normal leading-6 ml-5">470-601-1911</h5>
+                                    <h5 className="text-black text-base font-normal leading-6 ml-5">080 4107 4210</h5>
                                 </a>
                                 <a href="javascript:;" className="flex items-center mb-6">
                                     <svg width={30} height={30} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,16 @@ export default function ContactSection() {
                                             strokeWidth={2}
                                         />
                                     </svg>
-                                    <h5 className="text-black text-base font-normal leading-6 ml-5">789 Oak Lane, Lakeside, TX 54321</h5>
+                                    <h5 className="text-black text-base font-normal leading-6 ml-5">
+                                        <a
+                                            href="https://maps.app.goo.gl/BgwEke8ZFua7etB98"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-blue-600 underline"
+                                        >
+                                            Saitama, Higashimatsuyama, Higashidaira 1277, Japan
+                                        </a>
+                                    </h5>
                                 </a>
                                 <div className="flex items-center justify-center border-t border-gray-100 pt-6">
                                     <a href="javascript:;" className="mr-6">
@@ -119,7 +128,7 @@ export default function ContactSection() {
 
                 </div>
             </div>
-        </section>
+        </section >
 
     )
 }

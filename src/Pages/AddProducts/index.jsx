@@ -41,8 +41,8 @@ export default function AddProduct() {
     const addAttachment = (event) => {
         const files = Array.from(event.target.files);
 
-        if (attachments.length + files.length > 6) {
-            alert("You can only upload up to 6 files.");
+        if (attachments.length + files.length > 20) {
+            alert("You can only upload up to 20 files.");
             return;
         }
 
@@ -318,7 +318,7 @@ export default function AddProduct() {
 
 
                 <div className="col-span-3" >
-                    <label className="block text-sm font-medium text-gray-700">Car Description</label>
+                    <label className="block text-sm font-medium text-gray-700">Car Features</label>
                     <textarea
                         type="text"
                         name="description"
@@ -331,7 +331,7 @@ export default function AddProduct() {
 
                 <div className="col-span-3">
                     <label className="block text-sm font-medium text-gray-700">
-                        Upload Images (Max 6)
+                        Upload Images (Max 20)
                     </label>
                     <input
                         type="file"

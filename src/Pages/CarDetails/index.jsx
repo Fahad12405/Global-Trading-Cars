@@ -133,7 +133,7 @@ const CarDetails = () => {
                                         className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
                                         alt={`carousel-item-${index}`}
                                     />
-                                    <p className="  absolute bottom-2 left-1/2 transform -translate-x-1/2 text-lg text-red-600 bg-gray-100 rounded-lg">
+                                    <p className="  absolute bottom-0 left-1/2 transform -translate-x-1/2 text-lg text-red-600 bg-gray-100 px-2">
                                         Refrence Code = {vehicle.referenceNo}
                                     </p>
                                 </div>
@@ -141,12 +141,12 @@ const CarDetails = () => {
                         </div>
 
                         {/* Slider indicators */}
-                        <div className="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+                        <div className="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse -bottom-5 left-1/2">
                             {vehicle?.image?.map((_, index) => (
                                 <button
                                     key={index}
                                     type="button"
-                                    className={`w-3 h-3 rounded-full ${index === activeIndex ? 'bg-white' : 'bg-gray-300'}`}
+                                    className={`w-3 h-3 rounded-full ${index === activeIndex ? 'bg-red-300' : 'bg-red-900'}`}
                                     onClick={() => handleIndicatorClick(index)}
                                     aria-label={`Slide ${index + 1}`}
                                 />
@@ -204,7 +204,7 @@ const CarDetails = () => {
                         </button>
                     </div>
 
-                    <div className="flex justify-center items-center w-full">
+                    <div className="flex justify-center items-center w-full mt-5">
                         {
                             vehicle.stock ? (
                                 <button className="text-white mt-3 bg-red-900 hover:bg-red-700 rounded-full text-sm px-5 py-2 text-center w-full cursor-pointer" onClick={() => openModal()}>
@@ -290,7 +290,7 @@ const CarDetails = () => {
                                     <td className="py-1 px-4 text-sm text-gray-900">{vehicle.fuelType}</td>
                                 </tr>
                                 <tr className="border-t border-gray-200">
-                                    <td className="py-1 px-4 text-md font-semibold text-gray-700">Description</td>
+                                    <td className="py-1 px-4 text-md font-semibold text-gray-700">Features</td>
                                     <td className="py-1 px-4 text-sm text-gray-900">{vehicle.description}</td>
                                 </tr>
                             </tbody>
