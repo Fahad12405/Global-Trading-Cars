@@ -156,11 +156,10 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
     return (
         <div className="max-w-6xl mx-auto fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 overflow-hidden shadow-xl rounded-lg" id="invoice-content">
             <div id='pdf-content' ref={contentRef} className="overflow-auto rounded-lg w-full h-auto max-h-[90vh]" style={{ backgroundColor: 'white' }}>
-                <div className='rounded-sm p-6 border-2 shadow-2xl'>
+                <div className='rounded-sm p-8 border-2 shadow-2xl'>
                     <div className="flex justify-between items-center mb-2">
                         <img src={logo} className="h-18 object-contain text-center" style={{ width: '190px' }} alt="Logo" />
                         <h1 className="text-5xl text-center mr-24" style={{ color: '#991b1b' }}>Global Trading Cars</h1>
-                        {/* Invoice Type Dropdown */}
 
 
                         <div>
@@ -177,16 +176,16 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                 fontSize: "24px",
                                 color: "red",
                                 backgroundColor: "white",
-                                border:'none',
+                                border: 'none',
                             }}
                         >
-                            <option style={{ backgroundColor: "white", color: "black", fontSize: "18px", border: 'none'}} value="">
+                            <option style={{ backgroundColor: "white", color: "black", fontSize: "18px", border: 'none' }} value="">
                                 Select Invoice Type
                             </option>
-                            <option style={{ backgroundColor: "#8B0000", color: "white", fontSize: "16px",  border: 'none' }} value="Proforma Invoice">
+                            <option style={{ backgroundColor: "#8B0000", color: "white", fontSize: "16px", border: 'none' }} value="Proforma Invoice">
                                 PROFORMA INVOICE
                             </option>
-                            <option style={{ backgroundColor: "#8B0000", color: "white", fontSize: "16px",  border: 'none', }} value="Final Invoice">
+                            <option style={{ backgroundColor: "#8B0000", color: "white", fontSize: "16px", border: 'none', }} value="Final Invoice">
                                 FINAL INVOICE
                             </option>
                         </select>
@@ -199,12 +198,10 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                         <div className="grid grid-cols-3 gap-3 pt-4 ">
                             {Object.keys(formData).map((key) => {
                                 if (key === 'FOBPrice' || key === 'inspection' || key === 'freight' || key === 'depositAmount' || key === 'balanceDue' || key === 'CIFPrice') {
-                                    return null; // Skip the amount-related fields in this section
+                                    return null;
                                 }
 
-                                // Specifically render the invoice type dropdown
 
-                                // Specifically render the invoice number input field
                                 if (key === 'invoiceNo') {
                                     return (
                                         <div className="mb-4" key={key}>
@@ -215,7 +212,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                 value={formData[key]}
                                                 onChange={handleChange}
                                                 className="my-2 p-2 border-style w-full focus:ring-0 text-2xl"
-                                                disabled // Make it readonly since it's auto-generated
+                                                disabled
                                             />
                                         </div>
                                     );
@@ -223,14 +220,14 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
 
 
                                 return (
-                                    <div className="mb-4" key={key}>
+                                    <div className="mb-1" key={key}>
                                         <label className="text-md font-semibold">{key.replace(/([A-Z])/g, ' $1').toUpperCase()}</label>
                                         <input
                                             type={key.includes('Email') ? 'email' : key.includes('Date') ? 'date' : 'text'}
                                             name={key}
                                             value={formData[key]}
                                             onChange={handleChange}
-                                            className="my-2 p-2 border-style w-full focus:ring-0 text-2xl" 
+                                            className="my-2 p-2 border-style w-full focus:ring-0 text-2xl"
                                         />
                                     </div>
                                 );
@@ -245,38 +242,60 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
 
                         <div className="mb-4">
                             <h4 className="text-2xl font-semibold mb-4">Car Details:</h4>
-                            <div className="overflow-x-auto">
-                                <table className="w-full border border-collapse">
-                                    <thead>
-                                        <tr style={{ backgroundColor: '#7f1d1d', color: 'white' }}>
-                                            <th className="border px-4 py-2">MODEL</th>
-                                            <th className="border px-4 py-2">CHASSIS NO</th>
-                                            <th className="border px-4 py-2">YEAR</th>
-                                            <th className="border px-4 py-2">COLOR</th>
-                                            <th className="border px-4 py-2">TRANSMISSION</th>
-                                            <th className="border px-4 py-2">DRIVE TYPE</th>
-                                            <th className="border px-4 py-2">MILEAGE</th>
-                                            <th className="border px-4 py-2">STEERING</th>
-                                            <th className="border px-4 py-2">ENGINE TYPE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className="border px-4 py-2">{selectedCar.modelCode}</td>
-                                            <td className="border px-4 py-2">{selectedCar.chassisNo}</td>
 
-                                            <td className="border px-4 py-2">{selectedCar.year}</td>
-                                            <td className="border px-4 py-2">{selectedCar.color}</td>
-                                            <td className="border px-4 py-2">{selectedCar.transmission}</td>
-                                            <td className="border px-4 py-2">{selectedCar.drive}</td>
-                                            <td className="border px-4 py-2">{selectedCar.mileage}</td>
-                                            <td className="border px-4 py-2">{selectedCar.steering}</td>
-                                            <td className="border px-4 py-2">{selectedCar.engineType}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            {/* First Section: Car Basic Information */}
+                            <div className="mb-6">
+                                <h5 className="text-lg font-semibold mb-2">Basic Information</h5>
+                                <div className="overflow-x-auto">
+                                    <table className="w-full border border-collapse">
+                                        <thead>
+                                            <tr style={{ backgroundColor: '#7f1d1d', color: 'white' }}>
+                                                <th className="border px-6 py-4">MODEL</th>
+                                                <th className="border px-6 py-4">CHASSIS NO</th>
+                                                <th className="border px-6 py-4">YEAR</th>
+                                                <th className="border px-6 py-4">COLOR</th>
+                                                <th className="border px-6 py-4">TRANSMISSION</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td className="border px-6 py-4">{selectedCar.modelCode}</td>
+                                                <td className="border px-6 py-4">{selectedCar.chassisNo}</td>
+                                                <td className="border px-6 py-4">{selectedCar.year}</td>
+                                                <td className="border px-6 py-4">{selectedCar.color}</td>
+                                                <td className="border px-6 py-4">{selectedCar.transmission}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {/* Second Section: Additional Information */}
+                            <div>
+                                <h5 className="text-lg font-semibold mb-2">Additional Information</h5>
+                                <div className="overflow-x-auto">
+                                    <table className="w-full border border-collapse">
+                                        <thead>
+                                            <tr style={{ backgroundColor: '#7f1d1d', color: 'white' }}>
+                                                <th className="border px-6 py-4">DRIVE TYPE</th>
+                                                <th className="border px-6 py-4">MILEAGE</th>
+                                                <th className="border px-6 py-4">STEERING</th>
+                                                <th className="border px-6 py-4">ENGINE TYPE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td className="border px-6 py-4">{selectedCar.drive}</td>
+                                                <td className="border px-6 py-4">{selectedCar.mileage}</td>
+                                                <td className="border px-6 py-4">{selectedCar.steering}</td>
+                                                <td className="border px-6 py-4">{selectedCar.engineType}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+
                         <div className="w-full overflow-x-auto pt-0 flex ">
                             <div className="w-3xl overflow-x-auto">
                                 <h1 className="text-2xl font-semibold">Bank Details</h1>
@@ -321,31 +340,35 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                     * The confirmation of payment shall be messaged or emailed by the customer to the account manager of Global Trading Cars for verification. <br />
                                     * The deposit of the payment should be made within 5 working days; if the Customer does not, then the Exporter reserves the right to sell the Vehicle to another Customer. <br />
                                     * Bank and other charges are not included in the invoice. <br />
-                                    * Original Documents (BL & Export Certificate) for clearance will be released and sent to you via DHL and EMS Courier after full payment. <br />
-                                    * Full Payments must be made within 10 days after shipping. If the full payment is not made within 10 days after releasing the car, the vehicle may be sold to another buyer. <br />
+\                                    * Full Payments must be made within 10 days after shipping. If the full payment is not made within 10 days after releasing the car, the vehicle may be sold to another buyer. <br />
                                 </p>
                             </div>
 
-                            {/* Amount Section */}
                             <div className="ml-20 w-1/3 ">
-                                <h1 className="text-2xl font-semibold mb-3 ">Total Amount :</h1>
+                                <h1 className="text-2xl font-semibold mb-3 underline ">Total Amount :</h1>
                                 <table className="w-full border-collapse border shadow-lg  ">
                                     <tbody className=''>
-                                        <tr className=''>
-                                            <td className="border  px-4 py-2 font-semibold">FOB Price :</td>
-                                            <td className="border w-32">
-                                                <input
-                                                    type="number"
-                                                    name="FOBPrice"
-                                                    className="mt-2 p-2 border-none w-full focus:ring-0 text-2xl"
-                                                    value={formData.FOBPrice}
-                                                    onChange={handleChange}
-                                                />
+                                        <tr>
+                                            <td className="border px-4 py-2 font-semibold">FOB Price :</td>
+                                            <td className="border w-48">
+                                                <div className="flex items-center">
+                                                    <span className="text-xl ml-2">$</span>
+                                                    <input
+                                                        type="number"
+                                                        name="FOBPrice"
+                                                        className="mt-2 p-2 border-none w-full focus:ring-0 text-2xl"
+                                                        value={formData.FOBPrice}
+                                                        onChange={handleChange}
+                                                    />
+                                                </div>
                                             </td>
                                         </tr>
+
                                         <tr style={{}}>
                                             <td className="border  px-4 py-2 font-semibold">Inspection :</td>
                                             <td className="border">
+                                            <div className="flex items-center">
+                                            <span className="text-xl ml-2">$</span>
                                                 <input
                                                     type="number"
                                                     name="inspection"
@@ -353,11 +376,14 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     value={formData.inspection}
                                                     onChange={handleChange}
                                                 />
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr style={{}}>
                                             <td className="border  px-4 py-2 font-semibold">Freight :</td>
                                             <td className="border">
+                                            <div className="flex items-center">
+                                            <span className="text-xl ml-2">$</span>
                                                 <input
                                                     type="number"
                                                     name="freight"
@@ -365,11 +391,14 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     value={formData.freight}
                                                     onChange={handleChange}
                                                 />
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr style={{ backgroundColor: '#fee2e2' }}>
                                             <td className="border  px-4 py-2 font-semibold">Deposit Amount :</td>
                                             <td className="border">
+                                            <div className="flex items-center">
+                                            <span className="text-xl ml-2">$</span>
                                                 <input
                                                     type="number"
                                                     name="depositAmount"
@@ -377,11 +406,14 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     value={formData.depositAmount}
                                                     onChange={handleChange}
                                                 />
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr style={{ backgroundColor: '#fee2e2' }}>
                                             <td className="border  px-4 py-2 font-semibold">Balance Due :</td>
                                             <td className="border">
+                                            <div className="flex items-center">
+                                            <span className="text-xl ml-2">$</span>
                                                 <input
                                                     type="number"
                                                     name="balanceDue"
@@ -389,11 +421,14 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     value={formData.balanceDue}
                                                     onChange={handleChange}
                                                 />
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr style={{}}>
                                             <td className="border  px-4 py-2 font-semibold">CIF Price :</td>
                                             <td className="border">
+                                            <div className="flex items-center">
+                                            <span className="text-xl ml-2">$</span>
                                                 <input
                                                     type="number"
                                                     name="CIFPrice"
@@ -401,6 +436,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     value={formData.CIFPrice}
                                                     onChange={handleChange}
                                                 />
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>

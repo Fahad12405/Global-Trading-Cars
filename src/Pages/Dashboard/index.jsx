@@ -125,7 +125,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mt-32 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-9xl mx-auto mt-32 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0">
         <form className="flex gap-2 flex-1 max-w-full sm:max-w-xs w-full" onSubmit={handleSearch}>
           <input
