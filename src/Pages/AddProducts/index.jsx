@@ -343,7 +343,7 @@ export default function AddProduct() {
                         required
                     />
                 </div>
-                <div className="flex w-fit" >
+                <div className="flex w-full col-span-3 flex-wrap" >
                     {attachments.map((attachment) => (
                         <div
                             key={attachment.id}

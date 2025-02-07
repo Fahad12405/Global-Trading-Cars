@@ -25,20 +25,20 @@ export default function Footer() {
               <li><a href="CarDetails/:id">Inquire Now</a></li>
               <li><a href="/CarforSale">Search your Favourite Car</a></li>
 
-             
+
             </ul>
           </div>
 
           <div className="space-y-4 text-center sm:text-left">
             <h6 className="text-lg text-gray-1000 font-medium">HELPFUL LINKS</h6>
             <ul className="space-y-2.5">
-            <li><a href="/how-to-buy">Payment Details</a></li>
+              <li><a href="/how-to-buy">Payment Details</a></li>
               <li><a href="/contact">Contact</a></li>
               <li><a href="/how-to-buy">How to Buy</a></li>
               <li><a href="/why-choose-us">Why Choose Us</a></li>
               <li><a href="/">Ask Questions</a></li>
 
-        
+
             </ul>
           </div>
 
@@ -51,40 +51,55 @@ export default function Footer() {
               <li><a href="/Blogs">Our Blogs</a></li>
               <li><a href="/">Our Costumer Review</a></li>
 
-            
+
             </ul>
           </div>
 
           <div className="space-y-4 text-center sm:text-left" >
-      {/* Logo */}
-      <div className="mt-0">
-        <img
-          src={logo}
-          alt="Company Logo"
-          className="mx-auto sm:mx-0 "
-          style={{ width: "200px"  }}
-        />
-      </div>
+            {/* Logo */}
+            <div className="mt-0">
+              <img
+                src={logo}
+                alt="Company Logo"
+                className="mx-auto sm:mx-0 "
+                style={{ width: "200px" }}
+              />
+            </div>
+            <div className="space-y-2 text-gray-1000">
+              <h6 className="text-lg font-bold">Company Information</h6>
 
-      {/* Company Details */}
-      <div className="space-y-2 text-gray-1000">
-        <h6 className="text-lg font-bold ">Company Information</h6>
-        <p className="flex items-center justify-center sm:justify-start space-x-2">
-          <FaMapMarkerAlt className="text-red-800" />
-          <span>123 Main Street, Tokyo, Japan</span>
-        </p>
-        <p className="flex items-center justify-center sm:justify-start space-x-2">
-          <FaPhone className="text-red-800" />
-          <span>+81 123 456 789</span>
-        </p>
-        <p className="flex items-center justify-center sm:justify-start space-x-2">
-          <FaEnvelope className="text-red-800" />
-          <span>info@globaltradingcars.com</span>
-        </p>
-      </div>
+              <p className="flex items-center justify-center sm:justify-start space-x-2">
+                <FaMapMarkerAlt className="text-red-800" />
+                <a
+                  href="https://maps.app.goo.gl/BgwEke8ZFua7etB98"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Saitama, Higashimatsuyama, Higashidaira 1277, Japan
+                </a>
+              </p>
 
-    
-    </div>
+              <p className="flex items-center justify-center sm:justify-start space-x-2">
+                <FaPhone className="text-red-800" />
+                <a
+                  href="tel:+81123456789"
+                >
+                  +81 123 456 789
+                </a>
+              </p>
+
+              <p className="flex items-center justify-center sm:justify-start space-x-2">
+                <FaEnvelope className="text-red-800" />
+                <a
+                  href="mailto:info@globaltradingcars.com"
+                >
+                  info@globaltradingcars.com
+                </a>
+              </p>
+            </div>
+
+
+          </div>
         </div>
 
         <hr className="my-3 border-gray-600" />

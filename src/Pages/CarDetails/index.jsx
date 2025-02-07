@@ -20,6 +20,10 @@ const CarDetails = () => {
         remarks: '',
         receivePromotions: false
     });
+
+    const [loading, setLoading] = useState(true); // Track loading state
+
+
     useEffect(() => {
         const fetchVehicleData = async () => {
             try {
@@ -28,11 +32,17 @@ const CarDetails = () => {
                 console.log(data)
                 if (data && data.data) {
                     setVehicle(data.data); // Set the vehicle data
+                    setLoading(false); // Set loading to false after data is fetched
+
                 } else {
-                    console.error('Vehicle not found in API');
+                    console.log('Vehicle not found in API');
+                    setLoading(false);
+
                 }
             } catch (error) {
-                console.error('Error fetching data from API:', error);
+                console.log('Error fetching data from API:', error);
+                setLoading(false);
+
             }
         };
 
@@ -78,10 +88,9 @@ const CarDetails = () => {
             });
         }
 
-        closeModal();  // Close modal after submission (if applicable)
+        closeModal();
     };
 
-    // Effect to handle modal visibility (disabling body scroll)
     useEffect(() => {
         if (isModalOpen) {
             document.body.style.overflow = 'hidden';
@@ -108,6 +117,59 @@ const CarDetails = () => {
         setActiveIndex(index);
     };
 
+  if (loading)  {
+    return (
+        <div className="max-w-7xl mx-auto mt-28 p-8">
+          <div className="flex flex-col lg:flex-row animate-pulse">
+            {/* Left side - Image skeleton */}
+            <div className="w-full mb-6 lg:mb-0">
+              <div className="h-8 bg-gray-200 rounded-full w-3/4 mb-6"></div>
+              
+              {/* Image carousel skeleton */}
+              <div className="relative w-full">
+                <div className="relative h-60 md:h-96 bg-gray-200 rounded-lg"></div>
+                
+                {/* Indicators skeleton */}
+                <div className="absolute z-30 flex -translate-x-1/2 space-x-3 -bottom-5 left-1/2">
+                  {[...Array(3)].map((_, i) => (
+                    <div key={i} className="w-3 h-3 rounded-full bg-gray-300"></div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Button skeleton */}
+              <div className="mt-5 h-12 bg-gray-200 rounded-full"></div>
+            </div>
+      
+            {/* Right side - Details skeleton */}
+            <div className="w-full lg:w-3/3 pl-0 lg:pl-8">
+              <div className="h-8 bg-gray-200 rounded-full w-1/3 mb-6"></div>
+              
+              {/* Table skeleton */}
+              <div className="border border-gray-300 rounded-lg">
+                <div className="min-w-full">
+                  <div className="bg-gray-200 h-12 rounded-t-lg"></div>
+                  
+                  {/* Table rows */}
+                  <div className="p-4 space-y-4">
+                    {[...Array(14)].map((_, i) => (
+                      <div key={i} className="flex justify-between">
+                        <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                        <div className="h-4 bg-gray-200 rounded w-1/3"></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+  }
+    
+    
+    
+
 
     return (
         <div className="max-w-7xl mx-auto mt-28 p-8">
@@ -133,7 +195,7 @@ const CarDetails = () => {
                                         className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
                                         alt={`carousel-item-${index}`}
                                     />
-                                    <p className="  absolute bottom-0 left-1/2 transform -translate-x-1/2 text-lg text-red-600 bg-gray-100 px-2">
+                                    <p className=" w-full text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 text-lg text-red-600 bg-gray-100 px-2">
                                         Refrence Code = {vehicle.referenceNo}
                                     </p>
                                 </div>
