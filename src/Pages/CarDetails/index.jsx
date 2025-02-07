@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import axios from 'axios';
 import ContactSection from '../../components/Contact/contact'
 
 

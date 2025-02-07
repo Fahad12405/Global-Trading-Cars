@@ -45,7 +45,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchProducts(searchTerm, currentPage);
-  }, [currentPage, searchTerm]);
+  }, [currentPage]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
