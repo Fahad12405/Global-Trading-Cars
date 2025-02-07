@@ -7,6 +7,9 @@ import { MdCancel } from "react-icons/md";
 export default function AddProduct() {
     const [attachments, setAttachments] = useState([]);
     const [loader, setLoader] = useState(false)
+    const [draggedIndex, setDraggedIndex] = useState(null);
+    const [hoverIndex, setHoverIndex] = useState(null);
+
     const [formData, setFormData] = useState({
         name: "",
         inventoryLocation: "",
@@ -38,6 +41,33 @@ export default function AddProduct() {
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
+    const handleDragStart = (e, index) => {
+        setDraggedIndex(index);
+        e.dataTransfer.effectAllowed = "move";
+    };
+
+    const handleDragOver = (e, index) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        setHoverIndex(index);
+    };
+
+    const handleDrop = (e, targetIndex) => {
+        e.preventDefault();
+        if (draggedIndex === null) return;
+
+        const newAttachments = [...attachments];
+        const [draggedItem] = newAttachments.splice(draggedIndex, 1);
+        newAttachments.splice(targetIndex, 0, draggedItem);
+
+        setAttachments(newAttachments);
+        setFormData({ ...formData, images: newAttachments.map(att => att.file) });
+        setDraggedIndex(null);
+        setHoverIndex(null);
+    };
+
+
 
     const addAttachment = (event) => {
         const files = Array.from(event.target.files);
@@ -358,25 +388,37 @@ export default function AddProduct() {
                         required
                     />
                 </div>
-                <div className="flex w-full col-span-3 flex-wrap" >
-                    {attachments.map((attachment) => (
-                        <div
-                            key={attachment.id}
-                            className="relative border-2 border-dashed border-gray-400 p-4 w-20 h-24 flex items-center justify-center"
+                <div className="flex w-full col-span-3 flex-wrap gap-2">
+                {attachments.map((attachment, index) => (
+                    <div
+                        key={attachment.id}
+                        className={`relative border-2 border-dashed ${
+                            hoverIndex === index ? 'border-blue-500' : 'border-gray-400'
+                        } p-1 w-20 h-24 flex items-center justify-center 
+                        transition-colors duration-200 cursor-move`}
+                        draggable="true"
+                        onDragStart={(e) => handleDragStart(e, index)}
+                        onDragOver={(e) => handleDragOver(e, index)}
+                        onDrop={(e) => handleDrop(e, index)}
+                        onDragEnd={() => {
+                            setDraggedIndex(null);
+                            setHoverIndex(null);
+                        }}
+                        onDragLeave={() => setHoverIndex(null)}
+                    >
+                        <img
+                            src={attachment.preview}
+                            alt={attachment.name}
+                            className="object-cover w-full h-full"
+                        />
+                        <button
+                            onClick={() => removeAttachment(attachment.id)}
+                            className="absolute -top-2 -right-2 p-0.5 bg-white rounded-full"
                         >
-                            <img
-                                src={attachment.preview}
-                                alt={attachment.name}
-                                className="object-cover w-full h-full"
-                            />
-                            <button
-                                onClick={() => removeAttachment(attachment.id)}
-                                className="absolute top-0 right-0 p-1"
-                            >
-                                <MdCancel size={22} />
-                            </button>
-                        </div>
-                    ))}
+                            <MdCancel size={20} className="text-red-500" />
+                        </button>
+                    </div>
+                ))}
                 </div>
 
                 <div className="col-span-3 flex justify-center">
