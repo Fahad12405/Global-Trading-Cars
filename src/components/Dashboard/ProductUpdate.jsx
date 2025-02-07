@@ -48,7 +48,7 @@ const ProductUpdate = ({ id, stock, setData }) => {
                     <p
                         className="ml-2 text-green-800 bg-green-100 rounded-full text-center px-2 cursor-pointer"
                     >
-                        In Stock
+                      Car is Available
                     </p>
                 ) : isLoading ? (
                     <div className="flex items-center justify-center space-x-1 bg-green-100 px-3 py-2 ml-2 rounded-full">
@@ -61,7 +61,7 @@ const ProductUpdate = ({ id, stock, setData }) => {
                     <p
                         className="ml-2 text-gray-800 bg-gray-100 rounded-full text-center px-2 cursor-pointer"
                     >
-                        Out Of Stock
+                        Car is Reserved
                     </p>
                 )}
             </button>

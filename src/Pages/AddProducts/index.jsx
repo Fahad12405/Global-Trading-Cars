@@ -23,6 +23,7 @@ export default function AddProduct() {
         engineSize: "",
         mileage: "",
         fuelType: "",
+        chassisNo: "",
         description: "",
         images: [],
     });
@@ -181,29 +182,32 @@ export default function AddProduct() {
                 </div>
 
 
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Year</label>
-                    <input
-                        type="text"
-                        name="year"
-                        value={formData.year}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                        required
-                    />
+                <div className="flex space-x-4">
+                    <div className="flex-1">
+                        <label className="block text-sm font-medium text-gray-700">Year</label>
+                        <input
+                            type="text"
+                            name="year"
+                            value={formData.year}
+                            onChange={handleChange}
+                            className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                            required
+                        />
+                    </div>
+
+                    <div className="flex-1">
+                        <label className="block text-sm font-medium text-gray-700">Mileage</label>
+                        <input
+                            type="text"
+                            name="mileage"
+                            value={formData.mileage}
+                            onChange={handleChange}
+                            className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                            required
+                        />
+                    </div>
                 </div>
 
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Mileage</label>
-                    <input
-                        type="text"
-                        name="mileage"
-                        value={formData.mileage}
-                        onChange={handleChange}
-                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
-                        required
-                    />
-                </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Drive</label>
@@ -316,6 +320,17 @@ export default function AddProduct() {
                 </div>
 
 
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Chassis No</label>
+                    <input
+                        name="chassisNo"
+                        value={formData.chassisNo}
+                        onChange={handleChange}
+                        className="w-full mt-1 p-2 border rounded-md border-[#A2A2A2]"
+                    />
+                      
+                </div>
+
 
                 <div className="col-span-3" >
                     <label className="block text-sm font-medium text-gray-700">Car Features</label>
@@ -371,9 +386,9 @@ export default function AddProduct() {
                         disabled={loader}
                     >
                         {
-                            loader ? 
-                            <div className="animate-spin rounded-full h-7 w-7 border-t-2 border-b-2 text-white"></div>
-                            : 'Add Product'
+                            loader ?
+                                <div className="animate-spin rounded-full h-7 w-7 border-t-2 border-b-2 text-white"></div>
+                                : 'Add Product'
                         }
                     </button>
                 </div>
