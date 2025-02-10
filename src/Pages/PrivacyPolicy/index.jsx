@@ -111,9 +111,9 @@ export default function PrivacyPolicy() {
                             For any inquiries, requests, or complaints about your personal information, please contact:
                         </p>
                         <p>
-                            <strong>SBT Co., Ltd.</strong><br />
-                            Email: <a href="mailto:personalinfo@sbtjapan.com" className="text-blue-500">personalinfo@sbtjapan.com</a><br />
-                            Phone: +81-45-290-9480<br />
+                            <strong>GTC Co., Ltd.</strong><br />
+                            Email: <a href="mailto:info@globaltradingcars.com" className="text-blue-500">info@globaltradingcars.com</a><br />
+                            Phone: +81 123 456 789<br />
                             Office Hours: 9:00 a.m. to 5:00 p.m. Japan Time (JST)
                         </p>
                     </section>

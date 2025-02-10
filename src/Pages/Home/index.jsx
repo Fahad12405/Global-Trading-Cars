@@ -6,6 +6,7 @@ import FAQSection from '../../components/FAQ/FAQ';
 import CostumerReview from '../../components/Costumer Review/costumerReview'
 import axios from 'axios';
 import WhyChooseUs from '../../components/WhyChooseUs/index';
+import HomeAbout from '../../components/AboutUs/index';
 import Banner from '../../components/Banner/index'
 
 export default function Home() {
@@ -31,10 +32,11 @@ export default function Home() {
     return (
         <>
             <HeroSection />
+            <HomeAbout/>
             <ProductCard data={data} />
             <WhyChooseUs/>
              <FAQSection />       
-             {/* <Banner/> */}
+             <Banner/>
             <CostumerReview/>
             <ContactSection />
         </>

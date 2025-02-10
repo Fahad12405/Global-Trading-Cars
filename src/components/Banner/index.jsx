@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Banner() {
   return (
     <div
-      className="bg-gradient-to-r from-blue-700 to-[#B06AB3] font-sans px-8 py-24 sm:px-4 sm:py-16 bg-cover bg-center"
+      className=" font-sans px-8 py-24 sm:px-4 sm:py-16 bg-cover bg-center"
       style={{
         backgroundImage: `url(https://skjapanexport.co.jp/cdn/shop/files/sk-banner.webp?v=1717591018)`,
       }}

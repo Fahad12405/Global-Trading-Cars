@@ -1,4 +1,7 @@
 import React from 'react';
+import Company  from '../../../Public/companyProfile.jpg';
+import Company2  from '../../../Public/comapny2.jpg';
+
 
 export default function CompanyProfile() {
   return (
@@ -8,14 +11,14 @@ export default function CompanyProfile() {
           <div className="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
             <div className="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
               <img
-                className="rounded-xl object-cover h-96"  
-                src={"https://images.pexels.com/photos/7144243/pexels-photo-7144243.jpeg?cs=srgb&dl=pexels-shkrabaanthony-7144243.jpg&fm=jpg"}
+                className="rounded-xl object-cover h-96"
+                src={Company}
                 alt="About Us"
               />
             </div>
             <img
-              className="sm:ml-0 ml-auto rounded-xl object-cover h-96" 
-              src="https://media.istockphoto.com/id/1334985057/photo/exchange-money-and-car-keys-car-trading-and-loan.jpg?s=612x612&w=0&k=20&c=t3ynOYhc1mZouNZa9Bp5m0ZZyfi88fhealBOK6IoJKE="
+              className="sm:ml-0 ml-auto rounded-xl object-cover h-96"
+              src={Company2}
               alt="Global Trading Cars"
             />
           </div>
@@ -78,28 +81,28 @@ export default function CompanyProfile() {
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Foundation</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">January, 1993</th>
                 </tr>
-             
+
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Headquarters</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">
-                    Yokohama Plaza Bldg. 10F, 2-6 Kinko-cho, Kanagawa-ku, Yokohama, Kanagawa 221-0056, Japan
-                  </th>
+                    Saitama,
+                    Higashimatusyma
+                    Higashidaira
+                    1277
+                    Japan                  </th>
                 </tr>
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Phone Number</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">+81-45-290-9485</th>
+                  <th className="px-6 py-4 text-xl font-medium text-gray-700">+81 123 456 789</th>
                 </tr>
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Fax Number</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">+81-45-290-9486</th>
-                </tr>
+               
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Offices</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">2 Domestic Offices, 32 Overseas Offices</th>
                 </tr>
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Number of Employees</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">1,555 (As of February 2019)</th>
+                  <th className="px-6 py-4 text-xl font-medium text-gray-700">1,555 </th>
                 </tr>
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Business Description</th>
@@ -119,7 +122,11 @@ export default function CompanyProfile() {
                 </tr>
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Branches in Japan</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Noda Yard, 4716 Funakata, Noda-shi, Chiba, 270-0233, Japan</th>
+                  <th className="px-6 py-4 text-xl font-medium text-gray-700"> Saitama,
+                    Higashimatusyma
+                    Higashidaira
+                    1277,
+                    Japan  </th>
                 </tr>
               </thead>
             </table>
