@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SkBanner from "../../../public/Sk-Banner.webp";
 
 export default function Banner() {
   return (
    
     <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
   <img
-    src={SkBanner}
+    src="https://skjapanexport.co.jp/cdn/shop/files/sk-banner.webp?v=1717591018"
     alt="Banner Image"
     className="absolute inset-0 w-full h-full object-cover"
   />
