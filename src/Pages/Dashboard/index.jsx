@@ -4,7 +4,9 @@ import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import InvoiceModal from "../../components/Pdf Template/pdfTemplate";
 import ProductUpdate from "../../components/Dashboard/ProductUpdate";
-import Toast from "../../components/Toast Component/toast";
+import EditModal from "../../components/Dashboard/editModal";
+import { FiEdit } from "react-icons/fi";
+
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
@@ -14,6 +16,7 @@ export default function Dashboard() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -124,8 +127,24 @@ export default function Dashboard() {
     );
   };
 
+
+
+
+  const handleEditClick = (item) => {
+    setSelectedCar(item);  // Save the selected car data
+    setModalOpen(true);     // Open the modal
+  };
+
+
+
+
+  const handleUpdateData = (updatedData) => {
+    setData(updatedData); // Update the data after modal form submission
+    setModalOpen(false);
+  };
+
   return (
-    <div className="max-w-9xl mx-auto mt-32 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto mt-32 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0">
         <form className="flex gap-2 flex-1 max-w-full sm:max-w-xs w-full" onSubmit={handleSearch}>
           <input
@@ -157,7 +176,7 @@ export default function Dashboard() {
             <tr>
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Name</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Car Stock Id</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Engine Type</th>
+              <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase">Fuel Type</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Transmission</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Color</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"> Status
@@ -223,7 +242,7 @@ export default function Dashboard() {
                     {item.referenceNo}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {item.engineType}
+                    {item.fuelType}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {item.transmission}
@@ -244,6 +263,14 @@ export default function Dashboard() {
                     >
                       Delete
                     </p>
+                    <button
+                      className="  text-green-800 rounded "
+                      onClick={() => handleEditClick(item)} // Pass the item here
+                    >
+                      <FiEdit size={22} />
+
+                    </button>
+
                     <p
                       className="text-blue-600 hover:text-blue-900 cursor-pointer"
                       onClick={() => handleCreateInvoice(item)}
@@ -265,9 +292,15 @@ export default function Dashboard() {
         <InvoiceModal handleCloseModal={handleCloseModal} selectedCar={selectedCar} />
       )}
 
+      {modalOpen && (
+        <EditModal
+          selectedCar={selectedCar}
+          onClose={() => setModalOpen(false)} // Close the modal
+        />
+      )}
 
 
-    </div>
+    </div >
   );
 
 }
