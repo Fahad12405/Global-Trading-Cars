@@ -11,7 +11,7 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      <div className=" min-h-[500px] h-[35vh] relative max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
+      <div className=" min-h-[550px] h-[50vh] relative max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
        
         
       </div>

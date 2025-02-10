@@ -1,6 +1,6 @@
 import React from 'react';
-import Company  from '../../../Public/companyProfile.jpg';
-import Company2  from '../../../Public/comapny2.jpg';
+import Company  from '../../../public/company.jpg';
+import Company2  from '../../../public/comapny2.jpg';
 
 
 export default function CompanyProfile() {
