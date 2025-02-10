@@ -5,9 +5,9 @@ import AboutImg from '../../../public/aboutimage.jpg'
 export default function HomeAbout() {
     return (
         <section className="py-12 relative xl:mr-0 lg:mr-5 mr-0">  {/* Reduced the padding */}
-        <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-            <div className="w-full justify-start items-center xl:gap-12 gap-10 grid lg:grid-cols-2 grid-cols-1">
-    
+            <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+                <div className="w-full justify-start items-center xl:gap-12 gap-10 grid lg:grid-cols-2 grid-cols-1">
+
                     <div className="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
                         <div className="w-full flex-col justify-center items-start gap-8 flex">
                             <div className="flex-col justify-start lg:items-start items-center gap-4 flex">
@@ -62,12 +62,10 @@ export default function HomeAbout() {
                                 </div>
                             </div>
                         </div>
-                        <Link to="/contact" className="sm:w-fit w-full group px-3.5 py-2 bg-gray-100 hover:bg-indigo-100 rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] transition-all duration-700 ease-in-out justify-center items-center flex">
-                            <span className="px-1.5 text-black-800 text-sm font-medium leading-6 group-hover:-translate-x-0.5 transition-all duration-700 ease-in-out">
-                                Contact Us
-                            </span>
-
+                        <Link to="/contact" className="w-full sm:w-fit px-6 py-2 mb-12 bg-red-900 text-white rounded-lg text-center hover:bg-red-700 transition-all duration-300 ease-in-out">
+                            Contact Us
                         </Link>
+
                     </div>
                     <div className="w-full lg:justify-start justify-center items-start flex mb-12">
                         <div className="sm:w-[564px] w-full sm:h-[600px] h-[300px] sm:bg-gray-100 rounded-3xl sm:border border-gray-200 relative">
