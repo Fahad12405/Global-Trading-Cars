@@ -11,7 +11,7 @@ const CarSearchForm = ({ onSearch }) => {
     // Simulate fetching data from an API (you can replace this with your actual API call)
     const fetchCarModels = async () => {
       const data = [
-        "TOYOTA MARK X 250G",
+        "TOYOTA ",
         "TOYOTA HARRIER",
         "TOYOTA ALPHARD",
         "MAZDA CX-5",

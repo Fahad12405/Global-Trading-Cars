@@ -112,6 +112,12 @@ export function ProductCard({ data }) {
                     </h5>
                     <p className='text-sm'>({vehicle.year})</p>
                   </div>
+                  <div className='flex justify-between items-center mt-4'>
+                    Model:
+                    <h5 className="tracking-tight text-gray-900">
+                      {vehicle.modelCode}
+                    </h5>
+                  </div>
                   <div className='flex justify-between items-center'>
                     Transmission:
                     <h5 className="tracking-tight text-gray-900">

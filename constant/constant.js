@@ -291,36 +291,37 @@ export const howToBuyData = [
 
 export const whyChooseUsData = [
   {
-    title: 'You name it, we have it!',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+    title: 'A Wide Selection of Global Cars at Your Fingertips!',
+    desc: 'We offer a vast range of high-quality cars from Japan, giving you access to a global marketplace with top-notch vehicles at competitive prices.',
     imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/nameit_haveit_image_image.jpg?v=1'
   },
   {
-    title: 'You can get your car if you are on this planet!',
-    desc: 'We can ship used cars globally to Africa, Asia, Middle East, Caribbean, Oceania, South America, and Europe with offices in around 30 offices.',
+    title: 'We Deliver Worldwide, Wherever You Are!',
+    desc: 'No matter where you are in the world, we provide reliable international shipping to countries across Africa, Asia, the Middle East, Europe, and beyond.',
     imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/canget_ontheearth_image.jpg?v=1'
   },
   {
-    title: 'Always by your side to help you!',
-    desc: 'Decent and energetic staffs are always ready for 24/7/365 Customer Support via SBT Livechat, WhatsApp, Social media, phones, and emails.',
+    title: 'Customer Support That Never Sleeps!',
+    desc: 'Our dedicated team is available 24/7/365 to support you through SBT Livechat, WhatsApp, social media, phone, and email, ensuring your experience is seamless.',
     imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/always_helpyou_image.jpg?v=1'
   },
   {
-    title: 'High quality is our pride!',
-    desc: 'Proper and thorough inspections before shipment assure you the best condition that you can expect.',
-    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/highquality_ourpride_image.jpg?v=1  '
+    title: 'Quality You Can Trust, Every Time!',
+    desc: 'We perform thorough inspections on all cars before shipment, ensuring you receive only the best quality vehicles that meet your expectations.',
+    imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/highquality_ourpride_image.jpg?v=1'
   },
   {
-    title: 'We regard “speed” as a global standard!',
-    desc: 'Prompt shipment enables you to get your dream car sooner than you imagine no matter where you are.',
+    title: 'Fast Delivery, Global Standard!',
+    desc: 'We understand the excitement of getting your car quickly, so we ensure fast and efficient delivery no matter where you’re located.',
     imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/we_speed_image.jpg?v=1'
   },
   {
-    title: 'Reliability is always there!',
-    desc: 'We have built up excellence in used car industry for over 30 years, and have put the finest focus on reliability.',
+    title: 'Over 30 Years of Reliability in Global Car Trade!',
+    desc: 'With over three decades of experience in the used car industry, we’ve built a reputation for delivering reliable and trustworthy service worldwide.',
     imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/we_trusted_image.jpg?v=1'
-  },
-]
+  }
+];
+
 
 
 export const blogData = [

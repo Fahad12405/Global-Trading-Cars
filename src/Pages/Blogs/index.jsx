@@ -1,6 +1,7 @@
 import React from "react";
 import blogData from '../../../constant/constant'
 import { BlogCard } from '../../components/Cards/BlogCard'
+import CostumerReview from '../../components/Costumer Review/costumerReview'
 
 const Blogs = () => {
     return (
@@ -99,14 +100,10 @@ const Blogs = () => {
 
                     </div>
 
-                    {/* View More Button */}
-                    {/* <div className="flex justify-center mt-10">
-                        <button className="bg-red-800 text-white py-2 px-6 rounded-md text-lg font-semibold hover:bg-red-600 transition duration-300">
-                            View More
-                        </button>
-                    </div> */}
+                  
                 </div>
             </section>
+            <CostumerReview/>
         </>
     );
 };

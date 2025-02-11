@@ -243,7 +243,6 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                         <div className="mb-4">
                             <h4 className="text-2xl font-semibold mb-4">Car Details:</h4>
 
-                            {/* First Section: Car Basic Information */}
                             <div className="mb-6">
                                 <h5 className="text-lg font-semibold mb-2">Basic Information</h5>
                                 <div className="overflow-x-auto">
@@ -270,8 +269,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                 </div>
                             </div>
 
-                            {/* Second Section: Additional Information */}
-                            <div>
+                            \                            <div>
                                 <h5 className="text-lg font-semibold mb-2">Additional Information</h5>
                                 <div className="overflow-x-auto">
                                     <table className="w-full border border-collapse">
@@ -340,102 +338,133 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                     * The confirmation of payment shall be messaged or emailed by the customer to the account manager of Global Trading Cars for verification. <br />
                                     * The deposit of the payment should be made within 5 working days; if the Customer does not, then the Exporter reserves the right to sell the Vehicle to another Customer. <br />
                                     * Bank and other charges are not included in the invoice. <br />
-\                                    * Full Payments must be made within 10 days after shipping. If the full payment is not made within 10 days after releasing the car, the vehicle may be sold to another buyer. <br />
+                                    \                                    * Full Payments must be made within 10 days after shipping. If the full payment is not made within 10 days after releasing the car, the vehicle may be sold to another buyer. <br />
                                 </p>
                             </div>
 
                             <div className="ml-20 w-1/3 ">
-                                <h1 className="text-2xl font-semibold mb-3 underline ">Total Amount :</h1>
+                                <h1 className="text-2xl font-semibold mb-3 underline ">Total Amount:</h1>
                                 <table className="w-full border-collapse border shadow-lg  ">
                                     <tbody className=''>
                                         <tr>
-                                            <td className="border px-4 py-2 font-semibold">FOB Price :</td>
+                                            <td className="border px-4 py-2 font-semibold">FOB Price:</td>
                                             <td className="border w-48">
                                                 <div className="flex items-center">
                                                     <span className="text-xl ml-2">$</span>
                                                     <input
-                                                        type="number"
+                                                        type="text"
                                                         name="FOBPrice"
-                                                        className="mt-2 p-2 border-none w-full focus:ring-0 text-2xl"
-                                                        value={formData.FOBPrice}
-                                                        onChange={handleChange}
+                                                        className="p-2 border-none w-full focus:ring-0 text-lg"
+                                                        value={Number(formData.FOBPrice).toLocaleString()} // Convert number to formatted string
+                                                        onChange={(e) => {
+                                                            const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
+                                                            if (!isNaN(rawValue)) {
+                                                                handleChange({ target: { name: "FOBPrice", value: rawValue } });
+                                                            }
+                                                        }}
+                                                    />
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr style={{}}>
+                                            <td className="border px-4 py-2 font-semibold">Inspection:</td>
+                                            <td className="border">
+                                                <div className="flex items-center">
+                                                    <span className="text-xl ml-2">$</span>
+                                                    <input
+                                                        type="text"
+                                                        name="inspection"
+                                                        className="p-2 border-none w-full focus:ring-0 text-lg"
+                                                        value={Number(formData.inspection).toLocaleString()} // Convert number to formatted string
+                                                        onChange={(e) => {
+                                                            const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
+                                                            if (!isNaN(rawValue)) {
+                                                                handleChange({ target: { name: "inspection", value: rawValue } });
+                                                            }
+                                                        }}
                                                     />
                                                 </div>
                                             </td>
                                         </tr>
-
                                         <tr style={{}}>
-                                            <td className="border  px-4 py-2 font-semibold">Inspection :</td>
+                                            <td className="border  px-4 py-2 font-semibold">Freight:</td>
                                             <td className="border">
-                                            <div className="flex items-center">
-                                            <span className="text-xl ml-2">$</span>
-                                                <input
-                                                    type="number"
-                                                    name="inspection"
-                                                    className="mt-2 p-2 border-none w-full focus:ring-0 text-2xl"
-                                                    value={formData.inspection}
-                                                    onChange={handleChange}
-                                                />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr style={{}}>
-                                            <td className="border  px-4 py-2 font-semibold">Freight :</td>
-                                            <td className="border">
-                                            <div className="flex items-center">
-                                            <span className="text-xl ml-2">$</span>
-                                                <input
-                                                    type="number"
-                                                    name="freight"
-                                                    className="mt-2 p-2 border-none w-full focus:ring-0 text-2xl"
-                                                    value={formData.freight}
-                                                    onChange={handleChange}
-                                                />
+                                                <div className="flex items-center">
+                                                    <span className="text-xl ml-2">$</span>
+                                                    <input
+                                                        type="text"
+                                                        name="freight"
+                                                        className="p-2 border-none w-full focus:ring-0 text-lg"
+                                                        value={Number(formData.freight).toLocaleString()} // Convert to comma-separated format
+                                                        onChange={(e) => {
+                                                            const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
+                                                            if (!isNaN(rawValue)) {
+                                                                handleChange({ target: { name: "freight", value: rawValue } });
+                                                            }
+                                                        }}
+                                                    />
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr style={{ backgroundColor: '#fee2e2' }}>
-                                            <td className="border  px-4 py-2 font-semibold">Deposit Amount :</td>
+                                            <td className="border  px-4 py-2 font-semibold">Deposit Amount:</td>
                                             <td className="border">
-                                            <div className="flex items-center">
-                                            <span className="text-xl ml-2">$</span>
-                                                <input
-                                                    type="number"
-                                                    name="depositAmount"
-                                                    className="mt-2 p-4 border-none w-full focus:ring-0 bg-[#fee2e2] text-2xl"
-                                                    value={formData.depositAmount}
-                                                    onChange={handleChange}
-                                                />
+                                                <div className="flex items-center">
+                                                    <span className="text-lg ml-2">$</span>
+                                                    <input
+                                                        type="text"
+                                                        name="freight"
+                                                        className=" p-2 border-none w-full focus:ring-0 text-lg bg-red-100"
+                                                        value={Number(formData.freight).toLocaleString()} // Convert to comma-separated format
+                                                        onChange={(e) => {
+                                                            const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
+                                                            if (!isNaN(rawValue)) {
+                                                                handleChange({ target: { name: "freight", value: rawValue } });
+                                                            }
+                                                        }}
+                                                    />
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr style={{ backgroundColor: '#fee2e2' }}>
-                                            <td className="border  px-4 py-2 font-semibold">Balance Due :</td>
+                                            <td className="border  px-4 py-2 font-semibold">Balance Due:</td>
                                             <td className="border">
-                                            <div className="flex items-center">
-                                            <span className="text-xl ml-2">$</span>
-                                                <input
-                                                    type="number"
-                                                    name="balanceDue"
-                                                    className="mt-2 p-4 border-none w-full focus:ring-0 bg-[#fee2e2] text-2xl"
-                                                    value={formData.balanceDue}
-                                                    onChange={handleChange}
-                                                />
+                                                <div className="flex items-center">
+                                                    <span className="text-xl ml-2">$</span>
+                                                    <input
+                                                        type="text"
+                                                        name="balanceDue"
+                                                        className=" p-4 border-none w-full focus:ring-0 bg-[#fee2e2] text-lg"
+                                                        value={Number(formData.balanceDue).toLocaleString()} // Convert to comma-separated format
+                                                        onChange={(e) => {
+                                                            const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
+                                                            if (!isNaN(rawValue)) {
+                                                                handleChange({ target: { name: "balanceDue", value: rawValue } });
+                                                            }
+                                                        }}
+                                                    />
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr style={{}}>
-                                            <td className="border  px-4 py-2 font-semibold">CIF Price :</td>
+                                            <td className="border  px-4 py-2 font-semibold">CIF Price:</td>
                                             <td className="border">
-                                            <div className="flex items-center">
-                                            <span className="text-xl ml-2">$</span>
-                                                <input
-                                                    type="number"
-                                                    name="CIFPrice"
-                                                    className="mt-2 p-4 border-none w-full focus:ring-0 text-2xl "
-                                                    value={formData.CIFPrice}
-                                                    onChange={handleChange}
-                                                />
+                                                <div className="flex items-center">
+                                                    <span className="text-xl ml-2">$</span>
+                                                    <input
+                                                        type="text"
+                                                        name="CIFPrice"
+                                                        className="mt-2 p-4 border-none w-full focus:ring-0 text-2xl"
+                                                        value={Number(formData.CIFPrice).toLocaleString()} // Convert to comma-separated format
+                                                        onChange={(e) => {
+                                                            const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
+                                                            if (!isNaN(rawValue)) {
+                                                                handleChange({ target: { name: "CIFPrice", value: rawValue } });
+                                                            }
+                                                        }}
+                                                    />
                                                 </div>
                                             </td>
                                         </tr>

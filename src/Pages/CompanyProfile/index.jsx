@@ -1,6 +1,8 @@
 import React from 'react';
 import Company  from '../../../public/company.jpg';
 import Company2  from '../../../public/comapny2.jpg';
+import AboutUs from '../../components/AboutUs/index'
+import FAQ from '../../components/FAQ/FAQ'
 
 
 export default function CompanyProfile() {
@@ -59,15 +61,11 @@ export default function CompanyProfile() {
                 </div>
               </div>
             </div>
-            {/* <button className="sm:w-fit w-full px-3.5 py-2 bg-red-800 hover:bg-red-600 transition-all duration-700 ease-in-out rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] justify-center items-center flex">
-              <span className="px-1.5 text-white text-sm font-medium leading-6">
-               Inquire Now
-              </span>
-            </button> */}
+          
           </div>
         </div>
+        <AboutUs/>
 
-        {/* Company Details */}
         <div className="mt-16">
           <h2 className="text-3xl font-semibold text-center text-gray-900">Company Information</h2>
           <div className="overflow-x-auto mt-6">
@@ -82,44 +80,22 @@ export default function CompanyProfile() {
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">January, 1993</th>
                 </tr>
 
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Headquarters</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">
-                    Saitama,
-                    Higashimatusyma
-                    Higashidaira
-                    1277
-                    Japan                  </th>
-                </tr>
+             
+               
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Phone Number</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">+81 123 456 789</th>
                 </tr>
+                <tr className="border-b">
+                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Intermediary Bank</th>
+                  <th className="px-6 py-4 text-xl font-medium text-gray-700"> DEUTSCHE BANK TRUST COMPANY AMERICAS (SWIFT BIC: BKTRUS33) <br />
+                                    OR <br />
+                                    JPMORGAN CHASE BANK, TOKYO (SWIFT BIC: CHASJPJT)</th>
+                </tr>
                
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Offices</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">2 Domestic Offices, 32 Overseas Offices</th>
-                </tr>
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Number of Employees</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">1,555 </th>
-                </tr>
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Business Description</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Export and Sale of Automobiles</th>
-                </tr>
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">License of Secondhand Dealer</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">
-                    Kanagawa Prefectural Public Safety Commission; No. 452740600252
-                  </th>
-                </tr>
-                <tr className="border-b">
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">Corporate Site</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">
-                    <a href="https://globaltradingcars.com" className="text-red-600 hover:text-red-800">Global Trading Cars</a>
-                  </th>
-                </tr>
+               
+              
+             
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Branches in Japan</th>
                   <th className="px-6 py-4 text-xl font-medium text-gray-700"> Saitama,
@@ -130,8 +106,11 @@ export default function CompanyProfile() {
                 </tr>
               </thead>
             </table>
+            
           </div>
         </div>
+
+        <FAQ/>
       </div>
     </section>
   );

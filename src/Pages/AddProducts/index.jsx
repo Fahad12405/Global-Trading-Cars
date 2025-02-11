@@ -161,7 +161,7 @@ export default function AddProduct() {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-gray-700">Model Code</label>
+                    <label className="block text-sm font-medium text-gray-700">Model </label>
                     <input
                         type="text"
                         name="modelCode"

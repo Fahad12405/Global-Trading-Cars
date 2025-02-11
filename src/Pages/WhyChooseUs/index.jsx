@@ -1,4 +1,6 @@
 import { whyChooseUsData } from "../../../constant/constant";
+import WhyChoose from '../../components/WhyChooseUs/index'
+import ContactUs from '../../components/Contact/contact';
 
 export default function WhyChooseUs() {
     return (
@@ -12,10 +14,14 @@ export default function WhyChooseUs() {
                     </div>
                     <div>
                         <h1 className="text-5xl font-semibold text-red-600">{data.title}</h1>
-                        <p className="text-2xl mt-5">{data.desc}</p>
+                        <p className="text-2xl mt-1">{data.desc}</p>
                     </div>
                 </div>
             ))}
+            <div className="mt-12">
+                <WhyChoose />
+            </div>
+            <ContactUs />
         </div>
     );
 }

@@ -10,6 +10,7 @@ import CarforSale from './Pages/CarforSale'
 import CompanyProfile from './Pages/CompanyProfile'
 import TermsofUse from './Pages/TermsofUse'
 import Blogs from './Pages/Blogs'
+import PaymentDetails from './Pages/PaymentDetails'
 // import Register from './Pages/Register'
 import LogIn from './Pages/LogIn'
 import CarDetails from './Pages/CarDetails'
@@ -36,6 +37,8 @@ function App() {
         <Route path='/why-choose-us' element={<WhyChooseUs />} />
         <Route path='/contact' element={<ContactSection />} /> 
         <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
+        <Route path='/PaymentDetails' element={<PaymentDetails />} />
+
         <Route path='/CompanyProfile' element={<CompanyProfile />} />
         <Route path='/TermsofUse' element={<TermsofUse />} />
         <Route path='/Blogs' element={<Blogs />} />

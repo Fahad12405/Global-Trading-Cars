@@ -30,22 +30,22 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
-      
+
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-  {/* Logo */}
-  <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-    <img
-      src={logo}
-      className="h-18 object-contain" // Remove width class
-      style={{ width: '180px' }} // Set the width using inline style
-      alt="Logo"
-    />
-  </Link>
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <img
+            src={logo}
+            className="h-18 object-contain" // Remove width class
+            style={{ width: '180px' }} // Set the width using inline style
+            alt="Logo"
+          />
+        </Link>
 
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex md:space-x-8 font-medium">
-          
+
           <li>
             <Link to="/" className="text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 ">
               Home
@@ -84,15 +84,7 @@ export default function Navbar() {
                 onMouseLeave={closeDropdown} // Close the dropdown when mouse leaves the dropdown area
               >
                 <ul>
-                  <li>
-                    <Link
-                      to="/PrivacyPolicy"
-                      className="block py-2 px-4 text-gray-900 rounded-sm "
-                      onClick={closeDropdown} // Close the dropdown on item click
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
+                 
                   <li>
                     <Link
                       to="/CompanyProfile"
@@ -100,6 +92,24 @@ export default function Navbar() {
                       onClick={closeDropdown} // Close the dropdown on item click
                     >
                       Company Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/PaymentDetails"
+                      className="block py-2 px-4 text-gray-900 rounded-sm"
+                      onClick={closeDropdown} // Close the dropdown on item click
+                    >
+                      Payment Details
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/PrivacyPolicy"
+                      className="block py-2 px-4 text-gray-900 rounded-sm "
+                      onClick={closeDropdown} // Close the dropdown on item click
+                    >
+                      Privacy Policy
                     </Link>
                   </li>
                   <li>

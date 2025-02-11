@@ -295,7 +295,7 @@ const CarDetails = () => {
                             </thead>
                             <tbody>
                                 <tr className="border-t border-gray-300">
-                                    <td className="py-1 px-4 text-md font-semibold text-gray-700">Model Code</td>
+                                    <td className="py-1 px-4 text-md font-semibold text-gray-700">Model </td>
                                     <td className="py-1 px-4 text-sm text-gray-900">{vehicle.modelCode}</td>
                                 </tr>
                                 <tr className="border-t border-gray-200">
