@@ -84,7 +84,7 @@ export default function Navbar() {
                 onMouseLeave={closeDropdown} // Close the dropdown when mouse leaves the dropdown area
               >
                 <ul>
-                 
+
                   <li>
                     <Link
                       to="/CompanyProfile"
@@ -281,14 +281,24 @@ export default function Navbar() {
                   {isDropdownOpen && (
                     <div className="absolute left-0 w-full bg-white shadow-lg  rounded-lg">
                       <ul>
-                        <li>
-                          <Link to="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm  ">
-                            Privacy Policy
-                          </Link>
-                        </li>
+
                         <li>
                           <Link to="/CompanyProfile" className="block py-2 px-4 text-gray-900 rounded-sm ">
                             Company Profile
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/PaymentDetails"
+                            className="block py-2 px-4 text-gray-900 rounded-sm"
+                            onClick={closeDropdown} // Close the dropdown on item click
+                          >
+                            Payment Details
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/PrivacyPolicy" className="block py-2 px-4 text-gray-900 rounded-sm  ">
+                            Privacy Policy
                           </Link>
                         </li>
                         <li>

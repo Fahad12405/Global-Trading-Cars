@@ -113,7 +113,7 @@ export default function PrivacyPolicy() {
                         <p>
                             <strong>GTC Co., Ltd.</strong><br />
                             Email: <a href="mailto:info@globaltradingcars.com" className="text-blue-500">info@globaltradingcars.com</a><br />
-                            Phone: +81 123 456 789<br />
+                            Phone: + 080 4107 4210<br />
                             Office Hours: 9:00 a.m. to 5:00 p.m. Japan Time (JST)
                         </p>
                     </section>

@@ -82,9 +82,9 @@ export default function Footer() {
               <p className="flex items-center justify-center sm:justify-start space-x-2">
                 <FaPhone className="text-red-800" />
                 <a
-                  href="tel:+81123456789"
+                  href="tel:+080 4107 4210"
                 >
-                  +81 123 456 789
+                 + 080 4107 4210
                 </a>
               </p>
 
@@ -113,7 +113,7 @@ export default function Footer() {
 
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-red-800 text-white p-3 rounded-full shadow-lg hover:bg-red-700 focus:outline-none"
+        className="fixed bottom-6 left-6 bg-red-800 text-white p-3 rounded-full shadow-lg hover:bg-red-700 focus:outline-none"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7-7-7 7" />

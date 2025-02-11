@@ -84,7 +84,7 @@ export default function CompanyProfile() {
                
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Phone Number</th>
-                  <th className="px-6 py-4 text-xl font-medium text-gray-700">+81 123 456 789</th>
+                  <th className="px-6 py-4 text-xl font-medium text-gray-700">+ 080 4107 4210</th>
                 </tr>
                 <tr className="border-b">
                   <th className="px-6 py-4 text-xl font-medium text-gray-700">Intermediary Bank</th>
