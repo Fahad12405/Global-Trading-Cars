@@ -3,96 +3,31 @@ import { useForm } from "react-hook-form";
 
 const CarSearchForm = ({ onSearch }) => {
   const { register, handleSubmit, watch, setValue } = useForm();
-  const [carModels, setCarModels] = useState([]);
-  const [modelOptions, setModelOptions] = useState([]);
+  const [cars, setCars] = useState([]);
+  const [models, setModels] = useState([]);
   const [years, setYears] = useState([]);
 
+
   useEffect(() => {
-    // Simulate fetching data from an API (you can replace this with your actual API call)
-    const fetchCarModels = async () => {
-      const data = [
-        "TOYOTA ",
-        "TOYOTA HARRIER",
-        "TOYOTA ALPHARD",
-        "MAZDA CX-5",
-        "TOYOTA LAND CRUISER PRADO TX",
-        "HONDA FIT HYBRID",
-        "MAZDA DEMIO",
-        "TOYOTA RUSH",
-        "TOYOTA RUSH G",
-        "TOYOTA MARK X 250G S",
-        "TOYOTA COROLLA SPACIO",
-        "TOYOTA VITZ",
-        "SUBARU FORESTER 2.0XT",
-        "MAZDA AXELA XD L",
-        "MERCEDES-BENZ C180",
-        "TOYOTA COROLLA AXIO 1.5G",
-        "HONDA FIT RS",
-        "TOYOTA HILUX",
-        "TOYOTA RAV-4 G",
-        "TOYOTA PROBOX DX",
-        "TOYOTA HIACE",
-        "TOYOTA LAND CRUISER PRADO TX",
-        "TOYOTA RACTIS"
-      ];
-      setCarModels(data);
+    const fetchCars = async () => {
+      try {
+        const response = await fetch("https://api-car-export.vercel.app/api/product/products_summary");
+        const data = await response.json();
+  
+        if (response.status == 200) {
+          setCars(data.data.name)
+          setModels(data.data.modelCode)
+          setYears(data.data.year)
+
+        } 
+      } catch (error) {
+        // console.log("Error fetching car data:", error);
+      }
     };
-
-    fetchCarModels();
-
-    // Generate years from 1990 to 2026
-    const yearsArray = [];
-    for (let i = 1990; i <= 2026; i++) {
-      yearsArray.push(i);
-    }
-    setYears(yearsArray);
-
-    // Set fixed model options
-    const fixedModels = [
-      "RACTIS",
-      "TX",
-      "HIACE",
-      "DX",
-      "G",
-      "HILUX",
-      "RS",
-      "1.5G",
-      "C180",
-      "250G S",
-      "RUSH",
-      "DEMIO",
-      "FIT",
-      "CX-5",
-      "ALPHARD",
-      "HARRIER",
-      "250G",
-    ];
-    setModelOptions(fixedModels);
+  
+    fetchCars();
   }, []);
 
-  useEffect(() => {
-    // Set model options based on the selected car name
-    const selectedCar = watch("name");
-    if (selectedCar) {
-      const models = getModelOptions(selectedCar);
-      setModelOptions(models);
-      setValue("modelCode", ""); // Reset model selection when the car changes
-    }
-  }, [watch("name"), setValue]);
-
-  const getModelOptions = (carName) => {
-    // Filter models based on the selected car name
-    const modelsMap = {
-      "TOYOTA MARK X 250G": ["250G", "250G S"],
-      "TOYOTA HARRIER": ["HARRIER"],
-      "TOYOTA ALPHARD": ["ALPHARD"],
-      "MAZDA CX-5": ["CX-5"],
-      "TOYOTA LAND CRUISER PRADO TX": ["TX"],
-      // Add other cars and their model options here
-    };
-
-    return modelsMap[carName] || []; // Return empty array if no model matches
-  };
 
   const onSubmit = (data) => {
     onSearch(data);
@@ -115,9 +50,9 @@ const CarSearchForm = ({ onSearch }) => {
               className="form-select px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               <option value="">Select a car</option>
-              {carModels.map((model, index) => (
-                <option key={index} value={model}>
-                  {model}
+              {cars.map((car, index) => (
+                <option key={index} value={car.split(" ")[0]}>
+                   {car}
                 </option>
               ))}
             </select>
@@ -133,7 +68,7 @@ const CarSearchForm = ({ onSearch }) => {
               className="form-select px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               <option value="">Select a model</option>
-              {modelOptions.map((model, index) => (
+              {models.map((model, index) => (
                 <option key={index} value={model}>
                   {model}
                 </option>

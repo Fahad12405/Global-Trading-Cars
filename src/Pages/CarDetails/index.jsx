@@ -29,18 +29,17 @@ const CarDetails = () => {
             try {
                 const response = await fetch(`https://api-car-export.vercel.app/api/product/get/${id}`);
                 const data = await response.json();
-                console.log(data)
                 if (data && data.data) {
                     setVehicle(data.data); // Set the vehicle data
                     setLoading(false); // Set loading to false after data is fetched
 
                 } else {
-                    console.log('Vehicle not found in API');
+                    // console.log('Vehicle not found in API');
                     setLoading(false);
 
                 }
             } catch (error) {
-                console.log('Error fetching data from API:', error);
+                // console.log('Error fetching data from API:', error);
                 setLoading(false);
 
             }

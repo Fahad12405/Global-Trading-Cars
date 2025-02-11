@@ -12,7 +12,6 @@ const EditModal = ({ selectedCar, onClose }) => {
     const [loader, setLoader] = useState(false)
 
     const token = localStorage.getItem("token");
-    console.log(selectedCar, "selectedCar")
 
 
 

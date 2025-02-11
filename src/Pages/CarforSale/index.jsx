@@ -31,7 +31,7 @@ export default function CarforSale() {
         setTotalPages(Math.ceil(data.data.total / itemsPerPage));
       }
     } catch (error) {
-      console.log('There is a critical error');
+      // console.log('There is a critical error');
     } finally {
       setLoading(false);
     }
