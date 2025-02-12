@@ -109,6 +109,10 @@ export default function CarforSale() {
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900">{vehicle.name}</h5>
                   <p className="text-sm">({vehicle.year})</p>
                 </div>
+                <div className="flex justify-between items-center mt-4">
+                  <span className="text-gray-500">Model:</span>
+                  <h5 className="tracking-tight text-gray-900">{vehicle.modelCode}</h5>
+                </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-500">Transmission:</span>
                   <h5 className="tracking-tight text-gray-900">{vehicle.transmission}</h5>
