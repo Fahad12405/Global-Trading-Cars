@@ -1,5 +1,4 @@
 import React from 'react'
-// import CarBanenr from '../../../public/CarBanner.webp'
 import CarBanenr from '../../../public/Banner.jpg'
 
 export default function HeroSection() {
