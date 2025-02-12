@@ -302,7 +302,7 @@ export const whyChooseUsData = [
   },
   {
     title: 'Customer Support That Never Sleeps!',
-    desc: 'Our dedicated team is available 24/7/365 to support you through SBT Livechat, WhatsApp, social media, phone, and email, ensuring your experience is seamless.',
+    desc: 'Our dedicated team is available 24/7/365 to support you through GTC Livechat, WhatsApp, social media, phone, and email, ensuring your experience is seamless.',
     imageSrc: 'https://www.sbtjapan.com/img/about_us/why-choose-sbt/always_helpyou_image.jpg?v=1'
   },
   {

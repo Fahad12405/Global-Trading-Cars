@@ -6,30 +6,33 @@ const CarSearchForm = ({ onSearch }) => {
   const [cars, setCars] = useState([]);
   const [models, setModels] = useState([]);
   const [years, setYears] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState({ name: "", model: "", year: "" });
 
-
-  useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        const response = await fetch("https://api-car-export.vercel.app/api/product/products_summary");
-        const data = await response.json();
-  
-        if (response.status == 200) {
-          setCars(data.data.name)
-          setModels(data.data.modelCode)
-          setYears(data.data.year)
-
-        } 
-      } catch (error) {
-        // console.log("Error fetching car data:", error);
+  const fetchCars = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://api-car-export.vercel.app/api/product/products_summary?name=${query.name}&modelCode=${query.model}&year=${query.year}`
+      );
+      const data = await response.json();
+      
+      if (response.status === 200) {
+        setCars(data.data.name);
+        setModels(data.data.modelCode);
+        setYears(data.data.year);
       }
-    };
-  
+    } catch (error) {
+      console.error("Error fetching car data:", error);
+    }
+    setLoading(false);
+  };
+  useEffect(() => {
     fetchCars();
-  }, []);
-
+  }, [query]);
 
   const onSubmit = (data) => {
+    console.log(data, "djkhgsdkjh")
     onSearch(data);
   };
 
@@ -47,12 +50,14 @@ const CarSearchForm = ({ onSearch }) => {
             <select
               id="name"
               {...register("name")}
+              
+              onChange={(e) => setQuery({ ...query, name: e.target.value })}
               className="form-select px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               <option value="">Select a car</option>
               {cars.map((car, index) => (
                 <option key={index} value={car.split(" ")[0]}>
-                   {car}
+                  {car}
                 </option>
               ))}
             </select>
@@ -65,6 +70,8 @@ const CarSearchForm = ({ onSearch }) => {
             <select
               id="modelCode"
               {...register("modelCode")}
+              
+              onChange={(e) => setQuery({ ...query, model: e.target.value })}
               className="form-select px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               <option value="">Select a model</option>
@@ -83,6 +90,8 @@ const CarSearchForm = ({ onSearch }) => {
             <select
               id="year"
               {...register("year")}
+              
+              onChange={(e) => setQuery({ ...query, year: e.target.value })}
               className="form-select px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               <option value="">Select a year</option>

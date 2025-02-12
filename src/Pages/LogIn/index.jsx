@@ -71,7 +71,7 @@ export default function LogIn() {
                     text: 'Welcome To Our Website!',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    window.location.href = '/Protected/AddProduct'
+                    window.location.href = '/Protected/Dashboard'
                 });
             }
         } catch (error) {

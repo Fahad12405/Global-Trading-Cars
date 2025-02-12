@@ -16,13 +16,14 @@ export default function CarforSale() {
   const [totalPages, setTotalPages] = useState(1);
   const itemsPerPage = 20;
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filteredResults]);
 
   const fetchApiData = async (query) => {
     try {
       setLoading(true);
-      const skipValue = (query.name || query.modelCode || query.year) ? 0 : (currentPage - 1) * itemsPerPage;
-
-      const url = `https://api-car-export.vercel.app/api/product/get?name=${query.name}&modelCode=${query.modelCode}&year=${query.year}&skip=${skipValue}`;
+      const url = `https://api-car-export.vercel.app/api/product/get?name=${query.name}&modelCode=${query.modelCode}&year=${query.year}&skip=${(currentPage - 1) * itemsPerPage}`;
   
       const response = await fetch(url);
       const data = await response.json();
@@ -86,7 +87,7 @@ export default function CarforSale() {
         <h1 className="text-3xl font-semibold text-red-50 mb-1 font-serif">Car For Sale</h1>
       </div>
 
-      <CarSearchForm onSearch={(formData) => handleSearch(formData)} />
+      <CarSearchForm onSearch={(formData) =>  handleSearch(formData)} />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 justify-center items-center">
         {loading ? (
