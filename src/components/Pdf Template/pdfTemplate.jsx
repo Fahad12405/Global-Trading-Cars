@@ -90,7 +90,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
     };
 
     const downloadPdf = async () => {
-        if (!validateForm()) return;
+
         if (!contentRef.current) {
             console.error("Content reference is null or undefined");
             return;
