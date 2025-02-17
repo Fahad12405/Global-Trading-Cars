@@ -421,7 +421,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                         onChange={(e) => {
                                                             const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
                                                             if (!isNaN(rawValue)) {
-                                                                handleChange({ target: { name: "freight", value: rawValue } });
+                                                                handleChange({ target: { name: "depositAmount", value: rawValue } });
                                                             }
                                                         }}
                                                     />
