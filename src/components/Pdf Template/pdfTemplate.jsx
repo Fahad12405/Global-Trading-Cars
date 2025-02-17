@@ -415,9 +415,9 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     <span className="text-lg ml-2">$</span>
                                                     <input
                                                         type="text"
-                                                        name="freight"
+                                                        name="depositAmount"
                                                         className=" p-2 border-none w-full focus:ring-0 text-lg bg-red-100"
-                                                        value={Number(formData.freight).toLocaleString()} // Convert to comma-separated format
+                                                        value={Number(formData.depositAmount).toLocaleString()} // Convert to comma-separated format
                                                         onChange={(e) => {
                                                             const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
                                                             if (!isNaN(rawValue)) {
