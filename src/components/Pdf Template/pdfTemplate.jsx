@@ -90,8 +90,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
     };
 
     const downloadPdf = async () => {
-        if (!validateForm()) return; // Stop if validation fails
-
+        if (!validateForm()) return;
         if (!contentRef.current) {
             console.error("Content reference is null or undefined");
             return;
@@ -104,7 +103,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
         const content = contentRef.current;
         const width = content.offsetWidth;
         const height = content.scrollHeight;
-
+       
         try {
             const canvas = await html2canvas(content, {
                 scale: 1.3,
@@ -136,7 +135,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
             while (heightLeft > 0) {
                 position -= 297;
                 pdf.addPage();
-                pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+                pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight );
                 heightLeft -= pageHeight;
             }
 
@@ -408,27 +407,27 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr style={{ backgroundColor: '#fee2e2' }}>
+                                        <tr>
                                             <td className="border  px-4 py-2 font-semibold">Deposit Amount:</td>
                                             <td className="border">
                                                 <div className="flex items-center">
                                                     <span className="text-lg ml-2">$</span>
                                                     <input
                                                         type="text"
-                                                        name="freight"
-                                                        className=" p-2 border-none w-full focus:ring-0 text-lg bg-red-100"
-                                                        value={Number(formData.freight).toLocaleString()} // Convert to comma-separated format
+                                                        name="depositAmount"
+                                                        className=" p-2 border-none w-full focus:ring-0 text-lg"
+                                                        value={Number(formData.depositAmount).toLocaleString()} // Convert to comma-separated format
                                                         onChange={(e) => {
                                                             const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
                                                             if (!isNaN(rawValue)) {
-                                                                handleChange({ target: { name: "freight", value: rawValue } });
+                                                                handleChange({ target: { name: "depositAmount", value: rawValue } });
                                                             }
                                                         }}
                                                     />
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr style={{ backgroundColor: '#fee2e2' }}>
+                                        <tr >
                                             <td className="border  px-4 py-2 font-semibold">Balance Due:</td>
                                             <td className="border">
                                                 <div className="flex items-center">
@@ -436,7 +435,7 @@ const InvoiceModal = ({ selectedCar, handleCloseModal }) => {
                                                     <input
                                                         type="text"
                                                         name="balanceDue"
-                                                        className=" p-4 border-none w-full focus:ring-0 bg-[#fee2e2] text-lg"
+                                                        className=" p-4 border-none w-full focus:ring-0  text-lg"
                                                         value={Number(formData.balanceDue).toLocaleString()} // Convert to comma-separated format
                                                         onChange={(e) => {
                                                             const rawValue = e.target.value.replace(/,/g, ""); // Remove commas before updating state
