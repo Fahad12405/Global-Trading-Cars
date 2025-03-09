@@ -84,7 +84,7 @@ export default function Footer() {
                 <a
                   href="tel:+080 4107 4210"
                 >
-                 + 080 4107 4210
+                 + 08 041074210
                 </a>
               </p>
 

@@ -8,6 +8,7 @@ import axios from 'axios';
 import WhyChooseUs from '../../components/WhyChooseUs/index';
 import HomeAbout from '../../components/AboutUs/index';
 import Banner from '../../components/Banner/index'
+import SmallNavbar from '../../components/SmallNav/smallnav';
 
 export default function Home() {
     const [data, setData] = useState()
@@ -31,6 +32,7 @@ export default function Home() {
 
     return (
         <>
+        <SmallNavbar/>
             <HeroSection />
             <HomeAbout/>
             <ProductCard data={data} />
